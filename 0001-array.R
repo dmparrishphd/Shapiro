@@ -1,0 +1,96 @@
+# Shapiro: A Handsome Helper for R
+# Copyright (C) 2018 D. Michael Parrish
+# 
+# This program is free software: you can redistribute it and/or
+# modify it under the terms of the GNU General Public License as
+# published by the Free Software Foundation, either version 3 of
+# the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public
+# License along with this program.  If not, see
+# <https://www.gnu.org/licenses/>.
+#
+# END OF COPYRIGHT NOTICE
+
+
+#APPEND ONLY! DESIGNED FOR CHARACTER ARRAYS ONLY!
+write.a <- function(x, file=stdout(), ncolumns=1L) {
+	N <- (if (x %|% is.array) nrow else `#`)(x)
+	for (i in x %|% `#` %/% N %|% seq - 1L)
+		write(
+			x[N %|% seq + N * i],
+			file=file, ncolumns=ncolumns, append=T, sep="") }
+
+    Doc$write.a <- '
+        write.a **** APPENDS **** the array argument (arg1) to
+    the file (arg2) specified. No more than ncolumns elements
+    are written to each line of the text output. Blocks of text
+    representing columns of the array will be separated by
+    newline characters.
+
+    write.a(letters, ncolumns=5, file("filename", open="w"))
+
+    will result in the file filename being created / overwritten
+    with the contents:
+
+    abcde*fghij*klmno*pqrst*uvwxy*z*
+
+    where * is an end-of-line sequence
+
+    '
+
+offset. <- function(X, shift=0L)
+	lapply(
+        if (X %|% is.list) X %|% seq_along else 1L,
+		function(i) shift %[mod% i + enlist(X)[[i]])
+
+    Doc$offset. <- '
+        offset. returns a list containing modified versions of
+        arg1, which is a (list of) numeric vector(s).  The
+        modification is to add (each of) the value(s) specified
+        in the shift vector to the corresponding vector element
+        of arg1. The shifts are recycled to obtain an effective
+        shift vector that is the same length as arg1. Originally
+        intended to compute global array indices given local
+        indices and an offset.'
+
+replace.a.at <- function (a, b, where) {
+    if (any(dim %|% a < where)) return (
+        # a DOES NOT EXTEND TO where
+        a) 
+    if (b %|% `#` %|% `!`) return (
+        # b HAS NO ELMEENTS
+        a)
+    LI <- lapply(
+        where %|% seq_along,
+        function(i) where[i]:min(
+            where[i] + dim(b)[i] - 1L, dim(a)[i]))
+    replace.a(
+        m,
+        list.=LI,
+        values=extract.a(b,) %|% as.vector)
+     }
+
+dimension.irange <- function (irange) 1L + irange[2] - irange[1]
+
+as_array_of <- function(a, mode="logical")
+        dimension(as.vector(a, mode=mode), a  % %  dim)
+
+'
+function as_array_of : convert
+
+        Similar to as.vector, but the result has the same
+        dimensions as the primary argument
+
+function dimension.irange : vector index indices
+
+        Given an integer range, c(m, n), m <= n, returns the
+        number of elements in a corresponding hypothetical
+        vector.
+'
+
