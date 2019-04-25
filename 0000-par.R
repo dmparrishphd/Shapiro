@@ -1,0 +1,191 @@
+# Shapiro: A Handsome Helper for R
+# Copyright (C) 2018 D. Michael Parrish
+# 
+# This program is free software: you can redistribute it and/or
+# modify it under the terms of the GNU General Public License as
+# published by the Free Software Foundation, either version 3 of
+# the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public
+# License along with this program.  If not, see
+# <https://www.gnu.org/licenses/>.
+#
+# END OF COPYRIGHT NOTICE
+#
+#
+par.usr <- function() par()$usr
+par.bg <- function () par()$bg
+
+# CHARACTER SIZE
+par.cex <- function () par()$cex
+
+#
+axis.h <- fn.table("BELOW LEFT ABOVE RIGHT" %|% words, 1:4) #TAGS
+lend.h <- fn.table("ROUND BUTT SQUARE" %|% words, 0:2) #TAGS
+ljoin.h <- fn.table("ROUND MITRE BEVEL" %|% words, 0:2) #TAGS
+par.lwd <- function() par()$lwd
+
+# GEOMETRY
+par.din <- function() par()$din
+par.usr.x  <- function () par.usr()[1:2]
+par.usr.x1 <- function () par.usr.x()[1]
+par.usr.x2 <- function () par.usr.x()[2]
+par.usr.y  <- function () par.usr()[3:4]
+par.usr.y1 <- function () par.usr.y()[1]
+par.usr.y2 <- function () par.usr.y()[2]
+xy.par.usr.center <- function () as_xy(mean(par.usr.x()) %,% mean(par.usr.y()))
+par.usr.center <- xy.par.usr.center #DEPRECATED use xy.par.usr.center
+par.usr.center.x <- xy.par.usr.center %O% first
+par.usr.center.y <- xy.par.usr.center %O% second
+par.usr.width  <- function () par()$usr[1:2] %|% diff
+par.usr.height <- function () par()$usr[3:4] %|% diff
+par.usr.length <- function () c(par.usr.height(), par.usr.width()) %|% max
+par.fin   <- function () par()$fin
+par.fin.x <- par.fin %O% first
+par.fin.y <- par.fin %O% second
+par.fin.width  <- par.fin.x
+par.fin.height <- par.fin.y
+par.plt.height <- function () par()$plt[4] - par()$plt[3]
+par.plt.width  <- function () par()$plt[2] - par()$plt[1]
+par.usr.meta.height <- function () par.usr.height() / par.plt.height()
+par.usr.meta.width  <- function () par.usr.width()  / par.plt.width()
+par.usr.per.in.y <- function () par.usr.meta.height() / par()$fin[2]
+par.usr.per.in.x <- function () par.usr.meta.width()  / par()$fin[1]
+par.usr.per.in   <- function () par.usr.per.in.x() %,% par.usr.per.in.y()
+par.mai <- function (i=NULL) if (i %|% is.null) par()$mai else par()$mai[i]
+par.mar <- function (i=NULL) if (i %|% is.null) par()$mar else par()$mar[i]
+par.mar.NAMES <- c("BOTTOM", "LEFT", "TOP", "RIGHT")
+par.mar.named <- function() rename.all(par.mar(), par.mar.NAMES)
+xy.par.mar <- function () warning("PLACEHOLDER: function to return xy matrix of mar")
+xy.par.mai <- function () warning("PLACEHOLDER: function to return xy matrix of mai")
+par.mai.bottom <- par.mai %<=% 1
+par.mai.left   <- par.mai %<=% 2
+par.mai.top    <- par.mai %<=% 3
+par.mai.right  <- par.mai %<=% 4
+par.mai.longitudinal <- function () par.mai.bottom() %,% par.mai.top()
+par.mai.lateral      <- function () par.mai.left()   %,% par.mai.right()
+par.mai.sides <- par.mai.lateral
+par.mai.longitudinal.sum <- par.mai.longitudinal %O% sum 
+par.mai.lateral.sum      <- par.mai.lateral      %O% sum
+par.mai.sum <- function () par.mai.lateral.sum() %,% par.mai.longitudinal.sum()
+par.mai.sides <- par.mai.lateral
+par.uin <- function () par.fin() - par.mai.sum()
+par.uin.width  <- par.uin %O% first
+par.uin.height <- par.uin %O% second
+par.mar.bottom <- function () par.mar(1)
+par.mar.left   <- function () par.mar(2)
+par.mar.top    <- function () par.mar(3)
+par.mar.right  <- function () par.mar(4)
+H.PAR.MAI <- words.h("bottom left top right")
+H.PAR.MAR <- H.PAR.MAI
+par.mai.h <- function (h) par()$mai[which1(h == H.PAR.MAI)]
+par.usr.meta.x1 <- function () par.usr.x1() - par.mai.left()   * par.usr.per.in.x()
+par.usr.meta.y1 <- function () par.usr.y1() - par.mai.bottom() * par.usr.per.in.y()
+par.usr.meta.x2 <- function () par.usr.x2() + par.mai.right()  * par.usr.per.in.x()
+par.usr.meta.y2 <- function () par.usr.y2() + par.mai.top()    * par.usr.per.in.y()
+par.usr.meta.x  <- function () par.usr.meta.x1() %,% par.usr.meta.x2()
+par.usr.meta.y  <- function () par.usr.meta.y1() %,% par.usr.meta.y2()
+xy.par.usr.meta <- function () matrix(par.usr.meta.x() %,% par.usr.meta.y(), ncol=2)
+
+par.cex <- function () par()$cex
+
+.par.usr.line.heights <- function (basis="mar")
+        par.mai() / par.mar()
+
+par.usr.line.heights <- function (basis="mar")
+        .par.usr.line.heights() * par.usr.per.in.y()
+
+par.usr.line.heights.y <- function (basis="mar")
+        .par.usr.line.heights() * par.usr.per.in.x()
+
+par.usr.line.height <- function (basis="mar")
+        if (basis == "mar") { par.usr.line.heights() %|% finites %|% first
+        } else { 1.81268882175226542 * strheight("A") }
+        # constant 1.81... determined by test: PAR.USR.LINE.HEIGHT.FACTOR == lineheight() / strheight("A")
+
+par.usr.line.height.y <- function (basis="mar")
+        if (basis == "mar") { par.usr.line.heights.y() %|% finites %|% first
+        } else {
+            warning("Returning an untested value for line height.")
+            1.81268882175226542 * strheight("A") #TODO TEST
+            # constant 1.81... determined by test: PAR.USR.LINE.HEIGHT.FACTOR == lineheight() / strheight("A")
+        }
+
+par.mar.lpi <- function(precision=1024)
+        (par.mar.named() / par.mai()) %|%
+            (d.trunc %|% argswap %<=% precision)
+
+    Doc$par.mar.named <- "par.mar.named returns the margins (in
+        line units) with names that indicate which is which."
+
+'
+function pairs.xy : lines segments
+
+        Transforms an xy matrix into a form more suitable for
+        plotting segments as alternating sets of points, e.g.:
+
+                1,0,  2,0,  3,0  4,0               would plot as
+
+                (1)==(2)  (3)==(4)                rather than as 
+                
+                (1)==(2)==(3)==(4)
+
+                that is, without a line drawn between points 2
+                and 3.
+'
+
+
+'
+function par.*
+
+        Function family related to par. See also help(par).
+ 
+function par.usr.length
+
+        The greater of the height or width of the user
+        coordinates of the plotting region.
+
+function par.usr.height
+
+        The height of the user coordinates of the plotting
+        region.
+
+function par.usr.width
+
+        The width of the user coordinates of the plotting
+        region.
+
+function par.usr.meta.height
+function par.usr.meta.width
+
+        Returns the full width (height) of the plot, including
+        margins.  Reminder: Gr. "meta" == Eng. "beyond"
+
+par.usr.meta.x
+par.usr.meta.x1
+par.usr.meta.x2
+par.usr.meta.y
+par.usr.meta.y1
+par.usr.meta.y2
+xy.par.usr.meta
+
+        Returns the meta user coords (i.e., "beyond" the plot) of
+        the extremes of the plot (i.e., at the edge of any margin).
+
+function par.usr.per.in.x
+function par.usr.per.in.y
+
+       Returns the ratio of usr coords vs. inches in the
+       respective direction. 
+
+function par.usr.line.height
+
+        Returns the line height on the basis indicated, in user
+        coordinates.  Currently (2018-10-18), only "mar"
+        (margins) is supported.
+'
