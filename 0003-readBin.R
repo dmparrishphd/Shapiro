@@ -21,6 +21,14 @@
 # Binary Files (Read)
 # HISTORY 2018-02-28: moved from readBin-ext.R
 
+readRaw <- curry(readBin, what="raw")
+
+    Doc$readRaw <- '
+        readRaw is a curried version of readBin, where what is
+        set to "raw". readRaw takes the "con" and "n" arguments.
+        TODO: does the "signed" argument ever need to be
+        specified?'
+
 l.readBin.formals.fmt <- function () { l <- lformals(readBin);   l$con <- NULL;   l }
 
 readBin2 <- function (con, fmt) # the "2" suffix indicates a function of 2 parameters
@@ -69,4 +77,3 @@ function readBinAt
 
 NULL
 
-

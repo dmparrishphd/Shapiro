@@ -25,7 +25,8 @@ specialize("cbind", n=1) #CREATES `%cbind%`
 
 extend.m <- function (m) cbind(m, NA)
 
-collar.m <- function (m) rbind(NA, cbind(NA, m, NA), NA)
+collar.m <- function (m) #TAGS extend
+        rbind(NA, cbind(NA, m, NA), NA)
 
 cat.row <- function (h, file="", sep=" ", append=F, row_sep=HEOL) {
         if (h  % %  `#`) cat(h, file=file, sep=sep, append=append)
@@ -34,12 +35,6 @@ cat.row <- function (h, file="", sep=" ", append=F, row_sep=HEOL) {
 cat.row <- function (h, file="", sep=" ", append=F, row_sep=HEOL) {
         if (h  % %  `#`) cat(h, file=file, sep=sep, append=append)
         cat(row_sep, file=file, append=T) }
-
-rowNos <- function(a) (if (a  % %  ndim < 2) a  % %  `#` else dim(a)[1])  % %  seqN
-rowNos.m <- rowNos # function DEPRECATED. Use rowNos
-
-colNos <- function (m) m  % %  ncol  % %  seqN
-colNos.m <- colNos # function DEPRECATED. Use colNos
 
 # cat.m HISTORY 2018-07-11: completely revised
 cat.m <- function (m, file="", sep=" ", append=F, row_sep=HEOL)
@@ -62,7 +57,6 @@ cat.tm <- function(m, ...) cat.m(m %|% t, ...)
 
 m.na <- function(nrow, ncol, data=logical()) matrix(data=data, nrow=nrow, ncol=ncol)
 
-m. <- function() matrix(seq(6), nrow=2)
 
 '
 TODO can we refactor something like
@@ -79,6 +73,14 @@ cols <- function (X, j=T)
 
 cols.m <- cols #DEPRECATED use cols
 
+l.cols <- function (m, j=m %|% colNos)
+        lapply(j, cols %|% argswap, m)
+
+    Doc$l.cols <- '
+        l.cols returns a list where each element contains one of
+        the columns of m (arg 1) specified by j (arg 2), in that
+        order.'
+
 rows <- function (X, i=T) (`[` %^% list(X, i, X %|% colNos, drop=F))()
 
 rows.m <- function(m, i=NULL) cols.m(t(m), i=i)
@@ -93,31 +95,54 @@ unique_cols <- function(m)
 unique_rows <- function (m)
         t(unique_cols(t(m)))
 
-capply  <- function (m, FUN, FUN.VALUE=NULL, ...)
-        vapply(
+
+min.local <- capply %O% which.min
+
+    Doc$min.local <- '
+        min.local returns the index of the function arguments
+        (columns of the primary argument) which, among the sets
+        of arguments given, minimize the function.
+
+        > m
+
+            [,1] [,2] [,3]
+
+        [1,]    1    3    5
+
+        [2,]    2    4    6
+
+        > cbind(m, m/2)
+
+            [,1] [,2] [,3] [,4] [,5] [,6]
+
+        [1,]    1    3    5  0.5  1.5  2.5
+
+        [2,]    2    4    6  1.0  2.0  3.0
+
+    > min.local(cbind(m, m/2), sum)
+
+    [1] 4' 
+
+
+.crwhich <- function (FUN, m)
+        FUN(m != 0, which1) %|% un(is.na)
+cwhich <- .crwhich %<=% capply
+rwhich <- .crwhich %<=% rapply
+
+    Doc$cwhich <- '
+        cwhich tells which columns of the matrix argument have
+        nonzero values.'
+
+    Doc$rwhich <- '
+        rwhich tells which rows of the matrix argument have
+        nonzero values.'
+
+lcapply  <- function (m, FUN, ...)
+        lapply(
             m %|% colNos,
             function (i, m, ...) FUN(m[, i], ...),
-            if (FUN.VALUE %|% is.null) FUN(m[, 1], ...) else FUN.VALUE,
             m,
             ...)
-
-    Doc$capply <- '
-         capply is similar to vapply, but operates on the
-         columns of a matrix. If FUN.VALUE is not speficied, it
-         will be computed by applying FUN to the first column of
-         the matrix argument (arg 1).'
-
-rapply  <- function (m, FUN, FUN.VALUE=NULL, ...)
-        vapply(
-            m %|% rowNos,
-            function (i, m, ...) FUN(m[i,], ...),
-            if (FUN.VALUE %|% is.null) FUN(m[1,], ...) else FUN.VALUE,
-            m,
-            ...)
-
-    Doc$rapply <- '
-        rapply is similar to capply, but operates on rows of the
-        primary, matrix argument, rather than columns'
 
 colply <- capply #function #DEPRECATED. use capply
 
@@ -506,19 +531,6 @@ function inapply
 function block.extract.m
 
         Similar to block.extract, but for matrices
-
-function rowNos
-
-        Returns a sorted vector of indices corresponding to the
-        rows of the vector or array argument. The number of rows
-        in a vector is equal to its length (consistent with
-        matrix(vect)). Rows are the "fastest moving" dimension.
-
-function colNos
-
-        Returns a sorted vector of indices corresponding to the
-        columns array argument.  Columns are the second "fastest
-        moving" dimension.
 
 function seqnD : multi-dimensional sequence
 

@@ -42,6 +42,8 @@ image_breaks <- function (x, rangez=NULL) {
     })(x)
 }
 
+image_breaks0 <- image_breaks %O% pred
+
     Doc$image_breaks <- '
         image_breaks determines the breaks parameter for image
         in a manner consistent with the default (i.e., evenly

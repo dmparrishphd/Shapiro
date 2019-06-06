@@ -57,13 +57,15 @@ diff.central.m <- function (m, byrow=F)
         if (byrow) t(diff.central.m(t(m))) else
             cbind(NA, m[,-2:-1] - m[,c(-ncol(m) + 1, -ncol(m))], NA)
 
-.reflex <- function (FUN, v) FUN(v[-1], v[-length(v)])
-.reflex.m <- function (FUN, m, byrow=F)
-        if (byrow) FUN(m[-1,], m[-nrow(m),]) else FUN(m[,-1], m[,-ncol(m)])
+.reflex.m <- reflexive.m #DEPRECATED use reflexive.m
 
 orr  <- .reflex %<=% `|`
 xorr <- .reflex %<=% xor
 equalr <- .reflex %<=% `==`
+`/r` <- `/` %|% argswap %=>% .reflex #TAGS divide division ratios
+`<r` <- `<` %|% argswap %=>% .reflex #TAGS divide division ratios
+`<=r` <- `<=` %|% argswap %=>% .reflex #TAGS divide division ratios
+
 
 i.edges.b <- xorr %O% which
 

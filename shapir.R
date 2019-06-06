@@ -118,7 +118,12 @@ CONVENTIONS
 
                 Fix     Meaning
                 .       stands in for a character that would
-                        require the name to be quoted
+                        require the name to be quoted, or
+                        an aesthetic separator
+
+                kk      having to do with circles, including
+                        circular indexing or circular lists.
+                        The Greek workd for circle is kyklos.
 
                 Prefixes
 
@@ -142,6 +147,7 @@ CONVENTIONS
                 img     image matrix (possibly an im)
                 l       list (possibly a named list)
                 m       matrix
+                mi      matrix-index (see documentation for `[`)
                 n       a singleton natural number
                 nl      named list
                 q       quadrance, quadrea, quadrume, etc.
@@ -241,8 +247,19 @@ CONVENTIONS
                         on context), e.g. 1970. The Gregorian
                         Calendar is assumed.
 
+
+
+REFERENCES
+
+[DP] Wildberger NJ (2005) Divine Proportions: Rational
+        Trigonometry to Universal Geometry. Wild Egg Pty Ltd;
+        Sydney, Australia.  http://wildegg.com
+
+
+
 ACKNOWLEDGEMENTS
 
+https://www.vim.org/
 online dictionaries, especially those accessed via
 https://onelook.com/ , including especially
 https://www.wordsmyth.net/ and

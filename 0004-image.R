@@ -96,8 +96,6 @@ image_im <- function (z, x=NULL, y=NULL, xlim=NULL, ylim=NULL,
             xlab=xlab, ylab=ylab, useRaster=useRaster, bty=bty,
             xaxt=xaxt, yaxt=yaxt,...) }
 
-interval <- function (end=1, width=1) c(end - width, end)
-
 swatch <- function (xlim, ylim, col=grey(.5), ...)
     image(xlim, ylim, MAT1, xlim, ylim, col=col, add=T, breaks=c(0, 2), ...)
 
@@ -127,6 +125,20 @@ canvas.im <- function (z, ...)
 
 canvas.xy <- function (xmax=1, ymax=1, ...)
         image_im(matrix(NA), x=c(0, xmax), y=c(0, ymax), add=F, ...)
+'
+function canvas.im
+function canvas.xy
+
+        Prepare an image plot.
+
+        The canvas.xy function takes the width and height of the
+        desired plotting area. A blank plot is produced. The
+        dot-dot-dot parameters are passed to image.
+
+        The canvas.im function has the same effect as canvas.xy.
+        Arg 1 is a matrix; the corresponding plot extents are
+        taken from the dimensions of the The primary arguments is takes an "im" matrix argument.
+'
 
 .im.axes <- function (to1, to2, by)
 {   par(xaxt="s", yaxt="s")
@@ -257,18 +269,6 @@ function dev_reset.as.pixmap : image plot bitmap screen terminal
 
         Can be used to simulate a terminal screen, etc.
 
-function canvas.im
-function canvas.xy
-
-        Prepare an image plot.
-
-        The canvas.xy function takes the width and height of the
-        desired plotting area. A blank plot is produced. The
-        dot-dot-dot parameters are passed to image.
-
-        The canvas.im function has the same effect as canvas.xy.
-        Arg 1 is a matrix; the corresponding plot extents are
-        taken from the dimensions of the The primary arguments is takes an "im" matrix argument.
 
 function by.d
 

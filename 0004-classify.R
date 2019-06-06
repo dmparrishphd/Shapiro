@@ -44,8 +44,22 @@ classify <- function (a, breaks=0, compar=`>=`)
 
 threshold <- function (v, lim) v >= lim
 
-classify.unif <- function (v, n=2)
-        classify(v, breaks=divisions(n)[-n])  % %  succ
+classify.unif <- function (x, n=2)
+        classify(x, breaks=divisions(n)[-n]) %|% succ
+
+    Doc$classify.unif <- '
+        classify.unif classifies the data from the uniform
+        distribution found in arg 1 into the number of equally
+        sized bins specified by arg 2.
+
+        Zero values are classified with those values just
+        greater than zero, and unit values are classified with
+        those values just less than one.
+
+        Returns a vector of natural numbers, UNLIKE the default
+        classify function, whose return would include zeroes
+        (since the uniform distribution is bounded, there are no
+        "lower than" items).'
 
 classify.unif.symmetric <- function (v, n=2)
         classify(v, breaks=divisions_symmetric(n)[-2 * n])  % %  succ
@@ -99,11 +113,49 @@ histogram.sparse <- function(i) { #TAGS classification
         dimnames=list(NULL, words.h("VALUE FREQUENCY")))
     if (i  % %  b.nas  % %  any) rbind(h, c(NA, n.nas(i))) else h }
 
-categorize <- function (dims, m) #TAGS classify
+categorize <- function (dims, m) #TAGS classify classification
         rowply(m, dims %|% n.index.i.factors %=>% n.index.i, FUN.VALUE=integer(1))
 
+    Doc$categorize <- '
+        Cross Reference: categorize_self function
+
+        Given upper bounds (arg 1) on the natural number
+        (integer vector) parallel vectors in the matrix or data
+        frame (arg 2), returns an integer vector of natural
+        numbers that each uniquely specify the combination of
+        values in the parallel vectors at the corresponding
+        position.
+
+        **** WARNING **** Strange values may be returned if one
+        or more elements of arg 1 is not an integer vector of
+        natural numbers or if one ore more elements of the upper
+        bounds is less than any of the values found in the
+        corresponding integer vector. 
+
+        > g <- seq(3)
+
+        > reading <- data.frame(
+                        GRADE.LEVEL=rep(g, 3),
+                        READING.LEVEL=c(g, g + 1L, g + 2L))
+
+        > row.names(reading) <- sort("FRODO
+        SAM MERIDOC PEREGRIN GANDALF GIMLI
+        BOROMIR FERIMIR LEGOLAS" %|% words)
+
+        > cbind(reading, CATEGORY=categorize(c(3,5), reading))
+                         GRADE.LEVEL READING.LEVEL CATEGORY
+                BOROMIR            1             1        1
+                FERIMIR            2             2        5
+                FRODO              3             3        9
+                GANDALF            1             2        4
+                GIMLI              2             3        8
+                LEGOLAS            3             4       12
+                MERIDOC            1             3        7
+                PEREGRIN           2             4       11
+                SAM                3             5       15'
+
 categorize.self <- function (m) { #TAGS classify
-    colply(m, max, integer(1)) -> dims
+    capply(m, max, integer(1)) -> dims
     categorize(dims, m) }
 
 categorize_self <- categorize.self #DEPRECATED USE categorize.self
@@ -117,48 +169,8 @@ df.with.category.df <- function (df1, cols=1)
 
 
 
+
 '
-function categorize : classify classification
-
-        Cross Reference: categorize_self function
-
-        Given upper bounds (arg 1) on the natural number
-        (integer vector) parallel vectors in the list (arg 2),
-        returns an integer vector of natural numbers that each
-        uniquely specify the combination of values in the
-        parallel vectors at the corresponding position.
-
-        **** WARNING **** Strange values may be returned if one
-        or more elements of arg 1 is not an integer vector of
-        natural numbers or if one ore more elements of the upper
-        bounds is less than any of the values found in the
-        corresponding data vector. 
-        
-        Example 1:
-
-                > g <- seq(3)
-
-                > reading <- data.frame(
-                        GRADE.LEVEL=rep(g, 3),
-                        READING.LEVEL=c(g, g + 1L, g + 2L))
-                
-                > row.names(reading) <- sort(words.h("FRODO" % //%
-                        " SAM MERIDOC PEREGRIN GANDALF GIMLI" % //%
-                        "BOROMIR FERIMIR LEGOLAS"))
-
-                > cbind(reading, CATEGORY=categorize(c(3,5), reading))
-                         GRADE.LEVEL READING.LEVEL CATEGORY
-                BOROMIR            1             1        1
-                FERIMIR            2             2        5
-                FRODO              3             3        9
-                GANDALF            1             2        4
-                GIMLI              2             3        8
-                LEGOLAS            3             4       12
-                MERIDOC            1             3        7
-                PEREGRIN           2             4       11
-                SAM                3             5       15
-
-
 function categorize_self : classify classification
 
         Cross Reference: categorize function
@@ -209,24 +221,6 @@ function m.classify.v
 
         Note: breaks is sorted prior to application.
 
-function classify.unif
-
-        Classifies data from the uniform distribution. Zero
-        values are classified with those values just greater
-        than zero, and unit values are classified with those
-        values just less than one.
-
-        Arguments:
-
-                v       a vector of values in [0, 1]
-
-                n       The number of equally sized bins in
-                        which to classify each element of v
-
-        Returns a vector of natural numbers, UNLIKE the default
-        classify function, whose return would include zeroes:
-        since the uniform distribution is bounded, there are no
-        "lower than" items.
 
 function classify
 

@@ -17,24 +17,13 @@
 #
 # END OF COPYRIGHT NOTICE
 
+fade1 <- function(col="#000000", alpha=.5)
+	col %//% (
+	clamp(alpha, max_=1 - 2^-52) %|% r.d %|% as.character %|% uppeR)
 
-quadrance.m <- diff %O% ssq
+    Doc$fade1 <- '
+        Given a color-string of nchar 7, returns another
+        color-string of nchar 9, where the alpha component is
+        according to the alpha argument.'
 
-    Doc$quadrance.m <- '
-        quadrance.m returns the quadrance between the two points
-        represented by their Cartesian coordinates, found in the
-        rows of the 2xn matrix argument.'
-
-quadrance <- function (x1, x2)
-        rbind(x1, x2) %|% quadrance.m
-
-quadrance.l <- function(X)
-        list() %,% 0L %=:% "pad" %v% m.l %-|% X %|% t %|% quadrance.m
-
-    Doc$quadrance.l <- '
-        quadrance.l returns the quadrance between the two points
-        represented by their Cartesian coordinates, found in the
-        elements (numeric vectors) of the 2-element list argument.'
-
-
-
+fade <- placeholder

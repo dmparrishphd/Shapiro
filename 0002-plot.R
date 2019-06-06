@@ -46,6 +46,20 @@ text.pos.h<- function(h) which1(h == words.h("below left above right"))
 ticks.x <- 1 %|% NULLs %=:% "y" %v% .ticks
 ticks.y <- 1 %|% NULLs %=:% "x" %v% .ticks
 
+par.usr.line.below <- function (y=1)
+        par.usr.y1() - par.usr.line.height() * (y * 2 - 1)/2
+
+    Doc$par.usr.line.below <-'
+        par.usr.line.below returns the position of the line
+        below the plot area given a line number argument.'
+
+tick.labels.x <- function (x, y=0, ...)
+        text(x=x, y=par.usr.line.below(y), xpd=T, ...)
+
+tick.labels.y <- function (xin=0, y=0, pos="left" %|% text.pos.h, ...)
+        text(x=par.usr.x1() - par.usr.line.height.y() - xin %|%
+             par.usr.x.in, y=y, pos=pos, xpd=T, ...)
+
 pos <- function(pch=3) {
     warning("pos: status: In Progress (problem with plot positions [lils])")
     dev.new(width=4, height=4)

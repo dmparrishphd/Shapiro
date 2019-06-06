@@ -25,5 +25,8 @@ applying (a function to arguments)
 
 conversion (e.g., deriving integer 1 from character string "1")
 
+binary Bin
+
+bin Bin
+
 '
-

@@ -31,21 +31,15 @@ shift_euclid.xy <- shift_euclid.pg #DEPRECATED use shift_euclid.pg
         accomplish and effective translation to the (geometric)
         "right."'
 
-overlay <- function(...)
-        colply(rbind(...), firstAvailable) 
+overlay <- function(...) #TAGS mask prefer combine or graphic image transparent transparency
+        rapply(cbind(...), firstAvailable) 
 
-overlay.m <- function(...)
+overlay.m <- function(...) #TAGS mask prefer combine or graphic image transparent transparency
         dimension(
             overlay(parallelize(...)  % %  t),
             dim(list(...)[[1]]))
 
-Doc$overlay <- crunch.h("
-                        ")
-'
-
-function overlay : mask prefer combine or graphic image transparent transparency
-function overlay.m : mask prefer combine or graphic image transparent transparency
-
+    Doc$overlay <- '
         Given any number of aligned, atomic vectors, overlay
         returns an atomic vector where elements consist of the
         first available (i.e., non-NA) elements from among those
@@ -63,5 +57,4 @@ function overlay.m : mask prefer combine or graphic image transparent transparen
                         updated documentation.
                 Earlier
                         previously returned first available
-                        nonzero values.
-'
+                        nonzero values.'

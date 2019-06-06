@@ -22,7 +22,34 @@
 
 strsplitby <- strsplit % % argswap #function
 
-lines.h <- argswap(strsplit) %<=% HEOL
+newline.affix.h <- postfix %|% argswap %<=% HEOL
+
+    Doc$newline.affix.h <- '
+        newline.affix.h returns a modified copy of the character
+        vector. Each element of the return contains an ****
+        ADDITIONAL *** newline character at the end.'
+
+lines.h <- strsplit %|% argswap %<=% HEOL #TAGS split newline end-of-line character string
+
+    Doc$lines.h <- '
+        lines.h returns the content of the character vector
+        argument, split by newline. Each character string in the
+        character vector argument corresponds to one item of the
+        return (a list of character vectors).  Each element of
+        the return is a character vector containing the
+        characters found between the newline characters of each
+        element of the argument.
+
+        > lines.h(c("A B\n1 2\n3 4", "a\nb\nc\n"))
+
+        [[1]]
+
+        [1] "A B" "1 2" "3 4"
+
+        [[2]]
+
+        [1] "a" "b" "c"
+        '
 
 lines.h1 <- function(h, ...) lines.h(h[1], ...)[[1]]
 
@@ -89,7 +116,20 @@ shift_euclid.l <- function (lcoords, shifts)
 	            function (i) shift_euclid(lcoords[[i]],
                         rep(shifts, length.out=`#`(lcoords))[[i]]))
 	
-fit <- function (v) v  % %  shift_euclid  % %  scale_unit
+fit <- function (x) x %|% shift_euclid %|% scale_unit
+
+    Doc$fit <- '
+        fit Returns a transformation of the numeric vector
+        argument elments by shifting and scaling such that the
+        transformed finite values of the resultant are all in
+        [0, 1].
+
+        > fit(c(-Inf, NA, -100, -16, 100, Inf))
+
+        [1] -Inf   NA 0.00 0.42 1.00  Inf'
+
+fit.to <- function (x, from, to)
+        fit(from %,% x %,% to)[-(x %|% `#` + 2) %,% -1]
 
 .subst <- function (x, FUN, replacement)
         if (x  % %  FUN) replacement else x
@@ -148,14 +188,6 @@ function l.look : search find lookup
                 [[3]]
                 [1] 3
 
-function fit
-
-        Returns a transformation of the vector (arg 1) elments
-        by shifting and scaling such that the transformed finite
-        values of the resultant are all in [0, 1].  Example:
-
-                > fit(c(-Inf, NA, -100, -16, 100, Inf))
-                [1] -Inf   NA 0.00 0.42 1.00  Inf
 
 funciton l.mask.l
 
@@ -270,20 +302,6 @@ function greens : color
         Similar to greys, except that the return is a vector of
         shades of green.
 
-function lines.h : split newline end-of-line character string
-
-        Returns the content of the character vector argument,
-        split by newline. Each character string in the character
-        vector argument corresponds to one item of the return (a
-        list of character vectors).  Each element of the return
-        is a character vector containing the characters found
-        between the newline characters of each element of the
-        argument. Example:
-                > lines.h(c("A B\n1 2\n3 4", "a\nb\nc\n"))
-                [[1]]
-                [1] "A B" "1 2" "3 4"
-                [[2]]
-                [1] "a" "b" "c"
 
 function lines.h1 : split newline end-of-line character string
 
