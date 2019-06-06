@@ -28,5 +28,15 @@ h.i.format.i <- function(i) formatC(i, format='d')
 
 h.pad.i <- function (i, width=2) formatC(i, width=width, flag="0")
 
+format.recoverable.d <- curry(formatC, digits=16, format="e")
 
-
+    Doc$format.recoverable.d <- '
+        format.recoverable.d returns a character vector whose
+        elements represent the double arguments with as much
+        precision as is necessary to recover the original double
+        value. Specifically, this function is a curried version
+        of formatC, with digits fixed at 16 (17 significant
+        figures) and format set fixed at "e".
+        
+        https://www.exploringbinary.com/decimal-precision-of-binary-floating-point-numbers/'
+

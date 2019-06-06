@@ -36,6 +36,7 @@ par.col.dot <- function (col) par(
     col.main=col,
     col.sub =col)
 
+
 pch <- function(npch=25, bg=grey(.5)) {
     qpch <- ceiling(sqrt(npch)) # next nearest perfect square
     shift <- ceiling(qpch / 2)

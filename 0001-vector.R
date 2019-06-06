@@ -1,5 +1,5 @@
 # Shapiro: A Handsome Helper for R
-# Copyright (C) 2018 D. Michael Parrish
+# Copyright (C) 2019 D. Michael Parrish
 # 
 # This program is free software: you can redistribute it and/or
 # modify it under the terms of the GNU General Public License as
@@ -16,15 +16,20 @@
 # <https://www.gnu.org/licenses/>.
 #
 # END OF COPYRIGHT NOTICE
-#
-#
 
-rename.all <- function (x, newnames=NULL) {
-    names(x) <- newnames;   x }
+padding <- function(x, n) {
+    len <- x %|% `#`
+    vector(
+        mode=x %|% typeof,
+        length=ceiling_multiple(n, len) - len) }
 
-rename.all.dims <- function (x, newnames=NULL) {
-    dimnames(x) <- newnames;   x }
+pad <- function (x, n=2)
+        x %,% padding(x, n)
 
-sans.row.names <- function (x) {
-        row.names(x) <- NULL;   x }
+    Doc$pad <- '
+        pad returns a possibly longer copy of the primary
+        argument vector or list. The length of the return is a
+        multiple of n (arg 2).  The values of any additional
+        elements are determined by the default for the vector
+        function.'
 

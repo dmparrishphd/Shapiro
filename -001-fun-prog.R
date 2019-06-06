@@ -20,6 +20,8 @@
 
 # Theme: Functional Programming
 
+`%[[%` <- function (X, i) X[[i]]
+
 enlist <- function (X)
 	    if (X %|% is.list) X else list(X)
 

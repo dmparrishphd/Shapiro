@@ -1,5 +1,5 @@
 # Shapiro: A Handsome Helper for R
-# Copyright (C) 2018 D. Michael Parrish
+# Copyright (C) 2019 D. Michael Parrish
 # 
 # This program is free software: you can redistribute it and/or
 # modify it under the terms of the GNU General Public License as
@@ -16,15 +16,25 @@
 # <https://www.gnu.org/licenses/>.
 #
 # END OF COPYRIGHT NOTICE
-#
-#
 
-rename.all <- function (x, newnames=NULL) {
-    names(x) <- newnames;   x }
 
-rename.all.dims <- function (x, newnames=NULL) {
-    dimnames(x) <- newnames;   x }
+# An object to facilitate indexing arrays by arbitrary values
+list(
+	DOC=list(
+		init='
+			a is an array
 
-sans.row.names <- function (x) {
-        row.names(x) <- NULL;   x }
-
+			FUNS is a list of functions, one per dimension.
+			Each element of FUNS takes any value and returns
+			a vector index into that dimension of the array.
+			Any element of each vector might be NA_integer_.
+		'
+	),
+	init=function(., a, FUNs) {
+		.$.LARRAY <- a %|% list
+		.$.FUNS <- FUNs
+		. },
+	`[`=function(., x, drop=T) {
+		do.call(`[`, c(.$.LARRAY, lapply1to1(x, .$.FUNS), drop=drop))
+		},
+	.NULL=NULL )

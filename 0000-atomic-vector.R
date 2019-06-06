@@ -1,5 +1,5 @@
 # Shapiro: A Handsome Helper for R
-# Copyright (C) 2018 D. Michael Parrish
+# Copyright (C) 2019 D. Michael Parrish
 # 
 # This program is free software: you can redistribute it and/or
 # modify it under the terms of the GNU General Public License as
@@ -16,15 +16,15 @@
 # <https://www.gnu.org/licenses/>.
 #
 # END OF COPYRIGHT NOTICE
-#
-#
 
-rename.all <- function (x, newnames=NULL) {
-    names(x) <- newnames;   x }
+pretty.b <- function (b, symbols=c("T", "F", "Z"))
+        array(symbols[match(b, c(T,F,NA))], b %|% dim.) %|% drop
 
-rename.all.dims <- function (x, newnames=NULL) {
-    dimnames(x) <- newnames;   x }
+pretty.m <- function (m, FUN=as.character %O% (`%//%` %<=% HSPACE)) 
+        rapply(m, vapply_ %|% argswap %<=% FUN) %rbind% HNL %|% anonymize
 
-sans.row.names <- function (x) {
-        row.names(x) <- NULL;   x }
+pretty.mb <- function (logical.matrix)
+        pretty.m(logical.matrix %|% pretty.b)
+
+
 

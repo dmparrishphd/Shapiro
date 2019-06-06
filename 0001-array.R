@@ -18,6 +18,38 @@
 # END OF COPYRIGHT NOTICE
 
 
+array.spec.contiguous <- function (li)
+        lapply(li, function(x) swmatch %<=% x)
+
+    Doc$array.spec.contiguous <- '
+        array.spec.contiguous is designed to return a list of
+        functions that may be used for array indexing:
+
+        The argument is a vector or list of values.
+
+        The return is a list of functions that each map the
+        values of the corresponding argument element to the
+        first few natural numbers.
+
+        see also *iarray--proto--test.R
+
+        > specs <- array.spec.contiguous(
+            list(
+                c("ZERO", "ONE", "TWO"),
+                c(F, T, NA)))
+
+        > specs[[2]](NA)
+
+        [1] 3
+
+        > specs[[2]](T)
+
+        [1] 2
+
+        > specs[[2]](T)> specs[[1]]("ZERO")
+
+        [1] 1'
+
 #APPEND ONLY! DESIGNED FOR CHARACTER ARRAYS ONLY!
 write.a <- function(x, file=stdout(), ncolumns=1L) {
 	N <- (if (x %|% is.array) nrow else `#`)(x)
@@ -60,23 +92,51 @@ offset. <- function(X, shift=0L)
         indices and an offset.'
 
 replace.a.at <- function (a, b, where) {
-    if (any(dim %|% a < where)) return (
-        # a DOES NOT EXTEND TO where
-        a) 
-    if (b %|% `#` %|% `!`) return (
-        # b HAS NO ELMEENTS
-        a)
-    LI <- lapply(
-        where %|% seq_along,
-        function(i) where[i]:min(
-            where[i] + dim(b)[i] - 1L, dim(a)[i]))
-    replace.a(
-        m,
-        list.=LI,
-        values=extract.a(b,) %|% as.vector)
-     }
+    if (a %|% dim %|% is.null) dim(a) <- a %|% `#`
+    if (b %|% dim %|% is.null) dim(b) <- b %|% `#`
+    INCOMPATIBLE.DIMENSIONS <- a %|% ndim != b %|% ndim
+    if (INCOMPATIBLE.DIMENSIONS)
+            'Number of dimensions of primary and secondary
+            arguments are incompatible.' %|% crunch.h %|%
+            warning
+    if (
+        INCOMPATIBLE.DIMENSIONS |
+        b %|% is.empty | # b HAS NO ELMENTS
+        any(a %|% dim < where) # a DOES NOT EXTEND TO where
+    ) {
+        a 
+    } else {
+        replace.a(
+            a,
+            list.=lapply(
+                where %|% seq_along,
+                function(i)
+                        where[i]:min(
+                            dim(a)[i],
+                                    # LIMIT BY DIMENSIONS OF a
+                            where[i] + dim(b)[i] - 1L
+                                    # LIMIT BY DIMENSIONS OF b
+                        ) ),
+            values=extract.a(
+                b,
+                lapply(
+                    b %|% dim %|% seq_along,
+                    function(i)
+                        min(
+                            dim(a)[i] - where[i] + 1L,
+                                    # LIMIT BY DIMENSIONS OF a
+                            dim(b)[i]
+                                    # LIMIT BY DIMENSIONS OF b
+                        ) %|% seq)
+                    ) ) } }
 
-dimension.irange <- function (irange) 1L + irange[2] - irange[1]
+dimension.irange <- function (irange) #TAGS vector index indices
+        1L + irange[2] - irange[1]
+
+    Doc$dimension.irange <- '
+        Given an integer range, c(m, n), m <= n, returns the
+        number of elements in a corresponding hypothetical
+        vector.'
 
 as_array_of <- function(a, mode="logical")
         dimension(as.vector(a, mode=mode), a  % %  dim)
@@ -87,10 +147,5 @@ function as_array_of : convert
         Similar to as.vector, but the result has the same
         dimensions as the primary argument
 
-function dimension.irange : vector index indices
-
-        Given an integer range, c(m, n), m <= n, returns the
-        number of elements in a corresponding hypothetical
-        vector.
 '
 

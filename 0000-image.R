@@ -18,6 +18,8 @@
 # END OF COPYRIGHT NOTICE
 #
 #
+
+
 diptych <- function(
         z1,
         z2,
@@ -35,4 +37,3 @@ function diptych : image side-by-side
         device.
 '
 
-

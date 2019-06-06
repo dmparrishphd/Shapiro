@@ -17,6 +17,19 @@
 #
 # END OF COPYRIGHT NOTICE
 
+reflexive <- function (FUN, x) FUN(x %|% rest, x %|% except.last)
+.reflex <- reflexive #DEPRECATED use reflexive
+
+    Doc$reflexive <- '
+        reflexive applies FUN (arg 1), a function of two vectors
+        of equal length, to the rest of the vector argument and
+        to the initial part of the vector (all except the last
+        element).
+
+        reflexive is intended for currying. For example, see
+        xorr (and its definition), which can be used as a simple
+        edge detection function.'
+
 l.multifunction <- function (FUNs)
     function(X) lapply(
         X,

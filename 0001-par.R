@@ -17,6 +17,9 @@
 #
 # END OF COPYRIGHT NOTICE
 
+par.dark <- function (bg=BLK, fg=DGR) {
+    par(bg=bg, fg=fg)
+    par.col.dot(fg) }
 
 par.usr.set.indirect <- function (scale.xy=ones(2), offset.xy=zeroes(2), new_page=F) #TAGS map scale window zoom domain
     image_bare(

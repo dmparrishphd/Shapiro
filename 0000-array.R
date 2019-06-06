@@ -17,6 +17,25 @@
 #
 # END OF COPYRIGHT NOTICE
 
+unique.a <- as.vector %O% unique
+
+    Doc$unique.a <- '
+        unique.a returns the unique values among all the
+        elements of the array argument.'
+
+dim. <- function (x)
+    if (x %|% dim %|% is.null) {
+        x %|% `#`
+    } else {
+        x %|% dim }
+
+a. <- function ()
+        array(1:24, c(2,3,4))
+
+    Doc$a. <- '
+        a. returns a 2 x 3 x 4 array with the elements 1:24.
+        Intended for use in testing.'
+
 extract.a <- function(a, list.=lapply(a %|% dim, seq), drop=T)
 		do.call %<=% `[` %-|% c(
 			a %|% list,

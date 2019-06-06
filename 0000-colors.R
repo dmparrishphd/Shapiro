@@ -34,6 +34,56 @@ hc1 <- function(h=0, c=1, alpha=1)
         out-of-gamut colors should be produced, provided that
         arguments are within range.'
 
+hc1.scale <- function(breaks, h=0, a=1, ...) {
+	CENTERS <- capply(breaks %|% fdpairs, mean)
+    CENTERSR <- CENTERS %|% range
+	CENTERS01 <- rescale(CENTERS, CENTERSR %|% range)
+    hc1(
+        h=rescale(x=CENTERS01, to=h %[mod% 1:2),
+        c=CENTERS01,
+        a=a) }
+
+    Doc$hc1.scale <- '
+        hcl1-scale--proto.R
+    '
+
+seq_kk <- function (n=16, from0=T) #TAGS circle angles radians
+        seq(from=0, to=2*pi, length.out=1+n) %|% (
+            (rest %,% except.last) [[from0 %|% index.b]])
+
+m.seq.kk <- function (n=16)
+        do.call(cbind, applyf(n %|% seq_kk, list(cos, sin)))
+
+hsl.wheel <- function (n=16, cex=4, plot.args=NULL, par.args=NULL) { #TAGS color palette
+    'STATUS: **** IN DEVELOPMENT **** Do not rely on any
+    specific behavior of this function. Future; xkcd color
+    names.' %|% warning
+    par(mar=rep4(0))
+    image_bare(.ll*9/8, .ll*9/8, M1, col=BLK, asp=1, add=F)
+    xy <- n %|% m.seq.kk
+    segments(xy %|% firstc, xy %|% secondc, 0, 0, col=grey(1/8))
+    points(xy, col=hc1(h=0:n %|% except.last / n), cex=cex,
+           pch="CIRCLE SOLID" %|% pch.h)
+    if (n == 16) {
+        text(xy * 2 / 3, col=DGR, c(
+            "RED",
+            "ORANGE",
+            "BROWN",
+            "YELLOW",
+            "FOO",
+            "GREEN",
+            "",
+            "FOO",
+            "CYAN",
+            "FOO",
+            "FOO",
+            "BLUE",
+            "INDIGO",
+            "PURPLE",
+            "MAGENTA",
+            "PINK") ) }
+    }
+
 hc1.greys <- function(c=1, alpha=1)
 	hcl(c=0, l=.hc1.K * .hc1.CMAX * c, alpha=alpha, fixup=F)
 
@@ -61,10 +111,30 @@ dichromatic1 <- function(h=0, h2=NULL, n=16, alpha=NULL) {
 	h2 <- if(h2 %|% is.null) frac(h + .5) else h2
 	(if (n %% 2) .dichromatic1.odd else .dichromatic1.even)(h, h2, n, alpha) }
 
-pal <- function(dark=1, n=16, alpha=1, reverse=T)
-	hc1(h=rotate..n((0:n)[-1]/n, dark), c=proc(1:n/n), alpha=alpha) %|%
-	(proc <- if (reverse) rev else identity)
+pal <- function(dark=1, n=16, alpha=1, reverse=F)
+	    hc1(
+            h=rotate..n(1:n/n, dark),
+            c=(if (reverse) rev else identity)(1:n/n),
+            alpha=alpha)
 
+    Doc$pal <- '
+        pal returns a color palette (character vector) that
+        spans a wide range of linearly-varying luminance. Hues are
+        regularly spaced around the color hcl color wheel. chroma is
+        is proportional to luminance.
+
+        Arguments
+        
+        dark tells the index of which of the hues is darkest and
+        simultaneously defines one end of the return.
+
+        n specifies the number of colors in the return.
+
+        alpha has the same meaning as in the hcl function.
+
+        reverse tells whether the lighter colors are at the
+        beginning of the palette and **** WITHOUT AFFECTING
+        **** affecting the variation in hue.'
 
 LLG <- grey(7/8) # light, light grey
 LGR <- grey(3/4)

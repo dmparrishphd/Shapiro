@@ -1,5 +1,5 @@
 # Shapiro: A Handsome Helper for R
-# Copyright (C) 2018 D. Michael Parrish
+# Copyright (C) 2019 D. Michael Parrish
 # 
 # This program is free software: you can redistribute it and/or
 # modify it under the terms of the GNU General Public License as
@@ -16,15 +16,15 @@
 # <https://www.gnu.org/licenses/>.
 #
 # END OF COPYRIGHT NOTICE
-#
-#
 
-rename.all <- function (x, newnames=NULL) {
-    names(x) <- newnames;   x }
 
-rename.all.dims <- function (x, newnames=NULL) {
-    dimnames(x) <- newnames;   x }
+interval <- function (end=1, width=1) c(end - width, end)
 
-sans.row.names <- function (x) {
-        row.names(x) <- NULL;   x }
+    Doc$interval <- '
+        interval returns a 1-dimensional interval given the end
+        and width of the interval.
+        
+        An interval is a matrix of numeric values, where row 1
+        <= row 2, or a 2-vector of numeric values were element 1
+        <= element 2.'
 

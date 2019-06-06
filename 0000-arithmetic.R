@@ -17,6 +17,43 @@
 #
 # END OF COPYRIGHT NOTICE
 
+
+`%\\%` <- function(i, j) #TAGS rounding division ceiling
+        i %% j %|% as.logical   +   i %/% j
+
+    Doc$`%\\%` <- '
+        Note: Although the sourcecode and this doc string
+        apparently require two backslashes to stand for one, only
+        one is required on the R console. Application in
+        sourcecode appears to require only one backslash.
+
+        %\\% is Similar to the %/% operator, except that it rounds up.
+        Useful for problems similar to determining the number of
+        discrete containers needed to contain an amount of
+        something (e.g., "How many egg cartons are needed to
+        store 14 eggs? Answer: 14 %\\% 12").'
+
+.ceiling_floor_multiple <- function(FUN, of, near)
+        FUN(near, of) * of
+
+ceiling_multiple <- .ceiling_floor_multiple %<=% `%\\%`
+floor_multiple   <- .ceiling_floor_multiple %<=% `%/%`
+
+    Doc$ceiling_multiple <- '
+        ceiling_multiple and floor_multiple are intended for
+        rounding numeric vectors (arg 2) to multiples of
+        integers, as indicated by arg 1. As the names imply,
+        these functions round up or down.'
+
+    Doc$floor_multiple <- Doc$ceiling_multiple
+
+sqr <- function(x) x * x
+
+    Doc$sqr <- '
+        sqr returns the squares of the numeric or complex vector
+        argument. HISTORY 2019-05-24: formerly always returned
+        double for integer arguments.'
+
 is.odd <- `%%` %|% argswap %<=% 2L %O% as.logical
 is.even <- is.odd %|% un
 
@@ -32,21 +69,6 @@ is.even <- is.odd %|% un
         TESTED **** for other than integer vectors and
         integer-valued double vectors.'
 
-`%\\%` <- function(i, j) #TAGS rounding division ceiling
-        (i %/% j) + as.logical(i %% j)
-
-    Doc$`%\\%` <- '
-        Note: Although the sourcecode and this doc string
-        apparently require two backslashes to stand for one, only
-        one is required on the R console. Application in
-        sourcecode appears to require only one backslash.
-
-        %\\% is Similar to the %/% operator, except that it rounds up.
-        Useful for problems similar to determining the number of
-        discrete containers needed to contain an amount of
-        something (e.g., "How many egg cartons are needed to
-        store 14 eggs? Answer: 14 %\\% 12").
-        '
 
 
 '
@@ -99,6 +121,37 @@ iPOW2 <- as.integer(2 ^ seq(from=0, to=30))
 
     Doc$iPOW2 <- 'iPOW2 is an integer vector of the first 31 powers of 2.'
 
+rPOW2 <- iPOW2[1:8] %|% as.raw
+
+b.r <- function(x)
+        vapply(x, `&` %<=% rPOW2 %O% as.logical, logical(8))
+
+    Doc$b.r <- '
+        b.r returns a logical **** MATRIX **** representation of
+        the bits represented by the raw **** VECTOR ****
+        argument. The return has one column for each element of
+        the argument.
+
+        > b.r(as.raw(c(1, 128)))
+
+              [,1]  [,2]
+
+        [1,]  TRUE FALSE
+
+        [2,] FALSE FALSE
+
+        [3,] FALSE FALSE
+
+        [4,] FALSE FALSE
+
+        [5,] FALSE FALSE
+
+        [6,] FALSE FALSE
+
+        [7,] FALSE FALSE
+
+        [8,] FALSE  TRUE'
+
 ipow2 <- seq %O% (`[` %<=% iPOW2)
 
     Doc$ipow2 <- 'ipow2 returns the first n (arg 1 powers of 2), 1 <= n <= 31.'
@@ -125,7 +178,7 @@ is_among.contiguous.integers <- function(x, min_=-2^53, max_=2^53) {
     if (!is_numeric.integer(x)) return (rep(F, x %|% `#`))
     between(min_, max_, x) }
 
-lsd <- function(n, base=10L)
+lsd <- function(n, base=10L) #TAGS least significant digit
         n %% base
 
     Doc$lsd <- '

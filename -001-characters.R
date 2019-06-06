@@ -18,8 +18,9 @@
 # END OF COPYRIGHT NOTICE
 
 
-HEOL    <- "\n"
-heol    <- HEOL # DEPRECATED. use HEOL
+HNL     <- "\n"
+HEOL    <- HNL #DEPRECATED USE HNL
+heol    <- HEOL #DEPRECATED use HNL
 HNULL   <- ""
 HSPACE  <- " "
 HQUOTE  <- "'"

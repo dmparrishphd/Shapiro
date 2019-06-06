@@ -19,32 +19,160 @@
 #
 #
 
-crest <- function (m) reproduce(m, , -1)
 
-        Doc$cswap <- crunch.h('crest, "cee rest,"
-            returns a copy of the matrix argument, without the
-            first column.')
+rowNos <- function(x) x %|% (
+        if (x %|% is.matrix) nrow else
+        if (x %|% is.vector) `#` else
+        if (x %|% is.array ) dim %O% first else
+        0L %|% constant ) %|% seqN
 
-cswap <- function (m) if (m  % %  ncol < 2) m else cbind(m[,2:1], m  % %  crest  % %  crest)
+rowNos.m <- rowNos # function DEPRECATED. Use rowNos
 
-        Doc$cswap <- crunch.h('cswap, "cee swap,"
-            Returns a modified copy of the matrix argument,
-            where the first two columns have been swapped.')
+colNos <- function(x) x %|% (
+        if (x %|% is.matrix) ncol else
+        if (x %|% is.vector) 1L %|% constant else
+        if (x %|% is.array ) dim %O% second else
+        0L %|% constant ) %|% seqN
+
+colNos.m <- colNos # function DEPRECATED. Use colNos
+
+    Doc$rowNos <- '
+        rowNos returns the indices corresponding to 1) the rows
+        of an array argument or, 2) the elements of a vector
+        argument.'
+
+    Doc$colNos <- '
+        colNos returns the indices corresponding to 1) the
+        columns of an array argument. A vector is considered to
+        be an n x 1 matrix.'
+
+cexcept.last <- function (m)
+        if (m %|% is.empty) m else m[        , -ncol(m), drop=F]
+rexcept.last <- function (m)
+        if (m %|% is.empty) m else m[-nrow(m),         , drop=F]
+
+    Doc$cexcept.last <- '
+        cexcept.last returns a modified copy of the matrix
+        argument where the last column has been left off.'
+
+    Doc$rexcept.last <- '
+        rexcept.last returns a modified copy of the matrix
+        argument where the last row has been left off.'
+
+reflexive.m <- function (FUN, m, byrow=F)
+        if (byrow)
+                FUN(m %|% rrest, m %|% rexcept.last) else
+                FUN(m %|% crest, m %|% cexcept.last)
+
+rreflexive <- list(byrow=T) %v% reflexive.m
+creflexive <- list(byrow=F) %v% reflexive.m
+
+    Doc$reflexive.m <- '
+        reflexive.m is the matrix analog of reflexive. The
+        additional, optional byrow parameter allows row-wise
+        reflexivity vs. the default of column-wise reflexivity.'
+
+`r/` <- `/` %|% argswap %=>% rreflexive
+
+    Doc$`r/` <- '
+        r/ accomplishes row-wise division. The order of
+        arguments matches visually with typical representations
+        of fractions (i.e. the upper row is divided by the lower
+        row):
+
+        > m <- matrix(1:2);   m
+
+            [,1]
+
+        [1,]    1
+
+        [2,]    2
+
+        > `/r`(m)
+
+        [1] 0.5'
+
+`r==` <- rreflexive %<=% `==` 
+
+    Doc$`r==` <- '
+        Compare matrix elements row-wise for equality.
+
+        > `r==`(matrix(c(1,1,   1,2,   2,2), nrow=2))
+
+        [,1]  [,2] [,3]
+
+        [1,] TRUE FALSE TRUE'
+
+crep <- function (x, times)
+        matrix(x, nrow=x %|% `#`, ncol=times)
+
+rrep <- function (x, times)
+        matrix(x, ncol=x %|% `#`, nrow=times, byrow=T)
+
+    Doc$crep <- '
+        crep returns a matrix of times (arg 2) columns whose
+        elements match x (arg 1).'
+
+    Doc$rrep <- '
+        rrep returns a matrix of times (arg 2) rows whose
+        elements match x (arg 1).'
+
+m.trace <- function(nrow, ndim=2)
+        crep(1:nrow, ndim)
+
+    Doc$m.trace <- '
+        m.trace returns a matrix-index int an ndim (arg
+        2)-dimensional array. For a matrix, the indices cover
+        the trace of the matrix.'
+
+m.identity <- function (n) {
+    m <- matrix(0L, nrow=n, ncol=n)
+    m[n %|% m.trace] <- 1L
+    m }
+
+    Doc$m.identity <- '
+        m.identity returns an n x n identity matrix, where n is
+    arg 1.'
+
+crest <- function (m) reproduce(m,   , -1)
+rrest <- function (m) reproduce(m, -1,   )
+
+        Doc$crest <- '
+            crest, "cee rest," returns a copy of the matrix
+            argument, without the first column.'
+
+        Doc$rrest <- '
+            rrest, "are rest," returns a copy of the matrix
+            argument, without the first row.'
+
+cswap <- function (m)
+        cols(m, m %|% colNos %|% swap)
+
+        Doc$cswap <- '
+            cswap, "cee swap," returns a modified copy of the
+            matrix argument, where the first two columns have
+            been swapped.'
 
 rswap <- t %O% cswap %O% t
 
-    Doc$rswap <- 'rswap returns a copy of the matrix argument with its
-first two rows swapped.'
+    Doc$rswap <- '
+        rswap returns a copy of the matrix argument with its
+        first two rows swapped.'
 
 m.lines <- function(lines, byrow=T, ...) {
     strings <- lapply(lines, words.h)
     matrix(strings  % %  unlist, nrow=strings  % %  `#`, byrow=byrow) }
 
-m.h <- function(h, byrow=T, ...) matrix(h % % words.h, byrow=byrow, ...)
+m.h <- function(h, byrow=T, ...) matrix(h %|% words, byrow=byrow, ...)
 
-xy.square. <- function() "0 0   1 0   1 1   0 1" % % i.h % % as_xy
+xy.square. <- function() "0 0   1 0   1 1   0 1" %|% i.h %|% as_xy
 xy.square <- function() {
     sq <- xy.square.();   rbind(sq, sq[1,]) }
+
+    Doc$xy.square. <- '
+        xy.square. returns a 4-row, xy matrix representing a
+        square in the Cartesian plane with a corner at (0, 0)
+        and remaining points proceeding counterclockwise.'
 
 turn.m <- function (m) m[,rev(colNos.m(m)) ]
 flip.m <- function (m) m[ rev(rowNos.m(m)),]

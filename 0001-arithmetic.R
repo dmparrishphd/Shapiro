@@ -17,6 +17,20 @@
 #
 # END OF COPYRIGHT NOTICE
 
+multiples.near <- placeholder
+
+    Doc$multiples.near <- '
+        (PLACEHOLDER) multiples.near returns the TWO multiples of arg 1 that
+        are nearest of arg 2. Intended for integer-valued inputs.'
+
+d.r <- function(r) sum(r %|% as.integer * 256^seq0(r %|% `#` %|% pred))
+
+    'Doc$d.r <-
+        d.r returns a double value formed from the base-256
+        unsigned integer represented by the raw vector argument.
+        The return may not be accurate for arguments longer than
+        6 elements (48 bits).'
+
 idiv <- function(i, n) i %|% pred %/% n %|% succ #TAGS index division divide quotient
 imod <- function(i, n) i %|% pred %%  n %|% succ #TAGS recycle index remainder
 

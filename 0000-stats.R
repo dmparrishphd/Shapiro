@@ -73,17 +73,23 @@ range.finite <- function (x)
         `[` %<=% m %<=% rowNos(m) %O% range.finite)
 
 .ranges.l <- function (list.)
-        vapply(list., range.finite, double(2))
+        lapply(list., range.finite)
 
-ranges <- function(X) {
-    if (X %|% is.vector) {
-        if (X %|% is.list) {
-            return (X %|% .ranges.l)
+ranges <- function(X)
+    enlist(
+        if (X %|% is.vector) {
+            if (X %|% is.list) {
+                X %|% .ranges.l
+            } else {
+                X %|% range.finite
+            }
+        } else if (X %|% is.matrix) {
+            X %|% .ranges.m
+        } else if (X %|% is.data.frame) {
+            X %|% .ranges.m
         } else {
-            return (X %|% range.finite)
-        } }
-    if (X %|% is.matrix) return (X %|% .ranges.m)
-    if (X %|% is.data.frame) return (X %|% .ranges.m)
+            list() } )
+
     '# WHY DON-T EITHER #1 OR #2 WORK INSIDE ranges BUT WORK OUTSIDE?
     #1
     Y <- X %|% `#` %|% NULLs
@@ -91,18 +97,41 @@ ranges <- function(X) {
     Y
     #2
     lapply(X, range.finite)'
-    NULL }
 
     Doc$ranges <- '
         ranges returns the range of finite values for each
         column of the argument. An atomic vector argument counts
-        as a ingle column.'
+        as a single column.
+        
+        HISTORY
+
+        2019-05-21: Changed to always return a list of vectors.
+         '
+
+iranges <- function (X)
+        lapply(X %|% ranges, as.integer) %|% cbind_l
+
+    Doc$iranges <- '
+        iranges is similar to ranges, but **** ASSUMES **** all
+        range-values are integers and returns a 2-row matrix,
+        with the same number of columns as the agument.'
 
 .bounding.box <- function(X) {
     if (X %|% is.vector) return (range.finite %O% enlist %-|% X)
     if (X %|% is.matrix) return (X %|% ranges)
     if (X %|% is.data.frame) return (X %|% ranges)
 }
+
+bounding.box <- placeholder()
+
+    Doc$bounding.box <- '
+        A bounding box is a two-row matrix. Each column contains
+        the min (row 1) and max (row 2) values found among the
+        coordinates of some points in n-dimensional space.
+        
+        In 2-D, the first column of the return represents the
+        "bottom-left" corner, and the second column represents
+        the "upper-right" corner.'
 
 as_bb <- function(X) #TAGS bounding box
     matrix(
@@ -113,10 +142,9 @@ as_bb <- function(X) #TAGS bounding box
         nrow=2)
 
     Doc$as_bb <- '
-        xy.bounding.box returns a two-row matrix. Each column
-        contains the min (row 1) and max (row 2) values found
-        among the coordinates of the argument. The argument is a
-        vector (counts as one dimensional matrix), matrix, or
+        xy.bounding.box returns a bounding box (see
+        documentation for bounding.box) The argument is a vector
+        (counts as one dimensional matrix), matrix, or
         data.frame where each row represents a point in
         n-dimensional space.'
 
@@ -162,7 +190,8 @@ squares <- `^` %|% argswap %<=% 2
 
 rsquared <- cor %O% squares
 
-sum.of.squares <- squares %O% sum
+ssq <- squares %O% sum
+sum.of.squares <- ssq #DEPRECATED use ssq
 
 reciprocal <- `^` %|% argswap %<=% -1
 

@@ -290,16 +290,51 @@ lassign.next.symbol = function (x, y) {}
 
 # Apply a list of functions to a list or vector
 
-applyf = function (X, FUN)
-{   l=list()
-    for (i in seq(length(FUN))) {
-        print(FUN[[i]]);   l[[i]]  <- FUN[[i]](X) }
-    l }
+applyf <-  function (X, FUN)
+        lapply(
+            FUN %|% seq_along,
+            function(i) FUN %[[% i %-|% X)
+
+    Doc$applyf <- '
+        applyf is somewhat the inverse of lapply. The return is
+        a list of values. Each value k is the result of applying
+        the k-th function in FUN to X.'
+
+vapplyf <-  function (X, FUN, FUN.VALUE=NULL)
+        vapply(
+            FUN %|% seq_along,
+            function(i) FUN %[[% i %-|% X,
+            if (FUN.VALUE %|% is.null) {
+                FUN %|% first %-|% X
+            } else {
+                FUN.VALUE } )
+
+    Doc$vapplyf <- '
+        vapplyf is somewhat the inverse of vapply. The return is
+        an array of values. The k-th slice is the result of
+        applying the k-th function in FUN to X.
+        
+        > vapplyf(1:42, list(range, first2)) 
+            [,1] [,2]
+        [1,]    1    1
+        [2,]   42    2'
 
 lapply1to1 = function (X, FUNs, ...)
         lapply(
-            seq_along(X),
-            function(n) rep_len(FUNs, X  % %  `#`)[[n]](X[[n]], ...))
+            X %|% seq_along,
+            function(n) `%[[mod%`(FUNs, n)(X %[[% n, ...))
+
+vapply1to1 <- function (X, FUNs, FUN.VALUE, ...)
+        vapply(
+            X %|% seq_along,
+            function(n) `%[[mod%`(FUNs, n)(X %[[% n, ...),
+            FUN.VALUE)
+
+    Doc$vapply1to1 <- '
+        vapply1to1 is similar to vapply, but the values X are
+        matched to functions FUNs according to their position.
+        FUNs are recycled if necessary to achieve the number of
+        elements in X.'
 
 lapply1tomany <- function (x, FUNs) lapply1to1(rep_along(list(x), FUNs), FUNs)
 

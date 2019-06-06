@@ -17,6 +17,14 @@
 #
 # END OF COPYRIGHT NOTICE
 
+dfapply <- function (df1, FUN, FUN.VALUE=NULL, ..., USE.NAMES=T) {
+    #FUTURE: AUTOCOMPUTE FUN.VALUE IF NOT GIVEN
+    #return. <- vector(mode=FUN.VALUE %|% typeof, length=df1 %|% nrow)
+    vapply(
+        df1 %|% nrow %|% seq,
+        function(i) do.call(FUN, df1[i,]),
+        FUN.VALUE) }
+#dfapply(iris, function(...)..2, 1)
 
 df.initialized <- function(nrows, colClasses, stringsAsFactors=F)
 		data.frame(

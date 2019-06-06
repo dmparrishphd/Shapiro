@@ -1,5 +1,5 @@
 # Shapiro: A Handsome Helper for R
-# Copyright (C) 2018 D. Michael Parrish
+# Copyright (C) 2019 D. Michael Parrish
 # 
 # This program is free software: you can redistribute it and/or
 # modify it under the terms of the GNU General Public License as
@@ -16,15 +16,11 @@
 # <https://www.gnu.org/licenses/>.
 #
 # END OF COPYRIGHT NOTICE
-#
-#
 
-rename.all <- function (x, newnames=NULL) {
-    names(x) <- newnames;   x }
 
-rename.all.dims <- function (x, newnames=NULL) {
-    dimnames(x) <- newnames;   x }
+cat. <- function(..., sep="") cat(..., sep=sep)
 
-sans.row.names <- function (x) {
-        row.names(x) <- NULL;   x }
+    Doc$cat. <- '
+        cat. is the same as cat, except for the default for
+        "sep".'
 

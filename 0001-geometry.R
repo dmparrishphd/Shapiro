@@ -22,8 +22,114 @@
     Doc$pg <- '
         pg is a prefix, infix, or suffix used in some names to
         indicate a polygon. Herein, a polygon is a matrix of
-        vertices. If the polygon is in 2D space, it is
+        points. If the polygon is in 2D space, it-s transpose is
         compatible with the R graphics::polygon function.'
+
+i.closed.pg <- ncol %O% seq %O% i.closed
+
+lines_pg <- function (pg, ...)
+        lines(pg[, pg %|% i.closed.pg] %|% t, ...)
+
+line.points <- function(points)
+	c(
+		det(points),
+		-points %|% secondr %|% diff,
+		+points %|% firstr  %|% diff)
+
+    Doc$line.points <- '
+        line.points returns the vector of coefficients
+
+        c(c, a, b)
+
+        of the 2-D line
+
+        c + ax + by = 0
+
+        passing through the 2-D points given in the matrix
+        argument.  **** UNLIKE **** many of the R functions,
+        each point of the argument occupies a COLUMN, rather
+        than a ROW, of the matrix.'
+
+pairwise <- function (FUN, obj, FUN.size=ncol, FUN.extract=cols)
+        rapply(
+           obj %|% FUN.size %|% pairs.n,
+           FUN.extract %<=% obj %O% FUN)
+
+lines_pg <- pairwise %<=% line.points
+
+    Doc$lines_pg <- '
+        lines_pg returns a matrix of lines, one for each pair of
+        points in the polygon argument, one line per column of
+        the return. The order of the lines is consistent with
+        the order of the points of the polygon argument (i.e.,
+        the first line is from point 1 to point 2)'
+
+.rat.spread <- function (m) c(
+    m %|% det2 %|% sqr,
+    m[,1] %|% ssq * m[,2] %|% ssq )
+
+rat.spread <- function (lines)
+        lines[2:3,] %|% .rat.spread
+
+    Doc$rat.spread <- '
+        rat.spread returns the spread between two lines (arg 1)
+        as a ratio.'
+
+rat.spreads.lines <- pairwise %<=% spread.frac
+
+    Doc$rat.spreads.lines <- '
+        rat.spreads.lines returns a matrix of spreads, one for
+        each pair of lines in the lines argument, one spread per
+        column of the return. The order of the spreads is
+        consistent with the order of the points of the lines
+        argument (i.e., the first spread is that between line 1
+        and line 2).'
+
+rat.spreads.pg <- lines_pg %O% spread.fracs.lines
+
+    Doc$rat.spreads.pg <- '
+        rat.spreads.pg returns a matrix of spreads, one for each
+        pair of lines in the polygon argument, one spread per
+        column of the return. The order of the spreads is
+        consistent with the order of the points of the polygon
+        argument (i.e., the first spread is that between the
+        first pair of sides or the spread of the lines formed by
+        points 1 and 2 and points 2 and 3).'
+
+is.rectangle <- rat.spreads.pg %O% `r==` %O% all
+        # TEST IF ALL OF THE SPREAD RATIOS HAVE EQUAL NUMERATOR
+        # AND DENOMINATOR, I.E., IF ALL THE SPREADS ARE EQUAL TO 1.
+
+solveline.x <- function(line, x)
+	-(line[[1]] + line[[2]] * x) / line[[3]]
+
+solveline.y <- function(line, y)
+		solveline.x(line[1 %,% 3 %,% 2], y)
+
+.solveline <- function(line, x=NULL, y=NULL)
+		if (is.null(y)) {
+			solveline.x(line, x)
+		} else {
+			solveline.y(line, y) }
+
+solveline <- function(line, x=NULL, y=NULL) {
+		solution <- .solveline(line, x=x, y=y)
+		replace(solution, solution %|% is.finite %|% `!`, NA) }
+        
+line.parallel <- function (line., point.)
+        -dot.prod(line.[2:3], point.) %,% line[2:3]
+
+    Doc$line.points <- '
+        line.parallel returns the vector of coefficients
+
+        c(c, a, b)
+
+        of the 2-D line
+
+        c + ax + by = 0
+
+        parallel to the 2-D line (arg 1) and passing through the
+        2-D point (arg 2) given in the matrix argument.'
 
 walk <- vapply_ %|% argswap %<=% seq0 #TAGS geometric vector
 

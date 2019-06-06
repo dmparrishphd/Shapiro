@@ -20,6 +20,54 @@
 #
 ### R Script
 
+as.vector0 <- function (...)
+    lapply(lapply(list(...), typeof), vector) %|% unlist
+
+    Doc$as.vector0 <- '
+        as.vector0 returns a zero-length vector formed from the
+        arguments. Intended to produce information that may be
+        needed in order to combine vectors of different types.'
+
+max_typeof <- as.vector0 %O% typeof
+
+    Doc$max_typeof <- '
+        max_typeof returns a character string indicating the
+        type of vector needed to store the combinatin of the
+        arguments.'
+
+tc <- c %O% t #TAGS matrix row vector
+
+    Doc$tc <- '
+        tc returns a 1-row matrix formed from the vector argument.'
+
+swmatch <- match %|% argswap
+
+    Doc$swmatch <- '
+        swmatch is inteded for currying. swmatch is equilvalent
+        to match, except that the table argument comes first and
+        the x argument comes second.
+
+        > swmatch %<=% 0:9
+
+'
+
+`%==%` <- `==` %O% all
+
+    Doc$`%==%` <- '
+        `%==%` returns a single logical value indicating whether
+        all of the corresponding elements of two vectors are
+        equal.  Internally, recyling behavior of `==` may
+        apply.'
+
+`%!=%` <- `!=` %O% any
+
+    Doc$`%!=%` <- '
+        `%!=%` returns a single logical value indicating whether
+        any of the corresponding elements of two vectors are
+        unequal.  Internally, recyling behavior of `!=` may
+        apply.'
+
+`%!in%` <- `%in%` %O% `!` #TAGS not in
 
 `#` <- length # function. cardinality, the number of items in an object
 
@@ -54,6 +102,13 @@ sans <- seq %O% `-` #TAGS indexing indices
         return of sans. Example: (1:9)[sans(3)] returns the
         equivalent of 4:9.'
 
+ibookends <- function (X)
+        X %|% `#` %,% 1L %|% rev
+
+    Doc$ibookends <- '
+        ibookends returns the indices of the first and last
+        elements of the vector or list argument.'
+
 extend <- function(x, n=0, values=NA) x %,% rep_len(values, n)
 
     Doc$extend <- '
@@ -63,7 +118,7 @@ extend <- function(x, n=0, values=NA) x %,% rep_len(values, n)
         argument; values are recycled if necessary to yield
         n elements.'
 
-extend.to.length <- function(x, length.out=x %|% `#`, values=NA, quiet=F) {
+extend_len <- function(x, length.out=x %|% `#`, values=NA, quiet=F) {
     lx <- x %|% `#`
     if (length.out < lx) {
         if (!quiet) warning("returning truncated version of input.")
@@ -71,12 +126,18 @@ extend.to.length <- function(x, length.out=x %|% `#`, values=NA, quiet=F) {
     } else {
         extend(x, length.out - lx, values=values) } }
 
-    Doc$extend.to.length <- '
+extend.to.length <- extend_len #DEPRECATED USE extend_len
+
+    Doc$extend_len <- '
         extend.to.length is similar to extend, except that the
         length.out is specified rather than the number of items
         to be added. The return will be a truncated copy of the
         primary argument if the length.out specified is less
         than the length of the primary argument.'
+
+    Doc$extend.to.length <- '
+        extend.to.length is **** DEPRECATED. **** Use.
+        extend_len.'
 
 smooth.l <- function (X, pad=NA) #TAGS ragged array
         lapply(
@@ -113,11 +174,27 @@ iNA <- NA_integer_
         argument; applying ! twice would produce the logical
         identity.'
 
+cbind_ <- function(...) cbind(..., deparse.level=0)
 rbind_ <- function(...) rbind(..., deparse.level=0)
+
+    Doc$cbind_ <- '
+        cbind_ is a simplified version of cbind (deparse.level
+        fixed at 0).'
 
     Doc$rbind_ <- '
         rbind_ is a simplified version of rbind (deparse.level
         fixed at 0).'
+
+cbind_l <- function (l) do.call(cbind_, l)
+rbind_l <- function (l) do.call(rbind_, l)
+
+    Doc$cbind_l <- '
+        cbind_l takes a list of items and cbinds them with
+        deparse.level=0.'
+
+    Doc$rbind_l <- '
+        rbind_l takes a list of items and rbinds them with
+        deparse.level=0.'
 
 vector1 <- function(mode="logical", length=1L)
         vector(mode=mode, length=length)
@@ -142,7 +219,6 @@ singleton <- function(x) vector1(mode=typeof(x))
         mode (typeof) as the argument. Originally intended for
         use with vapply.'
 
-`%,%` <- function (x, y) c(x, y) # function
 
 NULLs <- function (n) rep(list(NULL), n)
 
@@ -186,6 +262,29 @@ default <- function (x, default) {
 pred <- `+` %<=% -1L #TAGS predecessor subtract 1L integer -1 1-
 succ <- `+` %<=% +1L #TAGS successor        add 1L integer +1 1+
 
+diff_inclusive <- diff %O% succ
+
+    Doc$diff_inclusive <- '
+        diff_inclusive returns one more than the difference
+        between the parts of the vector or matrix argument.
+
+        > 1:10 %|% range %|% diff_inclusive
+        [1] 10'
+
+`%[-]%` <- `-` %O% succ
+
+    Doc$`%[-]%` <- '
+        %[-]% is similar to `-`, except that it returns one more
+        than the difference. Intended for integer-valued
+        arguments. May be useful when computing indices when
+        indexing from 1.
+
+        The symbolism is borrowed from interval notation, where
+        the square bracket indicates an included value.
+        
+        cf. diff_inclusive. See also
+        https://en.wikipedia.org/wiki/Counting#Inclusive_counting'.
+
 # rearrangement
 
 interlace <- function (...) rbind(...)  % %  as.vector
@@ -215,8 +314,10 @@ shuffle <- runif %O% order
 
 is.singleton <- function (x) x  % %  `#` == 1L
 
-rep2 <- rep %^% list(times=2, length.out=NA, each=NA)
-
+.repx <- rep %^% list(length.out=NA, each=NA)
+rep2 <- .repx %^% list(times=2)
+rep3 <- .repx %^% list(times=3)
+rep4 <- .repx %^% list(times=4)
 
 rep_along <- function (x=F, along.with=1:2)
         rep_len(x, along.with %|% `#`)
@@ -301,7 +402,8 @@ partition <- function(what, sep)
 
 squish <- function(v, from=0, to=1) from + (to - from) * v
 
-na <- function (mode=logical, length=1L)
+#EDIT 2019-05-3: SWITCHED ORDER OF ARGUMENTS
+na <- function (length=1L, mode="logical")
         as.vector(rep(NA, length), mode=mode)
 
 brand <- function (n, compar=`<`, threshold=.5)
@@ -406,7 +508,7 @@ unleft <- function (character_, stop=1)
 
 initials <- function (h) vapply(h, left, "")  % %  anonymize
 
-rest <- argswap(`[`) %<=% -1
+rest <- `[` %|% argswap %<=% -1
 unrest <- function (x) x[-length(x)]
 second <- rest %O% first
 #second  <- function (x) x[[2]] #OLD  pre 2018-10-19
@@ -437,9 +539,38 @@ is_empty <- function (x) ! length(x)
 
 identical.picky <- function (x, y) identical(x, y, F, F, F, F)
 
-between <- function (x, y, v) (x <= v) & (v <= y)
+between  <- function (x, y, v) x <= v & v <= y
+between2 <- function (interval, x) interval[1] <= x & x <= interval[2]
+beyond2 <- function (interval, x) x < interval[1] | interval[2] < x
+
+    Doc$between <- '
+        between returns a logical vector that, for each element
+        of v (arg 3), tells whether that element is between x
+        (arg 1) and y (arg 2). The interval is considered to be
+        **** INCLUSIVE AT BOTH ENDS. ****'
+
+    Doc$between2 <- '
+        between2 returns a logical vector that, for each element
+        of x (arg 2), tells whether that element is in the
+        interval (arg 1). The interval is considered to be
+        **** INCLUSIVE AT BOTH ENDS. ****'
+
+    Doc$beyond2 <- '
+        beyond2 is analogous to between2, but returns the
+        logically opposite result.'
 
 among.indices.of <- function (v, i) between(1L, v  % %  `#`, i)
+
+range.check <- function (dims, i)
+        all(vapply(
+				i %|% seq_along,
+				function(k) between(1, dims[k], i[k]),
+				T))
+
+    Doc$range.check <- '
+        range.check returns a logical value indicating whether
+        the n-dimensional index (arg 2) is in the range of an
+        array with dimensions dims (arg 1).'
 
 extract_rev <- function(v, i, ...) rev(rev(v)[i, ...]) 
 `%]%` <- extract_rev
@@ -663,6 +794,9 @@ index123.b <- function (b)
             function(x) if (x  % %  is.na) 3L else x,
             FUN.VALUE=integer(1))
 
+`%[b%` <- function (x, b) x[index.b(b)]
+`%[[b%` <- function (x, b) x[[index.b(b)]]
+
 # sequences
 
 seq0 <- seq %<=% 0
@@ -699,7 +833,7 @@ n.index.i.factors <- index.factors.dim # function DEPRECATED: use index.factors.
 
 index.factors.m <- function(m) m  % %  dim  % %  index.factors.dim
 
-n.index.i <- function (factors, i) succ(sum(pred(i) * factors)) % % as.integer
+n.index.i <- function (factors, i) succ(sum(pred(i) * factors)) %|% as.integer
 
 i.index.n <- function(factors, n) {
     n   <- n - 1L # internally, index from zero
@@ -798,7 +932,12 @@ spaces <- function (length=1, nchar=1) rep(`%//%`(rep(" ", nchar)), length)
 
 widespace <- spaces %<=% 1
 
-which1 <- function(b) match(T, b)
+which1 <- match %<=% T
+
+    Doc$which1 <- '
+        which1 returns a 1-vector, the index of the first TRUE
+        value in the logical vector argument. If there is no
+        such value, the return is NA_integer_. '
 
 which1rev <- function(b) 1L + b  % %  `#` - match(T, rev(b))
 
@@ -913,12 +1052,70 @@ sublist.h <- function(l, h) {
     if (length(h) == 1) return (.sublist.h(l, h))
     sublist.h(l[[h[1]]], h[-1]) }
 
+# ARITHMETIC
+
+`%mod1%` <- function (m, n)
+        m %|% pred %% n %|% succ
+
+    Doc$`%mod1%` <- '
+        %mod1% is similar to %%, except that the base is one
+        (1L) rather than zero (0L). **** DESIGN: **** arg 1 is a
+        vector of integer values and arg 2 is a single integer
+        value.
+
+        Example: A sequence of hours of the clock might be
+        generated by "-23:24 %mod1% 12":
+
+        > matrix(-23:24 %mod1% 12, nrow=12)
+
+                 [,1] [,2] [,3] [,4]
+
+            [1,]    1    1    1    1
+
+            [2,]    2    2    2    2
+
+            [3,]    3    3    3    3
+
+            [4,]    4    4    4    4
+
+            [5,]    5    5    5    5
+
+            [6,]    6    6    6    6
+
+            [7,]    7    7    7    7
+
+            [8,]    8    8    8    8
+
+            [9,]    9    9    9    9
+
+            [10,]   10   10   10   10
+
+            [11,]   11   11   11   11
+
+            [12,]   12   12   12   12'
+
 # vector or list
 
-indices_modulo <- function (v, n) n  % %  pred %% length(v)  % %  succ
+indices_modulo <- function (x, n) n %mod1% length(x)
 extract_modulo <- function (v, n) v[indices_modulo(v, n)]
 `%[mod%` <- extract_modulo # function NEEDS WORK. Idea, e.g.,    v <- seq(9);   v %[mod% 10:12 <- 9;   # v == c(9,9,9,4,5,6,7,8,9)
 
+`%[[mod%` <- `%[mod%` %O% first #TAGS list extract
+
+    Doc$`%[[mod%` <- '
+        `%[[mod%` returns a single elment from the vector or
+        list argument.'
+
+reprep <- function(x, times.each=1L)
+        lapply(
+            x %|% seq_along,
+            function(i) rep(x[[i]], times.each %[mod% i)) %|% unlist
+
+    Doc$reprep <- '
+        reprep returns a vector consisting of the elements of
+        arg 1 repeated the number of times specified by the
+        corresponding element of arg 2. Elements of arg 2 are
+        recycled if the length of arg 2 is less than that of arg 1.'
 
 Nos.  <- seq_along
 Nos.r <- Nos. %O% rev
@@ -1013,7 +1210,6 @@ n.look.d <- function (d, target)
         sorted.  Returns an index of arg1.  Beyond the index,
         elements of arg1 are strictly greater than arg2, a
         singleton.'
-
 
 look  <- `==` %O% which
 
@@ -1210,7 +1406,7 @@ function make.sequence
                 2:      The previous sequence, before the current
                         value is determined
 
-                3:      Referenec data
+                3:      Reference data
 
 
 function n.index.i.factors
@@ -1231,7 +1427,7 @@ function n.index.i.factors
 
 function n.index.i : array multi factors
 
-        Intended for array indexing. Given an integer vectof of
+        Intended for array indexing. Given an integer vector of
         factors and a corresponding multidimensional array
         index, returns the corresponding linear
         (one-dimensional) array index. 
@@ -1663,10 +1859,6 @@ function brand
 
         is expected to return a value equal to 21, on average.
 
-function between
-
-        For each element of v (arg 3), tells whether that
-        element is between x (arg 1) and y (arg 2)
 
 function extract_along
 

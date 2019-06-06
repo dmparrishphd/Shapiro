@@ -35,6 +35,7 @@ Discrete.Domain.PROTO <- list(
     .NULL=NULL
 )
 
+#AN EARLIER, MORE SPECIFIC VERSION
 sober.walk <- function (Dom, destination) {
     # Dom: similar to Discrete.Domain
     #REF: drunkard's walk
@@ -48,4 +49,15 @@ sober.walk <- function (Dom, destination) {
             mean),
     bbox %/% 2L
 }
+
+sober.step <- function (whence, dims, FUN) {
+    nei <- whence %rbind% neighbors(whence, dims)
+    nei[min.local(nei %|% t, FUN),] }
+
+sober.walk <- function(whence, dims, FUN) {
+    Path <- list(whence, whence %|% `#` %|% integer)
+            # ELEMENT 2 GUARANTEED NOT TO BE VALID INDEX INTO MATRIX
+    while (Path[1] %!in% Path[-1])
+            Path <- sober.step(Path %|% first, dims, FUN) %|% list %,% Path
+    do.call(rbind, Path) }
 

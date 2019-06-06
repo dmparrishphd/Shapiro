@@ -17,8 +17,47 @@
 #
 # END OF COPYRIGHT NOTICE
 
+split_alpha <-function(x, n=1)
+		split %<=% x %-|% left(x, n)
 
+    Doc$split_alpha <- '
+        split_alpha splits the character vector alphabetically
+        by the first n characters. The result is a structure
+        analogous to the indices of many books.
 
+        > split_alpha("rodents unusual size" %|% words)
+
+        $`r`
+
+        [1] "rodents"
+
+        $s
+
+        [1] "size"
+
+        $u
+
+        [1] "unusual"
+        '
+
+lsa <- function(n=1) {
+	WORDS <- split_alpha(
+		eval.parent(parse(text="ls()")),
+		n=n)
+	for (k in WORDS %|% seq_along) {
+		cat(
+            "",
+            "",
+            names(WORDS)[[k]],
+            "",
+            WORDS[[k]],
+            hrule(),
+            sep=HEOL) } }
+
+    Doc$lsa <- '
+        lsa cat-s the result of ls to stdout in a formatted
+        manner: names are grouped according to split_alpha.'
+        
 .strbar.length <- function (h, length.)
         if (length. < 1) {
             character()

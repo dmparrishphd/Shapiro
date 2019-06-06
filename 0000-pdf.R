@@ -22,8 +22,13 @@
 # PDF
 
 pdf.letter.landscape <- pdf %^% list(width=11, height=8.5)
+pdf.letter.portrait <- pdf %^% list(width=8.5, height=11)
 pdf.letter.landscape.print <- pdf %^% list(width=9, height=6.5)
 
+    Doc$pdf.letter.landscape <- '
+        pdf.letter.landscape is the same as pdf, 
+        but with width and height specified to 11 x
+        8.5.'
 '
 function pdf.letter
 function pdf.letter.print

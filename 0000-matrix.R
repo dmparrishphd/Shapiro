@@ -19,18 +19,97 @@
 #
 #
 
+
+m. <- function() matrix(1:6, nrow=2)
+
+    Doc$m. <- '
+        m. returns a 2-row matrix with the elements 1:6.
+        Intended for use in testing.'
+
+matrix. <- function (data=NA, nrow=1) {
+     }
+
+det2 <- function (m)
+        m[1] * m[4] - m[2] * m[3]
+
+    Doc$det2 <- '
+        det2 computes the determinant of a 2x2 matrix using a
+        naive algorithm.
+        
+        For integer matrices, **** FAILS ON OVERFLOW ****.
+        
+        Originally intended to produce an exact
+        result with integer matrices, provided that overflow
+        does not occur at any (intermediate) stage.'
+
+pow.1 <- function (n)
+        1L - n %% 2L * 2L
+
+    Doc$pow.1 <- '
+        pow.1 returns powers of -1 for an integer vector
+        argument. Intended for use with computing trucated
+        series, determinants, etc.'
+
+submatrix1 <- function (m, i) #TAGS strike determinant extract
+        m[-i[1], -i[2]]
+
+submatrix3 <- function (m, i, j) #TAGS strike determinant extract
+        m[-i, -j]
+
+submatrix2 <- function (m, ij) #TAGS strike determinant extract
+        m[-ij[[1]], -ij[[2]]]
+
+det3 <- function (m)
+        sum(m[1,]   *   c(1L, -1L, 1L)   *   vapply(
+            1:3, submatrix3 %<=% m %<=% 1 %O% det2,
+                    m %|% typeof %|% vector1))
+
+    Doc$det3 <- '
+        det3 computes the determinant of a 3x3 matrix using a
+        naive algorithm. Originally intended to produce an exact
+        result with integer matrices, provided that overflow
+        does not occur at any (intermediate) stage.'
+
+matrix2  <- list() %,% 2 %=:% "ncol" %v% matrix
+matrix2r <- list() %,% 2 %=:% "nrow" %v% matrix
+
+    Doc$matrix2 <- '
+        matrix2 is a curried version of matrix, where ncol is
+        fixed at 2.'
+
+    Doc$matrix2r <- '
+        matrix2r is a curried version of matrix, where nrow is
+        fixed at 2.'
+
+m.empty <- function(nrow=0, ncol=0)
+		matrix(nrow=nrow, ncol=ncol)
+
+    Doc$m.empty <- '
+        m.empty returns an empty matrix with the number rows or
+        columns specified, provided that either nrow == 0 or ncol ==
+        0, consistent with defaults.'
+
+`4x4` <- matrix %^% list(nrow=4, ncol=4) #TAGS transformation matrix geometry afine linear
+`4x4 t` <- `4x4` %O% t #TAGS transformation matrix geometry afine linear
+
+cdiff <- t %O% diff %O% t
+
 rest.m <- function(m) m[1, , drop=F]
+
+m.FUN.m..v. <- function(FUN)
+        function(m, v) FUN(m, v)
 
 m.FUN.m..v <- function(FUN)
         function(m, v) FUN(m %|% t, v) %|% t
+                # THIS WORKS BECAUSE OF RECYCLING
 
     Doc$m.FUN.m..v <- '
-        m.FUN.m..v returns a function that takes a matrix as its
-        primary argument and a vector whose length is equal to
-        number of columns of the matrix. The return of the
-        returned function is a matrix of the same dimensions as
-        the primary argument of the return. See m.add.m..v for
-        an example.'
+        m.FUN.m..v (m.FUN.m..v.) returns a function that takes a
+        matrix as its primary argument and a vector whose length is
+        equal to the number of columns (rows) of the matrix. The
+        return of the returned function is a matrix of the same
+        dimensions as the primary argument of the return. See
+        m.add.m..v for an example.'
 
 m.add.m..v <- m.FUN.m..v(`+`)
 
@@ -41,6 +120,9 @@ m.add.m..v <- m.FUN.m..v(`+`)
 `%m-v%` <- m.FUN.m..v(`-`)
 `%m*v%` <- m.FUN.m..v(`*`)
 `%m/v%` <- m.FUN.m..v(`/`)
+
+`%m==v.%` <- m.FUN.m..v.(`==`)
+`%m+v.%` <- m.FUN.m..v.(`+`)
 
 
 
@@ -63,9 +145,15 @@ col.m <- function(m, n) m[,n]
 
 firstc  <- col.m %|% argswap %<=% 1L
 secondc <- col.m %|% argswap %<=% 2L
+first2c <- function(m)
+        do.call(cbind, lapply1to1(
+            m %|% list %|% rep2, firstc %,% secondc))
 
 firstr  <- row.m %|% argswap %<=% 1L
 secondr <- row.m %|% argswap %<=% 2L
+first2r <- function(m)
+        do.call(rbind, lapply1to1(
+            m %|% list %|% rep2, firstr %,% secondr))
 
 rename.all.columns.m <- function (m, newnames=NULL) {
     colnames(m) <- newnames;   m }
@@ -73,10 +161,21 @@ rename.all.columns.m <- function (m, newnames=NULL) {
 rename.all.rows.m <- function (m, newnames=NULL) {
     rownames(m) <- newnames;   m }
 
-m.rep <- function (x=NA, ncol=1) matrix(rep(x, ncol), ncol=ncol)
+m.rep <- function (x=NA, ncol=1) #TAGS vector repeat columns matrix
+        matrix(rep(x, ncol), ncol=ncol)
+    Doc$m.rep <- '
+        m.rep returns a matrix of ncol (arg 2) columns where the
+        columns have values according to the vector x (arg 1).
+
+        > m.rep(-1:1, 3)
+
+                [,1] [,2] [,3]
+        [1,]   -1   -1   -1
+        [2,]    0    0    0
+        [3,]    1    1    1'
 
 rep_m <- function (m, times=1) matrix(
-	rep(m  % %  t, times), ncol=ncol(m), byrow=T)
+	rep(m %|% t, times), ncol=ncol(m), byrow=T)
 
 seqnD <- function(dims, SEQ=integer()) {
 	if (SEQ  % %  length) {
@@ -97,9 +196,6 @@ M1 <- matrix(1L)
 MZ <- matrix()
 MT <- matrix(T)
 MF <- ! MT
-
-m.identity <- function (n)
-        matrix(c(rep(c(1, rep(0L, n)), n - 1L), 1L), n)
 
 '
 function as_xy : matrix plot index
@@ -125,15 +221,4 @@ function rep_m : rep matrix
                      [,1]
                 [1,]    1
                 [2,]    1
-        
-function m.rep : vector repeat columns matrix
-
-        Returns a matrix of ncol columns where the columns have
-        values according to the vector x. Example:
-                > m.rep(-1:1, 3)
-                     [,1] [,2] [,3]
-                [1,]   -1   -1   -1
-                [2,]    0    0    0
-                [3,]    1    1    1
-
 '

@@ -57,6 +57,8 @@ par.usr.meta.width  <- function () par.usr.width()  / par.plt.width()
 par.usr.per.in.y <- function () par.usr.meta.height() / par()$fin[2]
 par.usr.per.in.x <- function () par.usr.meta.width()  / par()$fin[1]
 par.usr.per.in   <- function () par.usr.per.in.x() %,% par.usr.per.in.y()
+par.usr.x.in <- function (xin) xin / par.usr.per.in.x()
+par.usr.y.in <- function (yin) yin / par.usr.per.in.y()
 par.mai <- function (i=NULL) if (i %|% is.null) par()$mai else par()$mai[i]
 par.mar <- function (i=NULL) if (i %|% is.null) par()$mar else par()$mar[i]
 par.mar.NAMES <- c("BOTTOM", "LEFT", "TOP", "RIGHT")
@@ -91,6 +93,8 @@ par.usr.meta.y2 <- function () par.usr.y2() + par.mai.top()    * par.usr.per.in.
 par.usr.meta.x  <- function () par.usr.meta.x1() %,% par.usr.meta.x2()
 par.usr.meta.y  <- function () par.usr.meta.y1() %,% par.usr.meta.y2()
 xy.par.usr.meta <- function () matrix(par.usr.meta.x() %,% par.usr.meta.y(), ncol=2)
+x.par.usr.meta <- xy.par.usr.meta %O% firstc
+y.par.usr.meta <- xy.par.usr.meta %O% secondc
 
 par.cex <- function () par()$cex
 

@@ -130,7 +130,7 @@ xy.ticks.x <- function (x, y0=par.usr.y1(), tick.length=par.usr.line.height()) {
         returns an xy matrix that might be used to plot those
         ticks."
 
-xy.ticks.y <- function (y, x0=par.usr.x1(), tick.length=par.usr.line.height()) {
+xy.ticks.y <- function (y, x0=par.usr.x1(), tick.length=par.usr.line.height.y()) {
     warning("
         xy.ticks.y is not fully developed. probably need to
         reconsider calculation of default tick length (line
@@ -152,12 +152,23 @@ linev.left <- placeholder
 
 linev.right <- placeholder
 
+line45 <- function (...) lines(
+    par.usr() %|% abs %|% max %|% rep4 %|% as_xy %m*v% .ll %|% t, ...)
+
+    Doc$line45 <- '
+        line45 draws a 1:1 line on the current device. The ...
+        argument may be used to pass any argument **** EXCEPT
+        **** x or y to lines.'
 
 linev <- function (x, col=BLK, ...)
 	    lines(rep(x, 2), par.usr.y(), col=col, ...)
 
 linesh <- function(y, col=BLK, ...) for (wye in y) lineh(wye, col=col, ...)
 linesv <- function(x, col=BLK, ...) for ( ex in x) linev( ex, col=col, ...)
+
+#linesh.in <- function (y, ...) {
+    #linesh(y * par.usr.per.in.y() + )
+     #}
 
 cross <- function(x, y, col=BLK, ...) {
     lineh(y, col=col, ...);   linev(x, col=col, ...) }

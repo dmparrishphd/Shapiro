@@ -17,6 +17,12 @@
 #
 # END OF COPYRIGHT NOTICE
 
+inner <- rest %O% except.last
+
+    Doc$inner <- '
+        inner returns a modified copy of the vector argument
+        without the first and last elements.'
+
 irotate <- function (n)
         if (n < 2L) n else 2:n %,% 1L
 
@@ -32,6 +38,22 @@ rotate <- function (x)
         rotate returns a modified copy of the vector argument.
         The return is effectively formed by making a copy of the
         argument, then moving the first element to the end.'
+
+rotater <- function (m)
+        m[m %|% nrow %|% irotate,]
+
+    Doc$rotater <- '
+        rotater returns a modified copy of the matrix argument.
+        The return is effectively formed by making a copy of the
+        argument, then moving the first row to the bottom.'
+
+rotatec <- function (m)
+        m[,m %|% ncol %|% irotate]
+
+    Doc$rotatec <- '
+        rotatec returns a modified copy of the matrix argument.
+        The return is effectively formed by making a copy of the
+        argument, then moving the first column to the right.'
 
 irotate..n <- function (L, n) {
     if (L  < 1L) return (0L)

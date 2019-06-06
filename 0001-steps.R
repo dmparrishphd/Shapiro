@@ -27,11 +27,22 @@
 .stepj <- function (n) n %,% n ###
 .steps <- function (FUN, n) unlist(lapply(seq(n), FUN)) ###
 
-stepsi <- function (n) .steps(.stepi, n) #.#
+stepsi <- function (n) n %|% seq %|% rep2 %|% sort %|% inner
 stepsj <- function (n) .steps(.stepj, n) #.#
 
-stepsx <- function (v) v[v  % %  length  % %  pred  % % stepsi]
+stepsx <- function (x) x[x  % %  length  % %  pred  % % stepsi]
 stepsy <- function (v) v[v  % %  length  % %  stepsj] #.#
+
+pairs.n <- function (n)
+        n %|% stepsi %,% n %,% 1L %|% matrix2r
+
+    Doc$pairs.n <- '
+        pairs.n returns a 2-row matrix of sequential pairs of
+        indices into a structure of n items.
+        
+        Originally intended to be used as indices into a
+        polygon. Pairs of points may represent the sides of a
+        polygon.'
 
 '
 function *step*
@@ -75,4 +86,3 @@ function stepsy : step plot steps-y
 
         > plot(stepsx(seq(4)), stepsy(c(1,3,2)), type="l")
 '
-
