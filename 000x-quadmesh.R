@@ -17,7 +17,6 @@
 #
 # END OF COPYRIGHT NOTICE
 
-#234567890123456789012345678901234567890123456789012345678901234
 list(
 	#TODO: include provision for different orientations?
 	DOC=list(
@@ -62,23 +61,13 @@ list(
 
 	init=function(., points.) {
 		.$.POINTS <- points.
-cater("~quadmesh.R: init : A"); flush.console()
 		.$.DIM <- .$.POINTS$.DIM - 1L
-cater("~quadmesh.R: init : B"); flush.console()
 		.range.check=range.check %<=% .$.DIM
-cater("~quadmesh.R: init : C"); flush.console()
 		.$.TRIANGLE1 <- .$tris(., 1 %,% 1)[[1]]
-print(.$.TRIANGLE1); flush.console()
-catt("^ .$.TRIANGLE1 ^"); flush.console()
-cater("~quadmesh.R: init : D"); flush.console()
 		.$.CENTROID1 <-  .$.TRIANGLE1 %|% centroid
 				# CENTROID OF THE "FIRST" TRIANGLE
-cater("~quadmesh.R: .$.CENTROID1:", .$.CENTROID1); flush.console()
-cater("~quadmesh.R: init : E"); flush.console()
-print(area.coords(.$.TRIANGLE1, .$.CENTROID1)); flush.console()
 		.$.AREA.SIGN <- area.coords(.$.TRIANGLE1, .$.CENTROID1)[1] %|% sign
 				# ALL THE AREA COORDS SHOULD HAVE THE SAME SIGN, AS THE POINT IS AT THE CENTROID
-cater("~quadmesh.R: init : F"); flush.console()
 		. },
 	dim=function(.) .$.DIM,
 	iquad=function(., i)
@@ -99,23 +88,23 @@ cater("~quadmesh.R: init : F"); flush.console()
 		lapply(
 			.$tris(., i),
 			function(m) area.coords(m, point)),
+	.in=function(., i, points) {
+		#ASSUMPTION: QUAD IS CONVEX
+		i <- sign_coords(.$quad(., i), points)
+		!capply(i, 0L %=>% `>` %O% any, T) & # NOT OUTSIDE
+		i[2,] & # NOT ON LINE 2. REMINDER: 0L ==> ON THE LINE
+		i[3,]   # NOT ON LINE 3
+		},
 	`in`=function(., i, point) {
-#cater("in:")
+		if (point %|% is.matrix) return (.$.in(., i, point))
 		AREAS <- .$.area.coords(., i, point)
-#AREAS %|% rbind_l %|% print
-#cat("AREAS[[1]][2]:", AREAS[[1]][2], "\n")
 		if (AREAS[[1]][2] == 0) return (F) # ON THE LINE AT "RIGHT" - BELONGS TO OTHER CELL
 				# INCLUDES CASE WHERE AT "LOWER RIGHT" OR "UPPER RIGHT" CORNER
-#cater("in (A):")
 		if (AREAS[[2]][2] == 0) return (F) # ON THE LINE "ABOVE" - BELONGS TO OTHER CELL
 				# INCLUDES CASE WHERE AT "UPPER LEFT" OR "UPPER RIGHT" CORNER
-#cater("in (B):")
 		if (all(AREAS[[1]] %|% sign != -.$.AREA.SIGN)) return (T) # IN THE FIRST TRIANGLE
-#cater("in (C):")
 		if (all(AREAS[[2]] %|% sign != -.$.AREA.SIGN)) return (T) # IN THE SECOND TRIANGLE
 				# USING "!= -" INSTEAD OF "==" BECAUSE WANT TO sign OF ZERO INDICATES ON THE LINE, COUNTED AS IN THE TRIANGLE
-#cater("in (D):")
-#hrule() %|% cat
 		F },
 	bb=function(., i)
 			rapply(.$quad(., i), range) %|% t,
