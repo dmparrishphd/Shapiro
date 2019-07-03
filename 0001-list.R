@@ -90,7 +90,7 @@ swap.l <- function (l)
     l.join.l(l[c(2, 1)], l[-1][-1]) }
 
 select.l <- function (X, FUN, ...)
-        lapply(X, FUN, ...)  % %  unlist  % %  which
+        lapply(X, FUN, ...) %|% unlist %|% which
 
 sift.l <- function (X, FUN, ...)
         X[select.l(X, FUN, ...)]

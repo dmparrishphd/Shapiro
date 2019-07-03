@@ -20,6 +20,12 @@
 
 # Theme: Functional Programming
 
+`%;;%` <- function (X, Y)
+        c(list(X), list(Y))
+
+`%;%` <- function (X, Y)
+        c(X, list(Y))
+
 `%[[%` <- function (X, i) X[[i]]
 
 enlist <- function (X)
@@ -138,11 +144,25 @@ placeholder <- warning %<=% "PLACEHOLDER"
 variants <- function (FUN, ARGS)
         lapply(ARGS, function(arglist) FUN %^% arglist)
 
-
 `%do%` <- function(FUN, dummy) FUN()
 `%call%` <- `%do%`
 
 lformals <- formals %O% as.list
+
+`%1|n%` <- function(X, FUNs) #TAGS apply
+        lapply %<=% FUNs %-|% (`%|%` %<=% X)
+
+    Doc$`%1|n%` <- '
+        `%1|n%` applies (using lapply) each function of ..2 (a
+        list of functions) to ..1. ..1 is treated as a single
+        entity; members ..2 may or may not treat ..1 as a single
+        entity. The return is a list containing the
+        corresponding returns of ..2.'
+
+`%1(-|)n%` <- `%1|n%` %|% argswap
+
+    Doc$`%1(-|)n%` <- '
+        `%1(-|)n%` is an argswap-ed version of `%1|n%`'
 
 '
 function un

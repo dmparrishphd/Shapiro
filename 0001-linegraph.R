@@ -50,6 +50,7 @@ linegraph <- function (X=NULL, Y=X,
                X  % %  unlist  % %  rmna  % %  max),
         ylim=c(Y  % %  unlist  % %  rmna  % %  min,
                Y  % %  unlist  % %  rmna  % %  max),
+        FUN.plot=plot,
          ...) {
     if (is.null(X)) { linegraph(
             list((seq(17)-1)/16*2),
@@ -74,7 +75,7 @@ linegraph <- function (X=NULL, Y=X,
             xlab=if (i < 2) xlab else HNULL,
             ylab=if (i < 2) ylab else HNULL)
         if (i < 2) par(new=par.new) else par(new=T)
-        do.call(plot, c(args.i.pos, args.i.nom, args.consistent)) }
+        do.call(FUN.plot, c(args.i.pos, args.i.nom, args.consistent)) }
     invisible(NULL) }
 
 '

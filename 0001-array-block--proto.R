@@ -18,7 +18,7 @@
 # END OF COPYRIGHT NOTICE
 
 
-list(
+list( #DEPRECATED USE tile, bb.tile, merge.tile, etc.
 	DOC=list(
 		doc='
 			An obect for handling array data, where only the non-default
@@ -35,9 +35,12 @@ list(
 
 			origin is the n-dimensional index, relative to the parent array,
 			of the first element of the array block.',
-		dim='dim returns the dimension of the array block.',
-		length='length returns the number of elements of the array block.',
-		as.array='as.array returns the array block as an array.',
+		dim='
+			dim returns the dimension of the array block.',
+		length='
+			length returns the number of elements of the array block.',
+		as.array='
+			as.array returns the array block as an array.',
 		origin='
 			origin returns the origin of the array block.
 			See also documentation for init.',
@@ -45,11 +48,11 @@ list(
 			ibb returns the bounding box of indices for the array block.
 			This information might be used for plotting.',
 		merge='
-			merge ',
+			merge',
 		.NULL=NULL ),
-	init=function(., x, origin=NULL) {
+	init=function(., x, origin=x %|% dim %|% arrayInd1 %|% as.vector) {
 		.$.ARRAY <- x
-		.$.ORIGIN <- if (origin %|% is.null) x %|% ndim %|% ones else origin
+		.$.ORIGIN <- origin
 		.$.IBOUNDING.BOX <- rbind(.$.ORIGIN, .$.ORIGIN + dim(x) - 1L) %|% with.dimnames.bb
 		. },
 	dim=function(.) .$.ARRAY %|% dim,
@@ -58,12 +61,14 @@ list(
 	origin=function(.) .$.ORIGIN,
 	ibb=function(.) .$.IBOUNDING.BOX,
 	merge=function(X) {
-		ibb <- lapply(X, X[[1]]$ibb) %|% bb.bb
+		ibb <- lapply(
+			X %|% seq_along,
+			function(k) X[[k]]$ibb(X[[k]])) %|% bb.bb
 		TEMPLATE <- dimension(
 			na(
-				mode=do.call(
-					max_typeof,
-					lapply(X, X[[1]]$as.array %O% first)),
+				mode=do.call(max_typeof, lapply(
+					X %|% seq_along,
+					function(k) X[[k]]$as.array(X[[k]]) %|% first)),
 				length=ibb %|% diff_inclusive %|% prod),
 			ibb %|% diff_inclusive)
 		X[[1]]$init(
@@ -81,8 +86,6 @@ list(
 								as.vector)),
 				TEMPLATE %|% dim),
 		 	ibb[1,])
-
 		},
-#	image_x=function(.) .$.LATTICE.DOMAIN[,1] %|% i.seq.range %|% pred,
-#	image_y=function(.) .$.LATTICE.DOMAIN[,2] %|% i.seq.range %|% pred,
 	.NULL=NULL )
+

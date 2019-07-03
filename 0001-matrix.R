@@ -20,6 +20,40 @@
 #
 
 
+capply  <- function (m, FUN, FUN.VALUE=NULL, ...)
+        vapply(
+            m %|% colNos,
+            function (i, m, ...) FUN(m[, i], ...),
+            if (FUN.VALUE %|% is.null) FUN(m[, 1], ...) else FUN.VALUE,
+            m,
+            ...)
+
+    Doc$capply <- '
+         capply is similar to vapply, but operates on the
+         columns of a matrix.
+         
+         If FUN.VALUE is not speficied, it will be computed by
+         applying FUN to the first column of the matrix argument
+         (arg 1).'
+
+capply1to1 <- function (m, FUNs, FUN.VALUE=NULL, ...)
+        vapply(
+            m %|% colNos,
+            function (i, m, ...) (FUNs  %[[mod% i)(m[, i], ...),
+            if (FUN.VALUE %|% is.null) FUNs[[1]](m[, 1], ...) else FUN.VALUE,
+            m,
+            ...)
+
+    Doc$capply1to1 <- '
+        capply1to1 is similar to capply, except that the second
+        argument is a **** list of functions **** and FUNs[[k]]
+        (modulo #FUNs) will be applied to column k of the
+        primary matrix argument.
+        
+         If FUN.VALUE is not speficied, it will be computed by
+         applying FUNs[[1]] to the first column of the matrix
+         argument (arg 1).'
+
 rowNos <- function(x) x %|% (
         if (x %|% is.matrix) nrow else
         if (x %|% is.vector) `#` else

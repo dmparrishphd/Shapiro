@@ -17,5 +17,28 @@
 #
 # END OF COPYRIGHT NOTICE
 
+`%st%` <- function(n, x) x[[n]]
+`%nd%` <-`%st%`
+`%rd%` <-`%st%`
+`%th%` <-`%st%`
+
+    Doc$`%st%` <- '
+        `%st%`, `%nd%`, `%rd%`, and `%th%` are vector indexing
+        functions, returning the item from the left argument
+        that is specified by the right argument, using `[[`
+        internally. The latter are aliases of the first.'
 
 `%,%` <- function (x, y) c(x, y) # function
+
+as_storage.mode <- function (mode, X) {
+    storage.mode(X) <- mode;   X }
+
+    Doc$as_storage.mode <- '
+        as_storage.mode is a functional version of storage.mode.
+        Intended use: curry the mode, apply the result of
+        currying as a one-argument function.'
+
+as_integer.storage.mode <- as_storage.mode %<=% "integer"
+
+arrayInd.every <- function (.dim) #TAGS array index
+        arrayInd(1:prod(.dim), .dim)

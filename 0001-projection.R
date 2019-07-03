@@ -17,6 +17,25 @@
 #
 # END OF COPYRIGHT NOTICE
 
+
+
+project <- function(projection, points)
+	capply(points, projection, points %|% nrow %|% double)
+
+    Doc$project <- '
+        project returns a point matrix of projected points.
+    
+        Arg 1, projection, is a map projection---a function of
+        an n-dimensional point that returns an n-dimensional
+        point---and
+        
+        arg 2 is a matrix of points (one column per point). 
+
+        The projection argument might be curried from another
+        function that has not only a point as its argument, but
+        several constant parameters as well, such as central
+        meridian, false easting, etc.'
+
 morph.m <- function (mtransformation, mpoints)
     vapply(
         mpoints %|% rowNos,

@@ -160,6 +160,9 @@ line45 <- function (...) lines(
         argument may be used to pass any argument **** EXCEPT
         **** x or y to lines.'
 
+xy.linesv <- function (x)
+        cbind(x.linesv(x), par.usr.y() %,% NA)
+
 linev <- function (x, col=BLK, ...)
 	    lines(rep(x, 2), par.usr.y(), col=col, ...)
 

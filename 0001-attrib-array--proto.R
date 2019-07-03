@@ -39,8 +39,9 @@ list(
         . },
     dim=function (.) .$.DIM,
     `[[`=function(., i)
-        eval(parse(text=
-            ".$.DATA[" %//% `%//%`(prefix(i, HCOMMA)) %//% "]")),
+            .$.DATA[
+                .$.NATTRIBUTES %|% seq %cbind% rrep(i, .$.NATTRIBUTES)],
+        #WAS eval(parse(text=".$.DATA[" %//% `%//%`(prefix(i, HCOMMA)) %//% "]")),
     `[`=function (., m)
             vapply_(
                 m %|% rowNos,

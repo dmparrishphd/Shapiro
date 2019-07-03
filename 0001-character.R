@@ -17,6 +17,28 @@
 #
 # END OF COPYRIGHT NOTICE
 
+strsplitbynewline <- strsplit %|% argswap %<=% HNL
+
+crush.h <- strsplitbynewline %O% first %O%
+        (vapply %|% argswap %<=% trimws %|% argswap %<=% "") %O%
+        anonymize %O% `%//%`
+
+    Doc$crush.h <- '
+        crush.h formats a word that is split among several
+        lines. After splitting by newline, leading and trailing
+        whitespace are removed from each line. Finally, the
+        lines are concatenated. Internal whitespace is
+        preserved.
+
+        >   crush.h("
+                ~/Files/
+                My Documents/
+                Library/
+                SICP/")
+        [1] "~/Files/My Documents/Library/SICP/"
+    ' 
+
+
 split_alpha <-function(x, n=1)
 		split %<=% x %-|% left(x, n)
 

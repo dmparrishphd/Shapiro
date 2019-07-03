@@ -32,7 +32,7 @@ lines_pg <- function (pg, ...)
 
 line.points <- function(points)
 	c(
-		det(points),
+		det2(points),
 		-points %|% secondr %|% diff,
 		+points %|% firstr  %|% diff)
 
@@ -46,23 +46,18 @@ line.points <- function(points)
         c + ax + by = 0
 
         passing through the 2-D points given in the matrix
-        argument.  **** UNLIKE **** many of the R functions,
+        argument.
+
+        When the LHS is evaluated, the result will be positive
+        for points to the "left" of the line and negative for
+        points to the "right" of the line, consistent with the
+        right-hand rule.
+        
+        **** UNLIKE **** many of the R functions,
         each point of the argument occupies a COLUMN, rather
         than a ROW, of the matrix.'
 
-pairwise <- function (FUN, obj, FUN.size=ncol, FUN.extract=cols)
-        rapply(
-           obj %|% FUN.size %|% pairs.n,
-           FUN.extract %<=% obj %O% FUN)
 
-lines_pg <- pairwise %<=% line.points
-
-    Doc$lines_pg <- '
-        lines_pg returns a matrix of lines, one for each pair of
-        points in the polygon argument, one line per column of
-        the return. The order of the lines is consistent with
-        the order of the points of the polygon argument (i.e.,
-        the first line is from point 1 to point 2)'
 
 .rat.spread <- function (m) c(
     m %|% det2 %|% sqr,
@@ -75,15 +70,6 @@ rat.spread <- function (lines)
         rat.spread returns the spread between two lines (arg 1)
         as a ratio.'
 
-rat.spreads.lines <- pairwise %<=% spread.frac
-
-    Doc$rat.spreads.lines <- '
-        rat.spreads.lines returns a matrix of spreads, one for
-        each pair of lines in the lines argument, one spread per
-        column of the return. The order of the spreads is
-        consistent with the order of the points of the lines
-        argument (i.e., the first spread is that between line 1
-        and line 2).'
 
 rat.spreads.pg <- lines_pg %O% spread.fracs.lines
 
@@ -115,7 +101,13 @@ solveline.y <- function(line, y)
 solveline <- function(line, x=NULL, y=NULL) {
 		solution <- .solveline(line, x=x, y=y)
 		replace(solution, solution %|% is.finite %|% `!`, NA) }
-        
+
+eval.lines <- function (lines, points)
+        lines[-1,] %|% t %*% points + lines[1,]
+
+sign_eval.lines <- function (lines, points)
+        compare(lines[-1,] %|% t %*% points, -lines[1,])
+
 line.parallel <- function (line., point.)
         -dot.prod(line.[2:3], point.) %,% line[2:3]
 

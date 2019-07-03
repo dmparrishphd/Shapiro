@@ -18,6 +18,27 @@
 # END OF COPYRIGHT NOTICE
 
 
+
+arrayInd.corners. <- function (.dim)
+        rapply(
+           .dim %|% `#` %|% rep2 %|% arrayInd.every,
+           .dim %|% arrayInd.range %=>% `%[ZZt%`,
+           .dim %|% `#` %|% integer) %|% t
+
+    Doc$arrayInd.corners. <- '
+        arrayInd.corners. is similar to arrayInd.corners, except
+        for the **** ASSUMPTION **** that the dimensions are at
+        least 2 in every direction. If this assumption does not
+        hold, the return will contain duplicates.'
+
+arrayInd.corners <- placeholder
+
+    Doc$arrayInd.corners <- '
+        arrayInd.corners (FUTURE) returns the indices of the
+        corners of an array or vector.'
+
+arrayInd1 <- arrayInd %<=% 1L
+
 array.spec.contiguous <- function (li)
         lapply(li, function(x) swmatch %<=% x)
 
@@ -74,6 +95,7 @@ write.a <- function(x, file=stdout(), ncolumns=1L) {
 
     where * is an end-of-line sequence
 
+    see also write.table.bare.
     '
 
 offset. <- function(X, shift=0L)
