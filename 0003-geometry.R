@@ -18,6 +18,17 @@
 # END OF COPYRIGHT NOTICE
 
 
+
+rat.spreads.lines <- pairwise %<=% rat.spread
+
+    Doc$rat.spreads.lines <- '
+        rat.spreads.lines returns a matrix of spreads, one for
+        each pair of lines in the lines argument, one spread per
+        column of the return. The order of the spreads is
+        consistent with the order of the points of the lines
+        argument (i.e., the first spread is that between line 1
+        and line 2).'
+
 Doc$point <- '
     A point is a vector of values or an n x 1 matrix with one
     value per dimension, in that order.'
@@ -32,10 +43,36 @@ max_pt <- rapply %|% argswap %<=% max #TAGS upper right corner bounding box
 bb.pt <- function (points) #TAGS bounding box
         applyf(points, min_pt %,% max_pt) %|% rbind_l
 
+pg.bb <- function (bb) #TAGS bounding box polygon
+        bb["1 3   2 3   2 4   1 4" %|% i.h] %|% matrix2r
+
 bb.bb <- function (bounding.box.list)
         capply(
             do.call(rbind, bounding.box.list),
             range)
+
+ipt.bb <- function (bb, .ibb=capply1to1(bb, ceiling %,% floor)) #TAGS points bounding box
+        .ibb %|% diff_inclusive %|% m.indices %|% pred %|% t + .ibb[1,]
+
+    Doc$ipt.bb <- '
+        ipt.bb returns the integer-valued points within
+        (inclusive) the bounding box given. 
+    
+        > m
+
+        [,1] [,2]
+
+        [1,]   -1    1
+
+        [2,]   -1    1
+
+        > ipt.bb(m)
+
+             [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9]
+
+        [1,]   -1    0    1   -1    0    1   -1    0    1
+
+        [2,]   -1   -1   -1    0    0    0    1    1    1'
 
 dimnames_bb <- function (bb)
         list("MIN" %,% "MAX", prefix(bb %|% colNos, "DIM"))

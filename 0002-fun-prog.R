@@ -32,6 +32,23 @@
 #       Old Name: fun-prog.R
 
 
+
+pairwise <- function (X, FUN, FUN.VALUE=NULL, FUN.size=ncol, FUN.extract=cols %<=% X) #TAGS apply
+        capply(X %|% FUN.size %|% pairs.n,   FUN.extract %O% FUN, FUN.VALUE)
+
+    Doc$pairwise <- '
+        pairwise applies the function FUN to pairs of objects
+        extracted from the object obj. The FUN.size argument is
+        a function of obj and returns the size of an extracted
+        object.  The FUN.extract function returns two extracted
+        objects.
+
+        **** NOT TESTED **** for other than cases where obj is a
+        matrix, and FUN.size and FUN.extract are default.
+
+        See m.lines.pg for an example.'
+
+
 mimd <- function (
     info=list(),
     FUNs=list(constant(NULL)),

@@ -18,6 +18,22 @@
 # END OF COPYRIGHT NOTICE
 
 
+
+m.lines.pg <- pairwise  %|% argswap %<=% line.points
+
+    Doc$m.lines.pg <- '
+        m.lines.pg returns a matrix of lines, one for each pair
+        of points in the polygon argument, one line per column
+        of the return. The order of the lines is consistent with
+        the order of the points of the polygon argument (i.e.,
+        the first line is from point 1 to point 2)
+        
+        HISTORY
+        
+        renamed to m.lines.pg from lines_pg to avoid name
+        conflict with lines_pg, which plots a polygon.'
+
+
 quadrance.m <- diff %O% ssq
 
     Doc$quadrance.m <- '

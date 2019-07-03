@@ -18,20 +18,6 @@
 # END OF COPYRIGHT NOTICE
 
 
-capply  <- function (m, FUN, FUN.VALUE=NULL, ...)
-        vapply(
-            m %|% colNos,
-            function (i, m, ...) FUN(m[, i], ...),
-            if (FUN.VALUE %|% is.null) FUN(m[, 1], ...) else FUN.VALUE,
-            m,
-            ...)
-
-    Doc$capply <- '
-         capply is similar to vapply, but operates on the
-         columns of a matrix. If FUN.VALUE is not speficied, it
-         will be computed by applying FUN to the first column of
-         the matrix argument (arg 1).'
-
 rapply  <- function (m, FUN, FUN.VALUE=NULL, ...)
         vapply(
             m %|% rowNos,

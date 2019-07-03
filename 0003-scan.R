@@ -18,6 +18,64 @@
 # END OF COPYRIGHT NOTICE
 #
 #
+
+scan.line.length <- function (...)
+        scan(nlines=1, ...) %|% `#`
+
+    Doc$scan.line.length <- '
+        scan.line.length is a wrapper for scan. It scans one
+        line of the file specified, and returns its length
+        (number of items scan-ned.)'
+
+scan.entire.as.matrix. <- function (file="", ...)
+        matrix(
+            data=scan(file=file, ...),
+            nrow=scan.line.length(file=file, ...))
+
+    Doc$scan.entire.as.matrix. <- '
+        scan.entire.as.matrix. is basically the same as matrix
+        (where ncol, byrow, and dimnames are default values),
+        except that the matrix data argument is populated by
+        scan-ning from file according to ...
+
+        scan.entire.as.matrix. scan-s the speficied file;
+        internally, file and ... are passed to scan. The items
+        returned from scan are passed to matrix as data. The
+        nrow argument is interpreted from the
+        first line of file (the number of items scan-ned) and
+        the other dimension is computed internally by matrix.
+
+        The return may be transposed (instead of specifying
+        byrow=T). Similarly, dimnames may be added the return.
+        '
+
+scan.entire.as.matrix <- #DEPRECATED USE scan.entire.as.matrix.  with t, with_dimnames, etc.
+        function (file="", nrow=1, ncol=1, byrow=F, dimnames=NULL, ...) {
+    DATA <- scan(file=file, ...)
+    N <- scan.line.length(file=file, ...)
+    if (byrow) { NCOL <- N;   NROW <- DATA %|% `#` %\% NCOL
+    } else     { NROW <- N;   NCOL <- DATA %|% `#` %\% NROW }
+    matrix(DATA, nrow=NROW, ncol=NCOL, byrow=byrow, dimnames=dimnames) }
+
+    Doc$scan.entire.as.matrix <- '
+        scan.entire.as.matrix is basically the same as matrix,
+        except that the matrix data argument is populated by
+        scan-ning from file according to ...
+
+        scan.entire.as.matrix scan-s the speficied file;
+        internally, file and ... are passed to scan. The items
+        returned from scan are passed to matrix as data. One
+        dimension (either nrow or ncol) is interpreted from the
+        first line of file (the number of items scan-ned) and
+        the other dimension is computed by dividing that
+        dimension into the number of data items, using ****
+        CEILING DIVISION **** (i.e., rounding nonzero fractional
+        parts up to the nearest integer).
+
+        nrow and ncol are dummy arguments. FUTURE: allow
+        specification of nrow and ncol in a manner consistent
+        with matrix.'
+
 scan.entire.as.integer <- function (file) scan(file, what=integer())
 
 scan.entire.as.mask <- function (file) {
@@ -61,6 +119,11 @@ line.count.cn <- function(con) {
 
 scan.lines <- curry(scan, what=character(), sep="\n",
         na.strings=NULL, blank.lines.skip=F)
+
+    Doc$scan.lines <- '
+        scan.lines is a curried version of scan with minimal
+        processing: it merely separates the character vectors by
+        newline.'
 
 scan.lines.head = function (file="", n=1, ...)
         scan.lines(file=file, n=n, ...)

@@ -52,7 +52,7 @@ lsb <- floor %O% as.integer %O% lsb.n
 
     Doc$lsb.n <- Doc$lsb
 
-u.r <- function(r)
+#u.r <- function(r)
 
 
 
