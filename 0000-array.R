@@ -17,6 +17,34 @@
 #
 # END OF COPYRIGHT NOTICE
 
+
+
+a.dummy <- function (dim)
+        array(
+            rapply(
+                as_storage.mode(
+                    "character",
+                    arrayInd(
+                        dim %|% prod %|% seq,
+                        dim) %|% cflip),
+                `%//%`),
+              dim)
+
+    Doc$a.dummy <- '
+        a.dummy returns an array of the given dimensions.
+    
+        Provided that no dimension is greater than 9, each
+        character string element of the return corresponds
+        directly to its array index (LSB at right).
+
+        > a.dummy(2:3)
+        
+            [,1] [,2] [,3]
+
+        [1,] "11" "21" "31"
+
+        [2,] "12" "22" "32"'
+
 unique.a <- as.vector %O% unique
 
     Doc$unique.a <- '

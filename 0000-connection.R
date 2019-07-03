@@ -20,6 +20,8 @@
 
 file.read.only <- "r" %=:% "open" %v% file
 
+file.read.only.binary <- "rb" %=:% "open" %v% file
+
 '
 endianness.default = "little"
 

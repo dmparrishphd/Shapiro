@@ -18,6 +18,46 @@
 # END OF COPYRIGHT NOTICE
 
 
+
+`%*drop%` <- `%*%` %O% as.vector
+
+    Doc$`%*drop%` <- '
+        `%*drop%` is the same as `%*%`, except that the return
+        is converted to a vector.'
+
+isign <- sign %O% as_integer.storage.mode
+ifloor <- floor %O% as_integer.storage.mode
+iceiling <- ceiling %O% as_integer.storage.mode
+
+    Doc$ifloor <- '
+        ifloor, iceiling, and isign are the same as floor,
+        ceiling, and sign except that the return is an integer
+        vector.'
+
+    Doc$iceiling <- Doc$ifloor
+
+compare <- `-` %O% isign
+compare0 <- isign
+
+    Doc$compare <- '
+        compare returns a vector of signs (each -1L, 0L, or 1L)
+        of the (signed) difference between the primary argument
+        (minuend) and the secondary argument (subtrahend).
+        
+        compare0 is similar to compare, except that,
+        effectively, the secondary argument (subtrahend) is
+        fixed at zero.
+        
+        > compare0(-2:2)
+
+        [1] -1 -1  0  1  1
+
+        > compare(-2:2, -1)
+
+        [1] -1  0  1  1  1 '
+
+    Doc$compare0 <- Doc$compare
+
 `%\\%` <- function(i, j) #TAGS rounding division ceiling
         i %% j %|% as.logical   +   i %/% j
 
@@ -156,8 +196,10 @@ ipow2 <- seq %O% (`[` %<=% iPOW2)
 
     Doc$ipow2 <- 'ipow2 returns the first n (arg 1 powers of 2), 1 <= n <= 31.'
 
-as_integer.bb <- function (bb)
+as_integer.b <- function (bb)
         (bb * ipow2(bb %|% `#`)) %|% sum
+
+as_integer.bb <- as_integer.b #DEPRECATED USE as_integer.b
 
     Doc$as_integer.b <- '
         as_integer.b returns the integer equivalent of the

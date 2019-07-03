@@ -20,14 +20,27 @@
 #
 
 
+m.indices <- function (dims) #TAGS index matrix array
+        arrayInd(dims %|% prod %|% seq, dims)
+
+m.indices.a <- function (a) #TAGS index matrix array
+        m.indices(a %|% dim)
+
+    Doc$m.indices <- '
+        m.indices returns a matrix index whose rows contain
+        every n-dimensional index of the array whose dimensions are
+        specified by the argument.'
+
+    Doc$m.indices.a <- '
+        m.indices.a is similar to m.indices, except that the
+        argument is an array rather than the dimensions of an
+        array.'
+
 m. <- function() matrix(1:6, nrow=2)
 
     Doc$m. <- '
         m. returns a 2-row matrix with the elements 1:6.
         Intended for use in testing.'
-
-matrix. <- function (data=NA, nrow=1) {
-     }
 
 det2 <- function (m)
         m[1] * m[4] - m[2] * m[3]
@@ -96,7 +109,7 @@ cdiff <- t %O% diff %O% t
 
 rest.m <- function(m) m[1, , drop=F]
 
-m.FUN.m..v. <- function(FUN)
+m.FUN.m..v. <- function(FUN) #DEPRECATED USE FUN
         function(m, v) FUN(m, v)
 
 m.FUN.m..v <- function(FUN)
@@ -109,7 +122,11 @@ m.FUN.m..v <- function(FUN)
         equal to the number of columns (rows) of the matrix. The
         return of the returned function is a matrix of the same
         dimensions as the primary argument of the return. See
-        m.add.m..v for an example.'
+        m.add.m..v for an example.
+        
+        **** WARNING **** Expect strange results if the number
+        of elements of the vector argument is not aligned with
+        the matrix argument.'
 
 m.add.m..v <- m.FUN.m..v(`+`)
 
@@ -127,15 +144,20 @@ m.add.m..v <- m.FUN.m..v(`+`)
 
 
 `%[ZZ%` <- function(m, j) m[cbind(seq(nrow(m)), j)]
+`%[ZZt%` <- function(m, i) m[cbind(i, seq(ncol(m)))]
 '
 `%[ZZ%` #TAGS indexing matrix zigzag christmas tree extract
 '   
     Doc$`%[ZZ%` <- '
         The %[ZZ% infix operator takes a matrix m for the
-        left-operand and a vector j for the right-operand.  The
+        left-operand and a vector j for the rightrrrerand.  The
         return is a vector of values m[1, j1], m[2, j2], ...
         m[n, jn].'
 
+    Doc$`%[ZZt%` <- '
+        `%[ZZt%` is similar to `%[ZZ%`, except that the arg 2
+        specifies the row rather than the column.  The return is
+        a vector of values m[i1, 1], m[i2, 2], ...  m[in, n].'
 
 n.row.m <- nrow # function DEPRECATED. Use nrow
 n.col.m <- ncol # function DEPRECATED. Use ncol

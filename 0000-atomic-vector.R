@@ -17,6 +17,10 @@
 #
 # END OF COPYRIGHT NOTICE
 
+is.atomic.vector <- function (x)
+        x %|% is.vector &&
+        x %|% is.list %|% `!`
+
 pretty.b <- function (b, symbols=c("T", "F", "Z"))
         array(symbols[match(b, c(T,F,NA))], b %|% dim.) %|% drop
 

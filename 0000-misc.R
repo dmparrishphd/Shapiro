@@ -20,6 +20,7 @@
 #
 ### R Script
 
+
 as.vector0 <- function (...)
     lapply(lapply(list(...), typeof), vector) %|% unlist
 
@@ -174,8 +175,11 @@ iNA <- NA_integer_
         argument; applying ! twice would produce the logical
         identity.'
 
-cbind_ <- function(...) cbind(..., deparse.level=0)
-rbind_ <- function(...) rbind(..., deparse.level=0)
+cbind0 <- function(...) cbind(..., deparse.level=0)
+rbind0 <- function(...) rbind(..., deparse.level=0)
+
+cbind_ <- cbind0
+rbind_ <- rbind0
 
     Doc$cbind_ <- '
         cbind_ is a simplified version of cbind (deparse.level
@@ -195,6 +199,15 @@ rbind_l <- function (l) do.call(rbind_, l)
     Doc$rbind_l <- '
         rbind_l takes a list of items and rbinds them with
         deparse.level=0.'
+
+arrayInd.range <- function (.dim) #TAGS array index
+        rbind_(1L, .dim %|% floor %|% as.integer)
+
+    Doc$arrayInd.range <- '
+        arrayInd.range returns a 2-row matrix. Each column
+        contains the range of indices corresponding to the array
+        with the dimensions given by arg 1.'
+
 
 vector1 <- function(mode="logical", length=1L)
         vector(mode=mode, length=length)
@@ -283,7 +296,7 @@ diff_inclusive <- diff %O% succ
         the square bracket indicates an included value.
         
         cf. diff_inclusive. See also
-        https://en.wikipedia.org/wiki/Counting#Inclusive_counting'.
+        https://en.wikipedia.org/wiki/Counting#Inclusive_counting'
 
 # rearrangement
 
@@ -465,10 +478,11 @@ anonymize.v <- function (x) {
         names(x) <- NULL
     x }
 
-anonymize.m <- function (x) {
-    colnames(x) <- NULL
-    rownames(x) <- NULL
+anonymize.a <- function (x) {
+    dimnames(x) <- NULL
     x }
+
+anonymize.m <- anonymize.a
 
 anonymize.df <- function (x) {
         names(x) <- NULL
@@ -479,7 +493,7 @@ anonymize.df <- function (x) {
         if (is.data.frame(x)) anonymize.df else
         if (is.list      (x)) anonymize.v  else
         if (is.vector    (x)) anonymize.v  else
-        if (is.array     (x)) anonymize.m  else
+        if (is.array     (x)) anonymize.a  else
                               identity
 
 anonymize <- function(x) .anonymize(x)(x)
@@ -580,6 +594,22 @@ extract_along <- function(x, i, na=NA) {
 	tmp <- among.indices.of(x, i)
 	y[which(tmp)] <- x[i[tmp]]
 	y }
+
+    Doc$extract_along <- '
+        The behavior of extract_along should be identical to
+        `[`, for linear indices (e.g., x[i]) provided that all
+        members of i are positive integers and the optional na
+        argument is the default value of NA.
+
+        For each negative value in i, the return contains the
+        scalar value specified by the optional na argument.
+
+        Originally intended to select data representing a
+        geographic extent, where a NA could represent "off sheet."
+
+        > extract_along(1:3, -5:5)
+
+        [1] NA NA NA NA NA NA  1  2  3 NA NA'
 
 block.extract <- function(x, from, to, na=NA) {
 	y <- rep(na, 1L + to - from)
@@ -1143,7 +1173,12 @@ purge.FUN <- function (v, FUN) v[v != FUN(v)]
 
 # integer
 
-ones <- function (n) rep(1L, n)
+ones <- rep.int %<=% 1L
+
+    Doc$ones <- '
+        ones returns a vector of the length specified by the
+        argument. All the elements are 1L.'
+
 dieroll <- function (m=1L, n=6L) 1L + as.integer(runif(n=m, max=n))
 cointoss <- function (n=1L) runif(n, max=2)  % %  as.integer  % %  as.logical
 
@@ -1860,23 +1895,6 @@ function brand
         is expected to return a value equal to 21, on average.
 
 
-function extract_along
-
-        The behavior of this function should be identical to
-        `[`, for linear indices (e.g., x[i]) provided that all
-        members of i are positive integers and the optional na
-        argument is the default value of NA.
-
-        For each negative value in i, the return contains the
-        scalar value specified by the optional na argument.
-
-        Originally intended to select data representing a
-        geographic extent, where a NA could represent "off sheet."
-
-        Examples:
-
-                > extract_along(1:3, -5:5)
-                 [1] NA NA NA NA NA NA  1  2  3 NA NA
 
 function squish : scale
 

@@ -18,39 +18,7 @@
 # END OF COPYRIGHT NOTICE
 
 
-`%[L%` <- function (x, l)
-        do.call(`[`, x %|% list %,% l)
-
-li.dim <- function (.dim) # array indices
-        lapply(.dim, seq)
-
-    Doc$li.dim <- '
-        li.dim returns a list that contains, for each dimension
-        of the dim vector argument, the corresponding natural
-        indices.
-        
-        > li.dim(c(3, 2))
-
-        [[1]]
-
-        [1] 1 2 3
-
-        [[2]]
-
-        [1] 1 2'
-
-slice.along <- function (x, i, dimNo=1) { #TAGS array extract
-    l <- x %|% dim %|% li.dim
-    l[[dimNo]] <- i
-    x %[L% l }
-
-    Doc$slice.along <- '
-        slice.along extracts elements of arg 1 (an array) by
-        taking only those elements whose indices match arg 2
-        along dimension number arg 3.
-
-
-
-
-
-        '
+.synnode <- `%1(-|)n%` %<=% list(prod, diff) %O% abs
+        #REF https://en.wikipedia.org/wiki/Orbital_period
+        # APPARENTLY, IF SIGNAL IS NON-SYNUSOIDAL, MAY NEED TO
+# DOUBLE THIS PERIOD TO GET THE SYNNODIC PERIOD

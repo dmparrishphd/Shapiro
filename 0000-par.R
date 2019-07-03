@@ -60,9 +60,10 @@ par.usr.per.in   <- function () par.usr.per.in.x() %,% par.usr.per.in.y()
 par.usr.x.in <- function (xin) xin / par.usr.per.in.x()
 par.usr.y.in <- function (yin) yin / par.usr.per.in.y()
 par.mai <- function (i=NULL) if (i %|% is.null) par()$mai else par()$mai[i]
-par.mar <- function (i=NULL) if (i %|% is.null) par()$mar else par()$mar[i]
-par.mar.NAMES <- c("BOTTOM", "LEFT", "TOP", "RIGHT")
-par.mar.named <- function() rename.all(par.mar(), par.mar.NAMES)
+par.mar <- par %<=% "mar"
+PAR.MAR.NAMES <- c("BOTTOM", "LEFT", "TOP", "RIGHT")
+par.mar.NAMES <- PAR.MAR.NAMES #DEPRECATED USE PAR.MAR.NAMES
+par.mar.named <- function() rename.all(par.mar(), PAR.MAR.NAMES)
 xy.par.mar <- function () warning("PLACEHOLDER: function to return xy matrix of mar")
 xy.par.mai <- function () warning("PLACEHOLDER: function to return xy matrix of mai")
 par.mai.bottom <- par.mai %<=% 1
@@ -83,6 +84,13 @@ par.mar.bottom <- function () par.mar(1)
 par.mar.left   <- function () par.mar(2)
 par.mar.top    <- function () par.mar(3)
 par.mar.right  <- function () par.mar(4)
+par.mar.mutate <- function (
+        bottom=NULL, left=NULL, top=NULL, right=NULL) {
+    if (bottom %|% is.null) bottom <- par.mar.bottom()
+    if (left %|% is.null) left <- par.mar.left()
+    if (top %|% is.null) top <- par.mar.top()
+    if (right %|% is.null) right <- par.mar.right()
+    par(mar=c(bottom, left, top, right)) }
 H.PAR.MAI <- words.h("bottom left top right")
 H.PAR.MAR <- H.PAR.MAI
 par.mai.h <- function (h) par()$mai[which1(h == H.PAR.MAI)]
@@ -126,6 +134,14 @@ par.mar.lpi <- function(precision=1024)
 
     Doc$par.mar.named <- "par.mar.named returns the margins (in
         line units) with names that indicate which is which."
+
+x.linesv <- function (x)
+        rbind(x, x, rep(NA, x %|% `#`)) %|% as.vector
+
+y.linesh <- x.linesv
+
+y.linesv <- function (x)
+        rep(par.usr.y() %,% NA, x %|% `#`)
 
 '
 function pairs.xy : lines segments

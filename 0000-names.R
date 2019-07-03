@@ -19,6 +19,36 @@
 #
 #
 
+
+
+with_dimnames <- function (x, dimnames.) {
+    dimnames(x) <- dimnames.;   x }
+
+    Doc$with_dimnames <- '
+        with_dimnames is a functional version of dimnames.'
+
+regular.dimnames <- function(.dim, prefixes=LETTERS[.dim %|% seq_along], sep=" ")
+		lapply(
+			.dim %|% seq_along,
+			function(k) paste(prefixes[k], .dim[k] %|% seq, sep=sep))
+
+    Doc$regular.dimnames <- '
+        regular.dimnames returns a list that can be used as arg
+        2 of dimnames<-. The names are produced by postfixing
+        the first few natural numbers (as character strings) to
+        the specified prefixes.
+
+        > regular.dimnames(c(2, 3), sep=".")
+
+        [[1]]
+
+        [1] "A.1" "A.2"
+
+        [[2]
+
+        [1] "B.1" "B.2" "B.3"'
+
+
 rename.all <- function (x, newnames=NULL) {
     names(x) <- newnames;   x }
 
