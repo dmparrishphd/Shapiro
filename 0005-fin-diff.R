@@ -84,7 +84,51 @@ i.edge1.b <- xorr %O% which1
         no edges, NA is returned.'
 
 orr.m  <- .reflex.m %<=% `|` # function
-xorr.m <- .reflex.m %<=% xor # function
+xorr.m <- .reflex.m %<=% xor #TAGS EOR XOR Exclusive Or
+
+    Doc$xorr.m <- '
+        Reflexive xor (for matrices)
+
+        See also xorr
+
+        Returns a logical matrix whose values are determined by
+        xor-ing adjacent columns or rows, depending upon the
+        optional byrow argument, which defaults to F.
+
+        Originally developed for raster contouring.
+
+        Examples:
+
+                > m
+                      [,1]  [,2]
+                [1,] FALSE FALSE
+                [2,] FALSE  TRUE
+                [3,]  TRUE FALSE
+                [4,]  TRUE  TRUE
+                > # dimension "corrects" the demotion to vector
+                > dimension(xorr.m(m), c(4, 1))
+                    [,1]
+                [1,] FALSE
+                [2,]  TRUE
+                [3,]  TRUE
+                [4,] FALSE
+                > xorr.m(m, byrow=T)
+                    [,1] [,2]
+                [1,] FALSE TRUE
+                [2,]  TRUE TRUE
+                [3,] FALSE TRUE'
+
+csmear <- function(m)
+        F %cbind% m | m %cbind% F
+
+rsmear <- function(m)
+        F %rbind% m | m %rbind% F
+
+chalf.edges.m <- xorr.m %O% csmear
+rhalf.edges.m <- xorr.m %^% list(byrow=T) %O% rsmear
+
+xorr2.m <- function(m)
+    anonymize(m %|% chalf.edges.m | m %|% rhalf.edges.m)
 
 c.grad.m <- function(m)
         matrix(
@@ -338,38 +382,6 @@ function xorr : EOR XOR Exclusive Or
         return can be thought of as a backward or forward
         difference, of sorts.
 
-function xorr.m : EOR XOR Exclusive Or
-
-        Reflexive xor (for matrices)
-
-        See also xorr
-
-        Returns a logical matrix whose values are determined by
-        xor-ing adjacent columns or rows, depending upon the
-        optional byrow argument, which defaults to F.
-
-        Originally developed for raster contouring.
-
-        Examples:
-
-                > m
-                      [,1]  [,2]
-                [1,] FALSE FALSE
-                [2,] FALSE  TRUE
-                [3,]  TRUE FALSE
-                [4,]  TRUE  TRUE
-                > # dimension "corrects" the demotion to vector
-                > dimension(xor.m(m), c(4, 1))
-                    [,1]
-                [1,] FALSE
-                [2,]  TRUE
-                [3,]  TRUE
-                [4,] FALSE
-                > xor.m(m, byrow=T)
-                    [,1] [,2]
-                [1,] FALSE TRUE
-                [2,]  TRUE TRUE
-                [3,] FALSE TRUE
 
 function .scale
 

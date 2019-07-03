@@ -346,29 +346,19 @@ function(
     ShapirEnv <<- new.env(parent=globalenv())
     #cat("shapir.R (post precleaning):\n")
 
-#ShapirEnv$Doc$.reattach <- '
-        #**** FOR INTERNAL USE ****
-        #ASSUMES ShapirEnv is at position 2 in search path.
-        #Used for bootstrapping Shapiro, to enable using
-        #functions as soon as they are defined.
-        #'
-
-    #ShapirEnv$
 .reattach <- function() {
-    cat("\n\n")
-    cat("--------\n")
-    cat("shapir.r: function: internal function .reattach: search() (before):\n")
-    print(search())
-    #print(names(search))
-    #SE <- "ShapirEnv"
     while ("ShapirEnv" %in% search()) detach("ShapirEnv")
     attach(ShapirEnv)
-    cat("shapir.r: function: internal function .reattach: search() (after):\n")
-    print(search())
     NULL }
 
-#attach(ShapirEnv) # WANT TO USE reattach
-    #cat("shapir.R (AA)\n:")
+    ShapirEnv$Doc$.reattach <- '
+        .reattach is intended for **** INTERNAL USE. **** It
+        **** ASSUMES **** ShapirEnv is at position 2 in the
+        search path.  Originally intended to be used for
+        bootstrapping Shapiro, to enable using functions as soon
+        as they are defined.'
+
+    #ShapirEnv$
 
     ShapirEnv$Doc <<- list("")
             # FIRST ELEMENT IS SPECIAL. USED BY doc FUNCTION.

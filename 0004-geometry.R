@@ -93,6 +93,14 @@ area.coords <- function (polygon, point)
         another or to their sum. Each value is equal to TWICE
         the signed area of the corresponding triangle.'
 
+sign_coords <- function (polygon, points)
+        sign_eval.lines(m.lines.pg(polygon), points)
+
+    Doc$sign_coords <- '
+        sign_coords is similar to area.coords, except that more
+        than one point may be given, and the result is a matrix
+        with one column per point and one row per polyogn-side.'
+
 proportion <- function (x, known, index.known=1)
         known * x / x[index.known]
 

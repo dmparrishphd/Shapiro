@@ -36,7 +36,7 @@ overlay <- function(...) #TAGS mask prefer combine or graphic image transparent 
 
 overlay.m <- function(...) #TAGS mask prefer combine or graphic image transparent transparency
         dimension(
-            overlay(parallelize(...)  % %  t),
+            overlay(parallelize(...) %|% t),
             dim(list(...)[[1]]))
 
     Doc$overlay <- '
