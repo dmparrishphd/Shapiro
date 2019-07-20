@@ -19,6 +19,22 @@
 
 
 
+round2 <- function (x, digits=0) {
+    k <- 2 ^ digits
+    round(x * k) / k }
+
+    Doc$round2 <- '
+        round2 is a base-2 version of round. The digits argument
+        refers to the number of binary digits to the right of
+        the ones place. **** NOT TESTED **** for n < 0. ****
+        NOT TESTED **** for non-integral values of n.
+       
+        > round2(c(1.375, 1.5, 1.875, 2.5, 3.5))
+        [1] 1 2 2 2 4
+        > round2(c(1:2/3, 1:4/5), 2)
+        [1] 0.25 0.75 0.25 0.50 0.50 0.75
+        '
+
 `%*drop%` <- `%*%` %O% as.vector
 
     Doc$`%*drop%` <- '

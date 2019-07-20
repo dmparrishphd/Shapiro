@@ -19,6 +19,39 @@
 #
 #
 
+igrid.regular <- function (.dim)
+        arrayInd(.dim %|% prod %|% seq, .dim)
+
+    Doc$igrid.regular <- '
+        igrid.regular returns a matrix index of the grid-centers
+        of a reguar grid (topologically Cartesian) having the
+        dimensions given by the argument.'
+
+grid_regular.aligned <- function (X) {
+    i <- igrid.regular(vapply(X, `#`, 1L))
+    vapply(
+        X %|% seq_along,
+        function(k) X[[k]][i[,k]],
+        vector(mode=X[[1]] %|% typeof, length=i %|% nrow)) }
+
+    Doc$grid_regular.aligned <- '
+        grid_regular.aligned returns a matrix of n-dimensional
+        grid-centers of a reguar grid (Cartesian). The
+        coordinates of the points are specified in a
+        per-direction basis by the list argument, which has one
+        element per direction.
+
+        > grid_regular.aligned(list(10 * 1:2, 100 * 1:3))
+
+             [,1] [,2]
+        [1,]   10  100
+        [2,]   20  100
+        [3,]   10  200
+        [4,]   20  200
+        [5,]   10  300
+        [6,]   20  300
+    '
+
 centroid <- function (triangle)
         capply(triangle, mean)
 

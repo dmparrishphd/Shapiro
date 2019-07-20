@@ -19,6 +19,13 @@
 
 
 
+page <- function (a, n=1) #TAGS array 3D 3-D slice
+        a[,,n]
+
+    'page returns the n-th (arg 2) matrix of the 3-D array
+    argument (arg 1).'
+
+
 a.dummy <- function (dim)
         array(
             rapply(
@@ -102,7 +109,7 @@ slice.big.dim <- dim %O% except.last
 
 slice.big.length <- slice.big.dim %O% prod
 
-l.unstack.a <- function (a) #TAGS index indices split
+l.unstack.a <- function (a) #TAGS index indices split inside outside upside down
     if (a %|% dim %|% `#` < 2) { list(a)
     } else {
         LENGTH <- a %|% slice.big.length
@@ -121,7 +128,14 @@ l.unstack.a <- function (a) #TAGS index indices split
         initial index corresponds to the "slowest" grouping of
         the original structure; i.e., if X[i, j, k] refers to an
         element of the original array, then Y[[k]][i, j] refers
-        to the same element in the return.'
+        to the same element in the return.
+        
+        DETAILS
+
+        Array storage in R is in a certain order.  indices
+        proceed from fastest to slowest, left to right.
+        l.unstack.a can be used to invert conceptually the order
+        of indexing.'
 
 a.stack.l <- placeholder()
 

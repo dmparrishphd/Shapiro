@@ -91,6 +91,25 @@ par.mar.mutate <- function (
     if (top %|% is.null) top <- par.mar.top()
     if (right %|% is.null) right <- par.mar.right()
     par(mar=c(bottom, left, top, right)) }
+
+    Doc$par.mar.mutate <- '
+        par.mar.mutate *MUTATES* the "mar" par-ameter by setting
+        the elements specified by name. If a given argument is
+        unspecified or NULL, the corresponding element is left
+        unchanged.'
+par.mai.mutate <- function (
+        bottom=NULL, left=NULL, top=NULL, right=NULL) {
+    if (bottom %|% is.null) bottom <- par.mai.bottom()
+    if (left %|% is.null) left <- par.mai.left()
+    if (top %|% is.null) top <- par.mai.top()
+    if (right %|% is.null) right <- par.mai.right()
+    par(mai=c(bottom, left, top, right)) }
+
+    Doc$par.mai.mutate <- '
+        par.mai.mutate *MUTATES* the "mai" par-ameter by setting
+        the elements specified by name. If a given argument is
+        unspecified or NULL, the corresponding element is left
+        unchanged.'
 H.PAR.MAI <- words.h("bottom left top right")
 H.PAR.MAR <- H.PAR.MAI
 par.mai.h <- function (h) par()$mai[which1(h == H.PAR.MAI)]

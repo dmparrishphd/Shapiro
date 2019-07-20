@@ -909,7 +909,24 @@ as_logical_strict <- function (x, na=F)
 
 constant <- function(x) function(...) x
 
-rmna <- function(v) v[!is.na(v)]
+ibna <- function(x) x %|% is.na
+
+    Doc$ibna <- '
+        ibna returns a logical index of all the NA values in the
+        vector argument.'
+
+#rmna <- function(v) v[!is.na(v)]
+rmna <- function(x) x[ibna %|% un %-|% x]
+
+    Doc$rmna <- '
+        rmna returns a modified copy of the vector argument
+        where all NA values of the original are absent.'
+
+rmz <- function(x) x[!!x]
+
+    Doc$rmna <- '
+        rmz returns a modified copy of the vector argument
+        where all zero values of the original are absent.'
 
 ### Functions dependent on other functions in this file
 
@@ -1049,10 +1066,6 @@ colors.random <- function (
     acolors <- colors()[lapply(patterns.exclude, function(h) grep(h, colors()))  % %
             unlist  % %  unique  % %  `-`]
     acolors[ceiling(`#`(acolors) *  runif(n))] }
-
-TRANSPARENT <- "#00000000" #value was: transparent
-BLK <- "#000000" #value black
-WHT <- "#FFFFFF" #value white
 
 .hclh64 = i.h("2 1 0 13 11 8 5 3") * 360/16
 .hcll64 = seq(from=25, to=75, length.out=length(.hclh64))
