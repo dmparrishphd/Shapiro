@@ -20,6 +20,12 @@
 
 # Theme: Functional Programming
 
+fnNULL <- function(...){}
+
+    Doc$fnNULL <- '
+        fnNULL accepts any arguments and returns NULL;
+        intended for use during testing.'
+
 `%;;%` <- function (X, Y)
         c(list(X), list(Y))
 

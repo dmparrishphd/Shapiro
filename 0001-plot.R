@@ -20,7 +20,7 @@
 rect. <- rect %^% list(lend="SQUARE" %|% lend.h, ljoin="MITRE" %|% ljoin.h)
 
     Doc$rect. <- '
-        rect. is a version of rect with lend set to SQURE and
+        rect. is a version of rect with lend set to SQUARE and
         ljoin set to MITRE. Produces a rectangular frame that is
         noticibly different with larger lwd values.'
 
@@ -30,7 +30,8 @@ rect.exo <- function(xleft, ybottom, xright, ytop, lwd.in, ...) {
 		xleft   - LWD2[1],
 		ybottom - LWD2[2],
 		xright  + LWD2[1],
-		ytop    + LWD2[2], ...) }
+		ytop    + LWD2[2],
+        xpd=T, ...) }
 
     Doc$rect.exo <- '
         rect.exo draws a rectangular frame OUTSIDE of the
