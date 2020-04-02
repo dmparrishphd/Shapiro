@@ -1,0 +1,12 @@
+verbatim
+
+DESCRIPTION
+
+        intended for processing character arguments.
+    
+DETAILS
+
+        The ..., file, and append arguments are passsed to cat.
+
+        The sep, fill, and labels arguments are **** IGNORED; ****
+        **** sep="" is passed to cat. ****'
