@@ -1,0 +1,1 @@
+degenerate <- typeof %O% vector
