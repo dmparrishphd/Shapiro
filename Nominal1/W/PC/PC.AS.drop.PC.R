@@ -1,0 +1,1 @@
+`%*drop%` <- `%*%` %O% as.vector
