@@ -1,0 +1,1 @@
+last  <- rev %O% first
