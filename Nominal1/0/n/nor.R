@@ -1,0 +1,1 @@
+nor  <- or %O% not
