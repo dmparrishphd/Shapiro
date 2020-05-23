@@ -1,0 +1,1 @@
+compare0 <- isign
