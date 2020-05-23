@@ -1,0 +1,1 @@
+absorb <- function(...) NULL

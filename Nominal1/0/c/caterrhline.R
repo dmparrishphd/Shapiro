@@ -1,0 +1,1 @@
+caterrhline <- function() caterr("----------\n")
