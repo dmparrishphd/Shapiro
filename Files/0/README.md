@@ -13,5 +13,5 @@ Don't change your position, ["Travel through space without moving,"](https://en.
 
 I do not intend ever to change any of these **R** files: It is not necessary. (I _do_ intend to revise documentation, including the present file).
 
-If a correction is needed because `foo` in file `path/1/foo.R` is in error, I may create another `foo` in file `path/2/foo.R`.
-Those who want to continue using `foo` in `path/1/foo.R` rather than `path/2/foo.R` may continue to do so.
+If a correction is needed because `foo` in file `path1/foo.R` is in error, I may create another `foo` in file `path2/foo.R`.
+Those who want to continue using `foo` in `path1/foo.R` rather than `path2/foo.R` may continue to do so.
