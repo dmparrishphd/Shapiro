@@ -15,7 +15,7 @@ Design choices
   - zero to eight directories, named with the octal digits (`01234567`) or
   - zero to eight files, named aribitrarily.
   
-Next slot may be [here](https://github.com/dmparrishphd/Shapiro/tree/master/Files/5/0)
+Next slot may be [here](https://github.com/dmparrishphd/Shapiro/tree/master/Files/6/0)
 
 # Zero-Maintenance Software
 
