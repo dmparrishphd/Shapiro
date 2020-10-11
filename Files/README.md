@@ -7,6 +7,11 @@ The directory structure serves
 
 For every other kind of relation, indices (forthcoming) may be consulted.
 
+Design choices
+
+- files are to be added to the structure in a sequence.
+- each new file is placed at the next available slot.
+
 # Zero-Maintenance Software
 
 Don't change your position, ["Travel through space without moving,"](https://en.wikiquote.org/wiki/Dune_(film)) instead.
