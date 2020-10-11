@@ -11,6 +11,9 @@ Design choices
 
 - files are to be added to the structure in a sequence.
 - each new file is placed at the next available slot.
+- each _sub_-directory contains:
+  - zero to eight directories, named with the octal digits (`01234567`) or
+  - zero to eight files, named aribitrarily.
 
 # Zero-Maintenance Software
 
