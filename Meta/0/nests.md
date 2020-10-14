@@ -14,3 +14,5 @@ where Y is a nest and `X` is any object, is also a nest.
 
 [depth.nest](https://github.com/dmparrishphd/Shapiro/blob/master/Files/3/3/0/depth.nest.R)
 
+[is.nest](https://github.com/dmparrishphd/Shapiro/blob/master/Files/3/4/0/is.nest.R)
+
