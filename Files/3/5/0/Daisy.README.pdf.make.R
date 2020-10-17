@@ -15,7 +15,7 @@ pdf(file="Daisy.README.pdf", width=H, height=H)
     y <- seq(from=par("usr")[4], to=par("usr")[3], by=-1/5)[-1]
     segments(x, par("usr")[3], x, par("usr")[4], col=NPB)
     segments(0, y, par("usr")[2], y, col=NPB)
-    Daisy(family="mono", spacing=5/6, col="lightgrey", c("",
+    Daisy(family="mono", col="lightgrey", c("",
         "12345678901234567890123456789012345678901234567890123456789012345"))
     Daisy(family="mono", font=2, "Daisy")
     Daisy(family="mono", c(
