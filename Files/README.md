@@ -17,7 +17,9 @@ Design choices
   
 Next slot may be [here](https://github.com/dmparrishphd/Shapiro/tree/master/Files/3/2/0)
 
-# Zero-Maintenance Software
+# Philosophy
+
+## Zero-Maintenance Software
 
 Don't change your position, ["Travel through space without moving,"](https://en.wikiquote.org/wiki/Dune_(film)) instead.
 
