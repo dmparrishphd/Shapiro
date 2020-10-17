@@ -1,4 +1,4 @@
-# Subject Index---Palettes
+# Subject Index---Color---Palettes
 
 Commodore 64: pseudo [Colors64.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/1/2/0/Colors64.R)
 
