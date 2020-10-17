@@ -35,7 +35,7 @@ from `double` [h.i.format.d.R](https://github.com/dmparrishphd/Shapiro/blob/mast
 
 ## Functional Programming
 
-curry, currying: [lcurry](https://github.com/dmparrishphd/Shapiro/blob/master/Files/1/0/lcurry.R)
+curry, currying: [lcurry.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/1/0/lcurry.R), [lcurry.md](https://github.com/dmparrishphd/Shapiro/blob/a9228264c224f5037eb028468757278f27264ebe/Files/0/lcurry.md)
 
 ## Matrix, Matrices
 
