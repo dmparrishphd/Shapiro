@@ -5,7 +5,7 @@ The directory structure serves
 - to avoid multiple files with the same name and
 - to avoid too many files in the same directory.
 
-For every other kind of relation, indices (forthcoming) may be consulted.
+For every other kind of relation, the [indices](https://github.com/dmparrishphd/Shapiro/blob/master/Files/3/4/0/index.md) may be consulted.
 
 Design choices
 
