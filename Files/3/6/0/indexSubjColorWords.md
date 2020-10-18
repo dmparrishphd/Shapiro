@@ -10,6 +10,8 @@ gray or grey, dark [dgr.R](https://github.com/dmparrishphd/Shapiro/blob/master/F
 
 gray or grey, light [lgr.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/1/2/4/0/lgr.R)
 
+grey or grey; light, light [llg.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/1/2/4/0/llg.R)
+
 green [GRN](https://github.com/dmparrishphd/Shapiro/blob/master/Files/2/7/0/GRN.R)
 
 [Subject Index](https://github.com/dmparrishphd/Shapiro/blob/master/Files/3/5/0/indexSubj.md)
