@@ -1,5 +1,16 @@
 # Subject Index
 
+## array, arrays
+
+
+### dim, dimensions
+
+[ndim](https://github.com/dmparrishphd/Shapiro/blob/master/Files/4/1/0/ndim.R)
+
+## character
+
+[nchar_max]https://github.com/dmparrishphd/Shapiro/blob/master/Files/4/1/0/nchar_max.R
+
 ## Color
 
 `colors` [find_colors](https://github.com/dmparrishphd/Shapiro/blob/master/Files/2/5/0/find_colors.R)
@@ -44,6 +55,16 @@ from `double` [h.i.format.d.R](https://github.com/dmparrishphd/Shapiro/blob/mast
 ## Functional Programming
 
 curry, currying: [lcurry.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/1/0/lcurry.R), [lcurry.md](https://github.com/dmparrishphd/Shapiro/blob/a9228264c224f5037eb028468757278f27264ebe/Files/0/lcurry.md)
+
+## Logic
+
+[nand](https://github.com/dmparrishphd/Shapiro/blob/master/Files/4/1/0/nand.R),
+[none](https://github.com/dmparrishphd/Shapiro/blob/master/Files/4/2/0/none.R)
+
+### NA
+
+[na2F.b](https://github.com/dmparrishphd/Shapiro/blob/master/Files/4/1/0/na2f.b.R),
+[na2T.b](https://github.com/dmparrishphd/Shapiro/blob/master/Files/4/1/0/na2t.b.R)
 
 ## Matrix, Matrices
 
