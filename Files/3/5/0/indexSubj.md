@@ -23,6 +23,10 @@
 
 (See [Color Words](https://github.com/dmparrishphd/Shapiro/blob/master/Files/3/6/0/indexSubjColorWords.md))
 
+## Data Frame, data.frame
+
+[fn.df.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/4/3/0/fn.df.R)
+
 ## Extraction
 
 [extraction](https://github.com/dmparrishphd/Shapiro/blob/master/Files/4/2/0/indexExtract.md))
