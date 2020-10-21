@@ -15,6 +15,8 @@
 
 `colors` [find_colors](https://github.com/dmparrishphd/Shapiro/blob/master/Files/2/5/0/find_colors.R)
 
+[wash.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/6/1/0/wash.R)
+
 ## Palettes
 
 (see [Palettes](https://github.com/dmparrishphd/Shapiro/blob/master/Files/3/6/0/indexSubjPal.md))
