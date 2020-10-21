@@ -92,6 +92,14 @@ centroid [centroids.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files
 
 (See [random](https://github.com/dmparrishphd/Shapiro/blob/master/Files/3/6/0/indexSubjRandom.md))
 
+## Remove, "rm"
+
+carriage return, "\r", (ASCII 13) [rmcr.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/7/1/0/rmcr.R)
+
+NA [rmna.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/7/1/0/rmna.R)
+
+newline, "\n", (ASCII 10) [rmnl.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/7/1/0/rmnl.R)
+
 ## Special Values
 
 [which..Inf](https://github.com/dmparrishphd/Shapiro/blob/master/Files/6/1/0/which..Inf.R)
