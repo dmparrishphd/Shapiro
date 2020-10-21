@@ -9,7 +9,9 @@
 
 ## character
 
-[nchar_max]https://github.com/dmparrishphd/Shapiro/blob/master/Files/4/1/0/nchar_max.R
+[nchar_max](https://github.com/dmparrishphd/Shapiro/blob/master/Files/4/1/0/nchar_max.R)
+
+parse words from string [words.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/6/3/0/words.R)
 
 ## Color
 
@@ -88,6 +90,8 @@ centroid [centroids.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files
 [which.infinite.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/6/2/0/which.infinite.R)
 
 [which.na.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/6/2/0/which.na.R)
+
+[whichnz.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/6/3/0/whichnz.R)
 
 ## Swap, Swapping
 
