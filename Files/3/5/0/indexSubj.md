@@ -32,6 +32,8 @@ parse words from string [words.R](https://github.com/dmparrishphd/Shapiro/blob/m
 
 ## Data Frame, data.frame
 
+[data_frame](https://github.com/dmparrishphd/Shapiro/blob/master/Files/7/3/0/data-frame.R)
+
 [fn.df.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/4/3/0/fn.df.R)
 
 ## Extraction
@@ -53,6 +55,10 @@ from `double` [h.i.format.d.R](https://github.com/dmparrishphd/Shapiro/blob/mast
 ## Functional Programming
 
 curry, currying: [lcurry.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/1/0/lcurry.R), [lcurry.md](https://github.com/dmparrishphd/Shapiro/blob/a9228264c224f5037eb028468757278f27264ebe/Files/0/lcurry.md)
+
+## Graphics
+
+windows [windows_dark](https://github.com/dmparrishphd/Shapiro/blob/master/Files/7/3/0/windows.R)
 
 ## Lists, list
 
