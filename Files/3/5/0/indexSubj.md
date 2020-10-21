@@ -2,6 +2,7 @@
 
 ## array, arrays
 
+ragged array, index [i.ragged.table.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/6/6/0/i.ragged.table.R)
 
 ### dim, dimensions
 
@@ -52,6 +53,10 @@ from `double` [h.i.format.d.R](https://github.com/dmparrishphd/Shapiro/blob/mast
 ## Functional Programming
 
 curry, currying: [lcurry.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/1/0/lcurry.R), [lcurry.md](https://github.com/dmparrishphd/Shapiro/blob/a9228264c224f5037eb028468757278f27264ebe/Files/0/lcurry.md)
+
+## Lists, list
+
+replacement, element-wise [infill](https://github.com/dmparrishphd/Shapiro/blob/master/Files/6/6/0/list.R)
 
 ## Logic
 
