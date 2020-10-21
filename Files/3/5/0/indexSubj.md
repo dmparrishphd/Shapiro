@@ -100,6 +100,12 @@ NA [rmna.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/7/1/0/rmna
 
 newline, "\n", (ASCII 10) [rmnl.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/7/1/0/rmnl.R)
 
+substrings (in character array) [rmstr.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/7/2/0/rmstr.R)
+
+tab, "\t" (ASCII 9) [rmtabs.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/7/2/0/rmtabs.R)
+
+zero, 0, [rmz.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/7/2/0/rmz.R)
+
 ## Special Values
 
 [which..Inf](https://github.com/dmparrishphd/Shapiro/blob/master/Files/6/1/0/which..Inf.R)
