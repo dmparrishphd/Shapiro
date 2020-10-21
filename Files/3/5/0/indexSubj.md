@@ -75,6 +75,14 @@ centroid [centroids.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files
 
 (See [random](https://github.com/dmparrishphd/Shapiro/blob/master/Files/3/6/0/indexSubjRandom.md))
 
+## Special Values
+
+[which..Inf](https://github.com/dmparrishphd/Shapiro/blob/master/Files/6/1/0/which..Inf.R)
+
+[which.Inf.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/6/1/0/which.Inf.R)
+
+[which.NaN.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/6/1/0/which.NaN.R)
+
 ## Swap, Swapping
 
 argswap
