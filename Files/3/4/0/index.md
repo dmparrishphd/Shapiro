@@ -1,5 +1,10 @@
 [Home](https://github.com/dmparrishphd/Shapiro/blob/master/README.md)
 
+Affixes
+=======
+
+[i.e., prefixes, suffixes, and infixes](https://github.com/dmparrishphd/Shapiro/blob/master/Files/7/4/0/glossaryAffixes.md)
+
 Index of Indices
 ================
 
