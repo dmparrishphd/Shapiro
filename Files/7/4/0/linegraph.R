@@ -1,5 +1,5 @@
 linegraph <- function (X=NULL, Y=X,
-        G=matrix(Y %|% Nos. %|% rep2, ncol=2), # lapply(seq_along(Y), function (x) c(x,x)),
+        G=matrix(Y %|% Nos. %|% rep2, ncol=2),
         par.mai=NULL,
         par.mar=NULL,
         par.new=F,
@@ -8,15 +8,15 @@ linegraph <- function (X=NULL, Y=X,
         type=rep("l", times=min(1, length(Y))),
         xlab="",  ylab="",
         xaxs="i", yaxs="i",
-        col.axis=uncol, col.lab=uncol, # CHANGED FROM NULL
-        col.main=uncol, col.sub=uncol, fg=uncol, # CHANGED FROM NULL
+        col.axis=uncol, col.lab=uncol,
+        col.main=uncol, col.sub=uncol, fg=uncol,
         xlim=c( X %|% unlist %|% rmna %|% min,
                 X %|% unlist %|% rmna %|% max  ),
         ylim=c( Y %|% unlist %|% rmna %|% min,
                 Y %|% unlist %|% rmna %|% max  ),
         FUN.plot=plot,
          ...) {
-    if (dev.list() %|% is.empty) { #ADDED 2019-08-06
+    if (dev.list() %|% is.empty) {
         warning("linegraph: No device available. No plot will be produced.")
         return (NULL %|% invisible) }
     if (is.null(X)) { linegraph(
@@ -39,7 +39,6 @@ linegraph <- function (X=NULL, Y=X,
             type=type %[mod% i, col=col %[mod% i,
             xlab=if (i < 2) xlab else HNULL,
             ylab=if (i < 2) ylab else HNULL)
-        #if (i < 2) par(new=par.new) else
         do.call(FUN.plot, c(args.i.pos, args.i.nom, args.consistent))
         par(new=T) }
     invisible() }
