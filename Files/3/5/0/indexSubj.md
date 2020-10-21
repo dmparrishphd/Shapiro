@@ -56,6 +56,15 @@ from `double` [h.i.format.d.R](https://github.com/dmparrishphd/Shapiro/blob/mast
 
 curry, currying: [lcurry.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/1/0/lcurry.R), [lcurry.md](https://github.com/dmparrishphd/Shapiro/blob/a9228264c224f5037eb028468757278f27264ebe/Files/0/lcurry.md)
 
+## Geometry
+
+### Geometry, Rational
+
+#### Line (Geometry)
+
+line, given two points
+[line.pp.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/7/4/0/line.pp.R)
+
 ## Graphics
 
 windows [windows_dark](https://github.com/dmparrishphd/Shapiro/blob/master/Files/7/3/0/windows.R)
@@ -85,6 +94,12 @@ determinant [det2](https://github.com/dmparrishphd/Shapiro/blob/master/Files/1/7
 ## Nest
 
 [nestdepth.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/6/7/0/nestdepth.R)
+
+## Permutation
+
+argswap (swap arguments)
+
+swap [swap.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/7/4/0/swap.R)
 
 ## Printing
 
@@ -132,3 +147,8 @@ zero, 0, [rmz.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/7/2/0
 
 argswap
 
+## Typesetting
+
+em, em space [em.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/7/4/0/em.R)
+
+en, en space [en.R][(https://github.com/dmparrishphd/Shapiro/blob/master/Files/7/4/0/en.R)
