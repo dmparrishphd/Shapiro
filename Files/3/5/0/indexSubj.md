@@ -83,6 +83,12 @@ centroid [centroids.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files
 
 [which.NaN.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/6/1/0/which.NaN.R)
 
+[which.finite.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/6/2/0/which.finite.R)
+
+[which.infinite.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/6/2/0/which.infinite.R)
+
+[which.na.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/6/2/0/which.na.R)
+
 ## Swap, Swapping
 
 argswap
