@@ -55,7 +55,8 @@ The `col` and `type` parameters vary with each line plotted,
     specified, `par.mar` takes precedence. If neither are
     specified, `mar` is set to `PAR.MAR.C`
 
-EXAMPLES
+Examples
+--------
     
 **Default plot**. Call this function as linegraph() to see an
     example plot.
