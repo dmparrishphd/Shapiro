@@ -63,6 +63,10 @@ replacement, element-wise [infill](https://github.com/dmparrishphd/Shapiro/blob/
 [nand](https://github.com/dmparrishphd/Shapiro/blob/master/Files/4/1/0/nand.R),
 [none](https://github.com/dmparrishphd/Shapiro/blob/master/Files/4/2/0/none.R)
 
+## Lookup
+
+[look.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/6/7/0/look.R)
+
 ### NA
 
 [na2F.b](https://github.com/dmparrishphd/Shapiro/blob/master/Files/4/1/0/na2f.b.R),
@@ -71,6 +75,10 @@ replacement, element-wise [infill](https://github.com/dmparrishphd/Shapiro/blob/
 ## Matrix, Matrices
 
 determinant [det2](https://github.com/dmparrishphd/Shapiro/blob/master/Files/1/7/0/det2.R), [det3](https://github.com/dmparrishphd/Shapiro/blob/master/Files/1/7/0/det3.R)
+
+## Nest
+
+[nestdepth.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/6/7/0/nestdepth.R)
 
 ## Printing
 
