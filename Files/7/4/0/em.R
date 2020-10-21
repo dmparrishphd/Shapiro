@@ -1,1 +1,1 @@
-em <- (function() "\n\n" %,% "\n\n\n") %O% strheight %O% diff
+em <- function() diff(strheight(c("\n\n" %,% "\n\n\n")))
