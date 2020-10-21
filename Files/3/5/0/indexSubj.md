@@ -7,6 +7,8 @@
 
 [ndim](https://github.com/dmparrishphd/Shapiro/blob/master/Files/4/1/0/ndim.R)
 
+dimensions, enumeration of [dimNos.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/6/5/0/dimNos.R)
+
 ## character
 
 [nchar_max](https://github.com/dmparrishphd/Shapiro/blob/master/Files/4/1/0/nchar_max.R)
