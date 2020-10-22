@@ -63,6 +63,11 @@ _Functions for converting values to `character` strings or `character` arrays_
 
 from `double` [h.i.format.d.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/3/6/0/h.i.format.d.R)
 
+## (Un)Formatting
+
+[unformat.except.newline.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/7/6/0/unformat.except.newline.R)
+[unformat.except.newline.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/7/7/0/unformat.except.newline.R)
+
 ## Functional Programming
 
 curry, currying: [lcurry.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/1/0/lcurry.R), [lcurry.md](https://github.com/dmparrishphd/Shapiro/blob/a9228264c224f5037eb028468757278f27264ebe/Files/0/lcurry.md)
