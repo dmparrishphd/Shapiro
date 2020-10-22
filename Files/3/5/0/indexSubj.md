@@ -50,6 +50,7 @@ See also [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601#:~:text=From%20Wikipe
 along a dimension of an `array` or `data.frame`
 [mi.core.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/7/5/0/mi.core.R)
 [mi.core.md](https://github.com/dmparrishphd/Shapiro/blob/master/Files/7/5/0/mi.core.md)
+[core.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/7/7/0/core.R)
 
 ## Files
 
