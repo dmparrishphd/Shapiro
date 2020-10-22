@@ -36,9 +36,20 @@ parse words from string [words.R](https://github.com/dmparrishphd/Shapiro/blob/m
 
 [fn.df.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/4/3/0/fn.df.R)
 
+## Dates (Calendar)
+
+See also [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601#:~:text=From%20Wikipedia%2C%20the%20free%20encyclopedia%20ISO%208601%20Data,Standardization%20%28ISO%29%20and%20was%20first%20published%20in%201988.)
+
+"m/d/y" style to ISO-8601
+[isodates.mdy.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/7/4/0/isodates.mdy.R)
+
 ## Extraction
 
 [extraction](https://github.com/dmparrishphd/Shapiro/blob/master/Files/4/2/0/indexExtract.md))
+
+along a dimension of an `array` or `data.frame`
+[mi.core.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/7/5/0/mi.core.R)
+[mi.core.md](https://github.com/dmparrishphd/Shapiro/blob/master/Files/7/5/0/mi.core.md)
 
 ## Files
 
@@ -58,16 +69,33 @@ curry, currying: [lcurry.R](https://github.com/dmparrishphd/Shapiro/blob/master/
 
 ## Geometry
 
+see line (geometry)
+
 ### Geometry, Rational
 
-#### Line (Geometry)
+## Indexing
+
+slices [islice.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/7/4/0/islice.R)
+
+## Line (Geometry)
 
 line, given two points
 [line.pp.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/7/4/0/line.pp.R)
 
 ## Graphics
 
+### Device Setup
+
 windows [windows_dark](https://github.com/dmparrishphd/Shapiro/blob/master/Files/7/3/0/windows.R)
+
+[par.dark.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/7/5/0/par.dark.R)
+
+[par.light.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/7/5/0/par.light.R)
+
+## Graphing
+
+[linegraph.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/7/4/0/linegraph.R)
+[linegraph.md](https://github.com/dmparrishphd/Shapiro/blob/master/Files/7/5/0/linegraph.md)
 
 ## Lists, list
 
@@ -152,3 +180,5 @@ argswap
 em, em space [em.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/7/4/0/em.R)
 
 en, en space [en.R][(https://github.com/dmparrishphd/Shapiro/blob/master/Files/7/4/0/en.R)
+
+[mtext.side.h.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/7/5/0/mtext.side.h.R)
