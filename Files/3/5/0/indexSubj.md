@@ -81,6 +81,8 @@ see line (geometry)
 
 ## Indexing
 
+alignment (relation between indices of two or more objects)
+
 slices [islice.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/7/4/0/islice.R)
 
 ## Line (Geometry)
