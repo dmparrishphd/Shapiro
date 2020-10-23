@@ -161,6 +161,14 @@ tab, "\t" (ASCII 9) [rmtabs.R](https://github.com/dmparrishphd/Shapiro/blob/mast
 
 zero, 0, [rmz.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/7/2/0/rmz.R)
 
+## Sequences
+
+column numbers [colNos]()
+
+natural numbers [seqN]()
+
+row numbers [rowNos]()
+
 ## Special Values
 
 [which..Inf](https://github.com/dmparrishphd/Shapiro/blob/master/Files/6/1/0/which..Inf.R)
