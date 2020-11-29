@@ -1,4 +1,4 @@
-# Package Index
+Package Index
 ===============
 
 [interval](../../../../../Pkgs/0)
