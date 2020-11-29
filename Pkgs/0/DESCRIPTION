@@ -1,0 +1,10 @@
+Package: interval
+Type: Package
+Title: Definition of and Operations on Intervals
+Version: 0.0-0
+Date: 2020-11-29
+Author: D. Michael Parrish
+Maintainer: Neat O <neatoverse@yahoo.com>
+Description: Defines functions for handling intervals.
+License: GPL-2
+Encoding: UTF-8
