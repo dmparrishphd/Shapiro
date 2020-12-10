@@ -200,3 +200,9 @@ em, em space [em.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/7/
 en, en space [en.R][(https://github.com/dmparrishphd/Shapiro/blob/master/Files/7/4/0/en.R)
 
 [mtext.side.h.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/7/5/0/mtext.side.h.R)
+
+## Vectors
+
+sparse vector to dense vector
+[dense.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/1/5/2/0/dense.R)
+[dense.md](https://github.com/dmparrishphd/Shapiro/blob/master/Files/1/5/2/0/dense.md)
