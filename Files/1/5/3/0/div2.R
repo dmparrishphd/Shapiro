@@ -1,1 +1,1 @@
-div2 <- function(x) x / 2L
+div2 <- `/` %<=2% 2L
