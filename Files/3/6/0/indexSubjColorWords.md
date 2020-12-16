@@ -14,6 +14,8 @@ grey or grey; light, light [llg.R](https://github.com/dmparrishphd/Shapiro/blob/
 
 green [GRN](https://github.com/dmparrishphd/Shapiro/blob/master/Files/2/7/0/GRN.R)
 
+[TRANSPARENT](../../../1/5/3/0/transparent.R)
+
 yellow [YEL.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/6/4/0/YEL.R)
 
 [Subject Index](https://github.com/dmparrishphd/Shapiro/blob/master/Files/3/5/0/indexSubj.md)
