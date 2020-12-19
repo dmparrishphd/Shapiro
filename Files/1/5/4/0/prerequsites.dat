@@ -1,0 +1,8 @@
+# comment.char="#"
+# FILE ACCESS: READ AND APPEND ONLY.
+# SEE ALSO ./prerequsites.md
+1/4/1/0/first.R `%|%`
+5/1/0/rest.R `%|%` `%<=%`
+5/2/0/second.R rest `%O%` first
+1/2/3/0/last.R `%O%` first
+2/3/0/except.last.R
