@@ -1,3 +1,3 @@
 # Mirrors
 
-Under this directory are store files originating from other networks.
+Under this directory are stored files originating from other networks.
