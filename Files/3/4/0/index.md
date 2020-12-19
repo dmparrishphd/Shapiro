@@ -17,3 +17,5 @@ by Filename (forthcoming)
 by Symbol Name (forthcoming)
 
 [Packages](../../../1/5/2/0/package.index.md)
+
+[Configurations](../../../1/5/4/0/configurations.md)
