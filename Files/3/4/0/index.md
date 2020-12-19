@@ -15,3 +15,5 @@ Index of Indices
 [by Subject / Topic](https://github.com/dmparrishphd/Shapiro/blob/master/Files/3/5/0/indexSubj.md)
 
 [by Symbol Name]()
+
+[Packages](../../../1/5/2/0/package.index.md)
