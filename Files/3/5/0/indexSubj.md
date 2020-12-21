@@ -196,10 +196,10 @@ argswap
 ## Typesetting
 
 Daisy
-\[[R](../../../Daisy.R)\]
-\[[doc](../../../Daisy.md)\]
-\[[example](../../../Daisy.example.R)\]
-\[[example output](../../../Daisy.example.pdf)\]
+\[[R](../../../1/5/4/0/Daisy.R)\]
+\[[doc](../../../1/5/4/0/Daisy.md)\]
+\[[example](../../../1/5/4/0/Daisy.example.R)\]
+\[[example output](../../../1/5/4/0/Daisy.example.pdf)\]
 Add lines of text to an existing plot.
 
 em, em space [em.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/7/4/0/em.R)
