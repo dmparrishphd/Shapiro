@@ -195,9 +195,16 @@ argswap
 
 ## Typesetting
 
+Daisy
+\[[R](../../../Daisy.R)\]
+\[[doc](../../../Daisy.md)\]
+\[[example](../../../Daisy.example.R)\]
+\[[example output](../../../Daisy.example.pdf)\]
+Add lines of text to an existing plot.
+
 em, em space [em.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/7/4/0/em.R)
 
-en, en space [en.R][(https://github.com/dmparrishphd/Shapiro/blob/master/Files/7/4/0/en.R)
+en, en space [en.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/7/4/0/en.R)
 
 [mtext.side.h.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/7/5/0/mtext.side.h.R)
 
