@@ -18,17 +18,13 @@ parse words from string [words.R](https://github.com/dmparrishphd/Shapiro/blob/m
 
 ## Color
 
+[Color Words](https://github.com/dmparrishphd/Shapiro/blob/master/Files/3/6/0/indexSubjColorWords.md))
+
 `colors` [find_colors](https://github.com/dmparrishphd/Shapiro/blob/master/Files/2/5/0/find_colors.R)
 
 [wash.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/6/1/0/wash.R)
 
-## Palettes
-
-(see [Palettes](https://github.com/dmparrishphd/Shapiro/blob/master/Files/3/6/0/indexSubjPal.md))
-
-## Color Words
-
-(See [Color Words](https://github.com/dmparrishphd/Shapiro/blob/master/Files/3/6/0/indexSubjColorWords.md))
+[Palettes](https://github.com/dmparrishphd/Shapiro/blob/master/Files/3/6/0/indexSubjPal.md)
 
 ## Data Frame, data.frame
 
@@ -36,7 +32,7 @@ parse words from string [words.R](https://github.com/dmparrishphd/Shapiro/blob/m
 
 [fn.df.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/4/3/0/fn.df.R)
 
-[unique.df.R](../../..//1/5/2/0/unique.df.R) [unique.df.md](../../..//1/5/2/0/unique.df.md)
+[unique.df.R](../../..//1/5/2/0/unique.df.R) [unique.df.md](../../../1/5/2/0/unique.df.md)
 
 ## Dates (Calendar)
 
