@@ -137,7 +137,8 @@ swap [swap.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/7/4/0/sw
 
 ## Printing
 
-[Daisy.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/3/5/0/Daisy.R), [Daisy.README.pdf](https://github.com/dmparrishphd/Shapiro/blob/master/Files/3/5/0/Daisy.README.pdf)
+\[[Daisy](../../../../Meta/0/Daisy.md)\]
+Add lines of text to an existing plot.
 
 ## Rasters
 
@@ -191,11 +192,7 @@ argswap
 
 ## Typesetting
 
-Daisy
-\[[R](../../../1/5/4/0/Daisy.R)\]
-\[[doc](../../../1/5/4/0/Daisy.md)\]
-\[[example](../../../1/5/4/0/Daisy.example.R)\]
-\[[example output](../../../1/5/4/0/Daisy.example.pdf)\]
+\[[Daisy](../../../../Meta/0/Daisy.md)\]
 Add lines of text to an existing plot.
 
 em, em space [em.R](https://github.com/dmparrishphd/Shapiro/blob/master/Files/7/4/0/em.R)
