@@ -10,7 +10,7 @@ Current Version
 \[[R](../../Files/1/5/4/0/Daisy.R)\]
 \[[doc](../../Files/1/5/4/0/Daisy.md)\]
 \[[example](../../Files/1/5/4/0/Daisy.example.R)\]
-\[[example PDF](../../Files/3/5/0/Daisy.example.pdf)\]
+\[[example PDF](../../Files/1/5/4/0/Daisy.example.pdf)\]
 
 Superseded Versions
 -------------------
