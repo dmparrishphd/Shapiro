@@ -31,3 +31,11 @@ Value
 
 A `double` vector with the lenghts of the en space and em space.
 Can be used to compute parameters such as `cex` and `spacing`.
+
+Details
+-------
+
+`justification` should be
+`1` for left-justification,
+`2` for right justification, and
+`1:2` for center justification.
