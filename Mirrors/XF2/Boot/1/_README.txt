@@ -1,0 +1,412 @@
+ShapiroXF: Another Handsome Helper for R
+Copyright (C) 2020 D. Michael Parrish
+ShapirXF IS FREE SOFTWARE; FOR LICENSE INFO SEE
+./COPYRIGHT1.txt and ./COPYRIGHT2.txt 
+
+ 
+
+SHAPIROXF
+
+        One theory suggests that it derives  from
+        Shpira,  the Hebrew/ Yiddish name for Spira...
+        pronounced Shpira, which is an Aramaic borrowed
+        word meaning "handsome."*
+
+
+Author
+
+D. Michael Parrish, PhD+
+
+                               *
+                              * *
+ 
+        Shapiro XF is DESIGNED to give you a clean-slate
+        R setup with the tools you select.
+ 
+        ShapiroXF is a boot loader for an R session. it
+        is DESIGNED to be called near R start-up, and
+        will **** `detach` **** items from the search
+        path and **** remove (`rm`) **** items from the
+        global environment.
+
+        The return from a successful boot with ShapiroXF
+        is a two column character matrix. Column 1
+        contains the filenames of the R files
+        `source`-d. Column 2 contains the cumulative
+        count (converted to character) of items loaded
+        from each file. Column 1 might be used to search
+        the source code. Column 2 might be used to
+        partially verify that components were loaded
+        properly.
+ 
+                               *
+                              * *
+ 
+History
+
+        2020-01     Created with reference to Shapiro
+
+Abstract 
+I am developing ShapiroXF to solve some++ of my computable**
+problems.
+
+______
+* The "handsome" opening quotation is taken from Wikipedia
+(2018-02-02) "Shapiro." That article, in turn, cites Hebrew-
+English, English-Hebrew Dictionary in three volumes, by Israel
+Efros, Ph.D., Judah Ibn-Shmuel Kaufman Ph.D, Benjamin Silk,
+B.C.L., Edited by Judah Ibn-Shmuel Kaufman, Ph.D., The Dvir
+Publishing Co.  Tel-Aviv, 1950
++ South Florida Water Management District
+++ This series does not attempt to present even all of my
+computable problems, let alone solutions to them (for one
+thing, this series is restricted to problems for which I
+think R is a good tool for attempted solutions).
+** Of course, not all problems are computable. For those
+problems, there are other approaches. See, e.g., Donald
+Knuth (2009-03-16) Talks at Google. YouTube JPpk-1btGZk .
+
+
+INTRODUCTION
+
+THE PRESENT TEXT is largely a copy of that found in my earlier
+shapir.R.
+
+FOR A SAMPLE INSTALLATION of ShapiroXF, see the accompanying
+file _SAMPLE_INSTALL.txt .
+
+THE NAME. In many regex systems, the period (.) can stand for
+any character; if we choose "o," we get "Shapiro." Additionally,
+"shapirr" is an anagram for my surname. The "XF" stands for
+"eXtreme Factorization" or "eXtremely Factored." The goal, not
+yet fully realized, is for components to be factored down to
+irreducible complexity, like individual building blocks.
+
+THE AUDIENCE I hope to communicate with herein is, foremost, my
+future self (see Abstract). However, I hope also to provide for
+the beginner or intermediate programmer, and for beginner R
+programmer some examples of the kinds of things that can be done
+in R. Additionally, I invite the vicious, constructive criticism
+of experienced programmers: I want a useful, robust system that
+works.
+
+THE PROBLEMS that I work on most often center on pre- and
+post-processing of numerical and simple text data associated
+with numerical modelling.
+
+THE SOURCE CODE is what you are reading now. This part of the
+source code is a character string with which R will do almost
+nothing: it is effectively a comment. The rest of the source
+code should be found in the present directory and
+subdirectories, as well as distributed throughout the SFWMD
+network.
+
+THE USER IS FREE to load any libraries and source any code. I
+have developed several packages and what I call proto packages
+(files to be sourced rather than installed and `library`-ed).
+
+
+
+TODO
+
+        Enable viewing of licences, etc., found in
+        subdirectories of Shapiro directory.
+
+        Introduce something like Compute Capability or allow
+        user to load one file, which will then load other files
+        as needed.
+
+
+TERMINOLOGY
+
+        array index
+        
+                an index into an array. see also "matrix index."
+        
+        index matrix
+
+                a matrix of indices, defined in ?`[[`. not to be
+                confused with "matrix index."
+
+        matrix index
+
+                an index into a matrix. not to be confused with
+                "index matrix."
+
+        proto-package
+
+                a file or files that could be used to create an
+                R package. Typically, such files can be `source`d.
+                
+
+CONVENTIONS*
+
+            *   Conventions apply to packages and
+                protopackages by DMP---though not with
+                absolute consistency---(of course not).
+
+        Phonocentrism: functions names may have meaning
+        according to the sound of their names.
+                Brevity: short words good; long words bad.
+        Better a hundred one-line functions than one,
+        one-hundred--line function. Better one function
+        definition and two function calls than duplicate
+        statements.
+                Cosmopolitanism: function names may be borrowed
+        from other languages, particularly French (Fr.), Latin
+        (Lt.), Greek (Gr.), and German (De.)
+                Endianness: Where there is not an obvious choice
+        to the contrary, we generally prefer little endian,
+        since, "Little endian is the correct endianness, anyway"
+        [STM].
+                Inclusivity: Ranges of elements are inclusive,
+        as is the R default (e.g., (1:9)[1:2] returns a
+        two-elment vector).
+                Integers: The integers strictly greater than
+        zero will be considered the natural numbers. R begins
+        indexing with 1 by default.
+                Multiline Comments are sometimes indicated per
+        the example below, at EXMAPLE OF MULTILINE COMMENT.
+                Natural Numbers (see Integers).
+                Ordering: The term "sorted", unless otherwise
+        specified, means "sorted in ascending order."
+                Tradition: names for e.g., function names,
+        formal parameter names, and the like, are borrowed from
+        other programming languages: C, Fortran, and Python, in
+        particular.
+                Vector-centric: functions both receiving and
+        returning vectors have no type-prefixes or type
+        suffixes.
+
+
+        AFFIXES or STEMS for compound word formation
+
+                Fix     Meaning
+                .       stands in for a character that would
+                        require the name to be quoted, or
+                        an aesthetic separator
+
+                kk      having to do with circles, including
+                        circular indexing or circular lists.
+                        The Greek workd for circle is kyklos.
+
+                Prefixes
+
+                Prefix  Meaning: The function returns a(n)...
+
+                (none)  vector, typically of the same type as
+                                the primary argument; or as
+                                implied by the name of the
+                                function.
+                ai      array index (n x k integer matrix)
+                alg     having to do with algebra
+                b       logical (Boolean)
+                bb      logical (Boolean)--a bit field--or
+                                a bounding box
+                cn      connection (file handle)
+                d       a double vector
+                fn      function
+                geom    having to do with geometry, particularly
+                                Euclidian and Rational geometry.
+                greg    Having to do with the Gregorian
+                                Calendar.
+                i       integer vector, possibly an index
+                ij      ij matrix, typically containing
+                                integer-valued xy "points" or
+                                indices into a matrix.
+                im      indexed color image matrix.
+                img     image matrix (possibly an im)
+                l       list (possibly a named list)
+                m       matrix
+                mi      index matrix (see documentation for `[`)
+                mdy     month-day-year
+                n       a singleton natural number
+                nl      named list
+                q       quadrance, quadrea, quadrume, etc.
+                xy      xy matrix, typically suitable as a plot
+                                argument.
+                ymd     year-month-day
+
+                Prefix  Meaning
+
+                .       possibly, hidden
+                c       The function concerns columns (e.g., of
+                        a matrix or of text.)
+                inv     inverse
+                
+                Prefix  Note
+                
+                im.     defined in image-ext.R
+                
+                .       helper function; not intended to be
+                        called directly
+
+
+                Infixes
+
+                .       aesthetic separator
+                _       aesthetic separator---used instead of .
+                        in order to avoid interaction with
+                        generic functions
+
+                Suffixes
+
+                r       reverse
+                .       sometimes used when the characters
+                        preceeding the . form a name that is
+                        apready built into R. Example: "range."
+
+                "Dot" Suffixes (a dot, followed by *)
+
+                *       The function-s first parameter is a/an...
+                -       -----------------------------------------
+                a       array
+                bb      logical (Boolean)--a bit field--or
+                        a bounding box
+                l       list
+                m       matrix
+                pg      polygon
+                v       function receives a vector argument
+
+                "Dot Dot" Suffixes
+                
+                        a dot, followed by a character sequence
+                        consistent with a "Dot" Suffix
+
+
+        HUNGARIAN NOTATION - FUNCTIONS
+
+                c       "column"
+        
+                        The function operates on the columns of
+                        the primary argument.  May return an
+                        array having a number of elements that
+                        is a multiple of the number of columns
+                        of the primary argument.
+
+        HUNGARIAN NOTATION - VALUES
+
+                a       an array
+                b       a logical (Boolean) vector
+                c       a complex vector
+                d       a double vector
+                df      a dataframe
+                f       a double vector (floating point)--DEPRECATED
+                f       a file or filename
+                fn      a function (typically applied only when
+                                it is not otherwise obvious that
+                                the symbol refers to a function)
+                h       1. a character string,
+                        2. a character vector.
+                        Note: "h" is the second letter in
+                        "character" and the first letter in
+                        "Holerith"*
+                i       an integer vector, perhaps
+                        a vector of indices
+                l       a list or
+                        (deprecated) a logical vector
+                lc      latent call (see the latent.call function)
+                ll      a compound list (list of lists) or tree
+                m       a matrix
+                n       a singleton integer vector containing a
+                                natural number
+                nnn     integer vector of positive integers
+                r       a raw vector
+                t       a tree (list, possibly---and typically---
+                                containing (an)other list(s))
+                tf      a logical vector (TRUE/FALSE)
+                v       a vector, often, but not necessarily, an
+                                integer vector
+                vn      a vector of natural numbers
+                x       an atomic vector
+                X       1. a vector, including a list,
+                        2. a data.frame,
+                        3. Any one of the above.
+                ygreg   a year (numeric or character, depending
+                        on context), e.g. 1970. The Gregorian
+                        Calendar is assumed.
+
+                ________
+                * Notes for HUNGARIAN NOTATION - VALUES
+
+                "Hollerith" see https://en.wikipedia.org/wiki/
+                    Keypunch#Hollerith_and_IBM_keypunches,_1890_
+                    through_1930s
+
+
+
+REFERENCES*
+
+            *   Packages and protopackages by DMP may
+                refer to these by key (e.g., [DP] Divine
+                Proportions by Wildberger)
+
+[DP] Wildberger NJ (2005) Divine Proportions: Rational
+        Trigonometry to Universal Geometry. Wild Egg Pty Ltd;
+        Sydney, Australia.  http://wildegg.com
+
+[SICP] Abelson H, Sussman GJ with Sussman J (1996) Structure and
+        Interpretation of Computer Programs, 2 ed. Massachusetts
+        Institute of Technology; Cambridge, Mass.
+        https://mitpress.mit.edu/sites/default/files/sicp/index.html
+
+[TAOCP] Knuth D (1997) The Art of Computer Programming, v 1, 3
+        ed. Addison Wesley; Reading, Mass.
+
+[STM] Steil M (2008) The Ultimate Commodore 64 Talk. 25c3; Berlin.
+
+
+
+ACKNOWLEDGEMENTS
+
+https://www.vim.org/
+online dictionaries, especially those accessed via
+https://onelook.com/ , including especially
+https://www.wordsmyth.net/ and
+https://en.oxforddictionaries.com/
+
+
+APPENDIX: ShapiroXF USAGE EXAMPE---TESTED on R 3.5.3
+
+        SHAPIRO <- paste0("//ad.sfwmd.gov/dfsroot/data/worm/",
+                "Files/COMP/SOFTWARE/ShapiroXF2/")
+
+        BOOT.INFO <- source(paste0(SHAPIRO, "Boot/1/boot.R"))[[1]](
+            paste0(SHAPIRO, "Boot/1/Config/DMP/6.csv"))
+ 
+(assuming present directory is R:/ShapiroXF/)
+ 
+        BOOT.INFO <- source("R:/ShapiroXF/boot.R")[[1]](
+            "R:/ShapiroXF-Configs/Config/1.csv")
+ 
+The above example `source`-s the boot.r file, takes the first
+item (a boot loader function) and passes your configuration file
+(actually the name of the configuration file) to the boot loader.
+ 
+The configuration file is a CSV file with a header and two
+columns. All values are quoted. example:
+ 
+**** BEGIN **** EXAMPLE CSV CONFIGURATION FILE
+"key","value"
+"dir.where.installed","r:/shapiroxf/"
+"libtree.dir","r:/shapiroxf-configs/libtree/1/"
+"proto.pkg.config.file","r:/shapiroxf-configs/protopkg/1.ini"
+**** END **** EXAMPLE CSV CONFIGURATION FILE
+ 
+The column names are not significant, but must be present.  The
+keys are significant: These become argument names.  The values
+are significant.
+ 
+The first two values tell where the installation of ShapiroXF is
+located (you may have multiple installations) and where your
+library tree is located (ShapiroXF will attempt to load the
+corresponding libraries). These first two items represent
+directories, and the terminal path separator (/) must be
+included.
+ 
+The third value is the full path to your configuration file.
+ShapiroXF will attempt to source all of the corresponding R
+files into the `ShapirEnv` environment, which will be created.
+
+The return (stored as info) in the example, is described
+in the front matter.
