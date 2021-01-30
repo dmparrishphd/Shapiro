@@ -1,0 +1,31 @@
+edges.m
+
+DESCRIPTION
+
+edges.m returns the edges of its matrix argument, interpreted as
+a raster.
+
+USAGE
+
+        edges.m(m)
+
+ARGUMENTS
+
+        m       a matrix
+
+DETAILS
+
+        Differences (`diff`) between adjacent elements are
+        computed. Nonzero differences correspond with edges in
+        the return.
+
+        The return `Y` is a data frame suitable for the call
+
+                do.call(segments, Y)
+
+SEE ALSO
+
+        `segments`
+
+EXAMPLES
+

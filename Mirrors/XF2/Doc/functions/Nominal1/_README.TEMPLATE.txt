@@ -1,0 +1,13 @@
+<name of object>
+
+DESCRIPTION
+
+USAGE
+
+ARGUMENTS
+
+DETAILS
+
+SEE ALSO
+
+EXAMPLES

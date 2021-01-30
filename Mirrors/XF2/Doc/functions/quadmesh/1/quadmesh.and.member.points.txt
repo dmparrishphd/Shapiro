@@ -1,0 +1,32 @@
+                        Locating Points
+                        Relative to the
+                      Cells of a Quadmesh
+
+For the purposes of determining a unique cell of a quadmesh
+within which any given point may be said to belong, number the
+nodes of any given cell 1, 2, 3, and 4 proceeding counter-
+clockwise (right-hand rule). Additionally, number every cell's
+nodes such that every node receives a unique index (1, 2, 3, 4)
+from each cell, and that, when poceeding counterclockwise around
+a node, the indices encountered for each cell sharing that node
+proceed in ascending order.
+
+Let line 1 pass through points 1 and 2, and let line 4 pass
+through points 4 and 1.
+
+Then, a point belongs to a cell if and only if it is:
+
+        not completely outside the cell (i.e., it is either
+        completely within or on the boundary of the cell),
+
+        not on line 2, and
+        
+        not on line 3.
+
+Otherwise, the point in question does not belong to the cell
+under consideration.
+
+In the accompanying figure, Point 1 belongs to the cell
+depicted, as do Points A and D. However, Points, 2, 3, and 4 do
+not, nor do points B and C; rather, these other points belong to
+the neighbors of the cell depicted.

@@ -1,0 +1,16 @@
+#CREATE figure1.png
+LL <- c(-1, 1)
+#TODO: SUPPLY file ARGUMENT TO png CALL
+png(height=400*6/2, width=400*6, res=400)
+image(10 * LL, 5 * LL, matrix(1), col=NA, asp=1, bty="n", xlab="", ylab="", xaxt="n", yaxt="n")
+lines(2 * 10 * LL, c(0, 0), xpd=T)
+lines(2 * c(-10, 10), 2 * c(3, -3), xpd=T)
+points(10 * LL, -3 * LL, pch=16, xpd=T)
+em <- diff(strheight(c("\n", "\n\n")))
+text(-6 + em, 6*3/10, "c + ax + by = 0,  < c : a : b >", pos=4, font=3, family="serif", xpd=T)
+points(0, 0, pch=16)
+text(-10,  3 + em/2, "(x' - b, y' + a)", pos=4, font=3, family="serif", xpd=T)
+text( 10, -3 - em/2, "(x' + b, y' - a)", pos=2, font=3, family="serif", xpd=T)
+text(  0,  0, "(x', y')", pos=1, font=3, family="serif", xpd=T)
+text(-10, 0, "< c' : 0 : 1 >", pos=1, font=3, family="serif", xpd=T)
+dev.off()
