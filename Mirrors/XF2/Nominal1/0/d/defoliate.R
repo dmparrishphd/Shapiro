@@ -1,0 +1,1 @@
+defoliate <- function(l, unleaf=".") {

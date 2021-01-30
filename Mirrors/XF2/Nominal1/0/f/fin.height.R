@@ -1,0 +1,1 @@
+fin.height <- fin.y

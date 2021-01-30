@@ -1,0 +1,1 @@
+fin.width  <- fin.x

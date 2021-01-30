@@ -1,0 +1,1 @@
+fin <- function () par("fin")
