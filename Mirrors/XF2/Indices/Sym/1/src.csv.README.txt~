@@ -1,0 +1,28 @@
+Metadata for src.csv
+
+        ********************************************************
+        **** scr.csv WILL BE APPENDED TO AS ShapiroXF2      ****
+        **** DEVELOPS.                                      ****
+        ********************************************************
+
+Description
+
+        A two-column table which describes the location of the
+        .R file ("FILE" column) in which the corresponding
+        SYMBOL (column 1) is bound to an object (usually a
+        function, sometimes a value).
+
+        The paths included with FILE assume a prefix of
+        ../../../Nominal1 (relative to the present directory.)
+
+Development Plan
+
+        As elements of Shapiro are copied to their own files, it
+        is planned that src.csv will be appended with the
+        corresponding information.
+
+        It is intended that only those .R files containing a
+        single assignmetn statement are to be included. In this
+        way, the corresponding file may be sourced in order to
+        bind exactly one symbol to an object, facilitating fine
+        refactoring.
