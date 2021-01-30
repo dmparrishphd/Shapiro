@@ -1,0 +1,1 @@
+cex <- function () par("cex")
