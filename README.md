@@ -18,7 +18,7 @@ I intend that the _R code_ under the
 [Files](./Files),
 [Mirrors](./Mirrors), and
 [Pkgs](./Pkgs)
-will never change and will never move.
+directories will never change and will never move.
 The file names and paths, _relavive to the repository root_, are fixed.
 A discipline like this is necessary for reliability and
 [reproducibility](https://www.nap.edu/catalog/25303/reproducibility-and-replicability-in-science).
@@ -26,7 +26,9 @@ A discipline like this is necessary for reliability and
 **Shapiro changes by the addition** of new files,
 _not_ by breaking code and mutilating existing files.
 
-I do _not_ promise to adhere to the same discipline for all _other types of files_.
+I do _not_ promise to adhere to the same discipline for all _other types of files_,
+nor for the R files in other directories.
+Specifically, files in the [Dev](./Dev) directory are volatile.
 Markdown (extension .md) files, in particular are volatile,
 although I do not anticipate deleting any Markdown files.
 Allowing for volatility in the Markdown files allows me to make changes to the documentation,
