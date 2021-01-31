@@ -1,0 +1,1 @@
+squares <- `^` %|% argswap %<=% 2

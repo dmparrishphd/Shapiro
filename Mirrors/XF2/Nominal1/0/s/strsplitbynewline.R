@@ -1,0 +1,1 @@
+strsplitbynewline <- strsplit %|% argswap %<=% HNL

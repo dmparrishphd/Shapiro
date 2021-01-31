@@ -1,0 +1,1 @@
+seqN <- function (n)

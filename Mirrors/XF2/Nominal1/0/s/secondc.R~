@@ -1,0 +1,1 @@
+secondc <- col.m %|% argswap %<=% 2L

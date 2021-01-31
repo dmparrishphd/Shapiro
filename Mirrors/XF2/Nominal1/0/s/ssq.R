@@ -1,0 +1,1 @@
+ssq <- sqr %O% sum
