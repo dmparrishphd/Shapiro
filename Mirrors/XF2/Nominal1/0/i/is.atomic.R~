@@ -1,0 +1,4 @@
+is.atomic <- function (x)
+    storage.mode(x) %in% c("logical")
+        x %|% is.list %|% `!`
+
