@@ -10,6 +10,8 @@ data analysis and numerical modelling (mostly pre- and post-processing).
 
 Forthcoming: Suggested configurations.
 
+[Index](./Files/3/4/0/index.md)
+
 Organization
 ------------
 
@@ -23,14 +25,6 @@ The file names and paths, _relavive to the repository root_, are fixed.
 A discipline like this is necessary for reliability and
 [reproducibility](https://www.nap.edu/catalog/25303/reproducibility-and-replicability-in-science).
 
-**Shapiro changes by the addition** of new files,
-_not_ by breaking code and mutilating existing files.
-
-**Shapiro does not have "versions."**
-Components either exist or not.
-You may use them in any combination.
-You may use the advanced features of R to reinterpret them in ways I have not anticipated.
-
 I do _not_ promise to adhere to the same discipline for all _other types of files_,
 nor for the R files in other directories.
 Specifically, files in the [Dev](./Dev) directory are volatile.
@@ -39,4 +33,13 @@ although I do not anticipate deleting any Markdown files.
 Allowing for volatility in the Markdown files allows me to make changes to the documentation,
 e.g., to better represent what the code is doing.
 
-[Index](https://github.com/dmparrishphd/Shapiro/blob/master/Files/3/4/0/index.md)
+**Shapiro changes by the addition** of new files,
+_not_ by breaking code and mutilating existing files.
+
+**Shapiro does not have "versions."**
+Components either exist or not.
+You may use them in any combination.
+You may use the advanced features of R to reinterpret them in ways I have not anticipated.
+Version control is for teams that think they are developing _one_ thing.
+But Shapiro is about creating thousands of little tools,
+facilitating and billions and billions of combinations of those tools.
