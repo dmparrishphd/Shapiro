@@ -1,0 +1,1 @@
+xnor <- xor %O% not
