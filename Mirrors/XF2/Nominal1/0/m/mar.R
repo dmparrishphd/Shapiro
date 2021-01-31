@@ -1,0 +1,1 @@
+mar <- function() par("mar")
