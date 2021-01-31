@@ -26,6 +26,11 @@ A discipline like this is necessary for reliability and
 **Shapiro changes by the addition** of new files,
 _not_ by breaking code and mutilating existing files.
 
+**Shapiro does not have "versions."**
+Components either exist or not.
+You may use them in any combination.
+You may use the advanced features of R to reinterpret them in ways I have not anticipated.
+
 I do _not_ promise to adhere to the same discipline for all _other types of files_,
 nor for the R files in other directories.
 Specifically, files in the [Dev](./Dev) directory are volatile.
