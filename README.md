@@ -42,4 +42,4 @@ You may use them in any combination.
 You may use the advanced features of R to reinterpret them in ways I have not anticipated.
 Version control is for teams that think they are developing _one_ thing.
 But Shapiro is about creating thousands of little tools,
-facilitating and billions and billions of combinations of those tools.
+facilitating billions and billions of combinations of those tools.
