@@ -1,0 +1,1 @@
+rsquared <- cor %O% sqr
