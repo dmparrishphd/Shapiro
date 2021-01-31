@@ -1,0 +1,1 @@
+plt <- function() par("plt")

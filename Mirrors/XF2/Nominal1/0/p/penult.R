@@ -1,0 +1,1 @@
+penultimate  <- rev %O% second

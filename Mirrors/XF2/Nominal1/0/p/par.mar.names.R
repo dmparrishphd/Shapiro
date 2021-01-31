@@ -1,0 +1,1 @@
+PAR.MAR.NAMES <- c("BOTTOM", "LEFT", "TOP", "RIGHT")
