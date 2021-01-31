@@ -1,0 +1,1 @@
+.MONTHS3 <- strsplit("JAN FEB MAR APR MAY JUN JUL AUG SEP OCT NOV DEC", " ")[[1]]
