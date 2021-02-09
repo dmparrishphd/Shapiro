@@ -19,7 +19,7 @@ Index of symbols; _tells what symbols are defined in each R file._
 
  - [Files/](../../../2/1/2/0/symbols.files.dat)
 
- - [Pkgs/] _Forthcoming_
+ - Pkgs/ _Forthcoming_
 
 [Packages](../../../1/5/2/0/package.index.md)
 
