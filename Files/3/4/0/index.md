@@ -14,7 +14,7 @@ by Filename (forthcoming)
 
 [by Subject / Topic](https://github.com/dmparrishphd/Shapiro/blob/master/Files/3/5/0/indexSubj.md)
 
-[Symbols (Files/)](../../../Files/2/1/2/0/symbols.files.dat)
+[Symbols (Files/)](../../../2/1/2/0/symbols.files.dat)
 [Symbols (Pkgs/)] _Forthcoming_
 
 [Packages](../../../1/5/2/0/package.index.md)
