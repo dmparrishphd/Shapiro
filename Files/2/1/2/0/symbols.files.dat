@@ -1,0 +1,1080 @@
+# comment.char="#"
+# THIS FILE SUBJECT TO APPEND-ONLY MODIFICATION.
+# SEE ALSO ./symbols.md
+1/0/4x4t.R `4x4t`
+1/0/lcurry.R lcurry
+1/0/PC.LB.a.PC.R `%[a%`
+1/0/PC.LB.HY.RB.PC.R `%[-]%`
+1/0/PC.LB.LB.b.PC.R `%[[b%`
+1/0/PC.LB.LB.mod.PC.R `%[[mod%`
+1/1/0/b.nas.R b.nas
+1/1/0/b.range.check.R b.range.check
+1/1/0/b.rep.R b.rep
+1/1/0/b.sparse.R b.sparse
+1/1/0/between.R between
+1/1/0/between2.R between2
+1/1/0/beyond2.R beyond2
+1/1/0/block.extract.R block.extract
+1/1/1/0/h.i.format.i.R h.i.format.i
+1/1/1/0/h.labels.h.R h.labels.h
+1/1/1/0/h.pad.i.R h.pad.i
+1/1/1/0/hc1.greys.R hc1.greys
+1/1/1/0/hc1.R hc1
+1/1/1/0/hc1.scale.R hc1.scale
+1/1/1/0/hcl.wheel.R hcl.wheel
+1/1/1/0/hetero.apply.R hetero.apply
+1/1/2/0/hrule.R hrule
+1/1/2/0/i.h.R i.h
+1/1/2/0/i.index.n.R i.index.n
+1/1/2/0/i.leaves.t.R i.leaves.t
+1/1/2/0/i.partition.n.R i.partition.n
+1/1/2/0/i.seq.range.R i.seq.range
+1/1/2/0/i.sign.R i.sign
+1/1/3/0/i2.index.n.R i2.index.n
+1/1/3/0/iblock.R iblock
+1/1/3/0/ibna.R ibna
+1/1/3/0/ibookends.R ibookends
+1/1/3/0/ic.R ic
+1/1/3/0/id.R id
+1/1/3/0/identical.picky.R identical.picky
+1/1/3/0/iNA.R iNA
+1/1/4/0/idrop.R idrop
+1/1/4/0/igrid.regular.R igrid.regular
+1/1/4/0/image_setup.R image_setup
+1/1/4/0/index.b.R index.b
+1/1/4/0/index.factors.dim.R index.factors.dim
+1/1/4/0/index.factors.m.R index.factors.m
+1/1/4/0/index123.b.R index123.b
+1/1/4/0/indices.modulo.R indices.modulo
+1/1/5/0/infill.R infill
+1/1/5/0/initials.R initials
+1/1/5/0/integral.trapezoidal.m.R integral.trapezoidal.m
+1/1/5/0/integral.trapezoidal.R integral.trapezoidal
+1/1/5/0/interlace.R interlace
+1/1/5/0/interlace1.R interlace1
+1/1/5/0/interval.R interval
+1/1/5/0/irescale.d.R irescale.d
+1/1/6/0/is..Inf.R is..Inf
+1/1/6/0/is.atomic.R is.atomic
+1/1/6/0/is.color.vector.R is.color.vector
+1/1/6/0/is.Inf.R is.Inf
+1/1/6/0/is.Leaf.R is.Leaf
+1/1/6/0/is.NULL1.R is.NULL1
+1/1/6/0/is.NULLs.R is.NULLs
+1/1/6/0/is.Pairlist.R is.Pairlist
+1/1/7/0/is.digit.R is.digit
+1/1/7/0/is.digitstr.R is.digitstr
+1/1/7/0/is.empty.R is.empty
+1/1/7/0/is.list.compound.R is.list.compound
+1/1/7/0/is.list.simple.R is.list.simple
+1/1/7/0/is.lpp.R is.lpp
+1/1/7/0/is.nonnull.R is.nonnull
+1/2/0/bracket.h.R bracket.h
+1/2/0/brand.R brand
+1/2/0/cat.h.R cat.h
+1/2/0/caterrhline.R caterrhline
+1/2/0/cbind0.R cbind0
+1/2/0/Color64.R Color64
+1/2/0/Colors64.R Colors64
+1/2/0/CYN.R CYN
+1/2/1/0/is.populated.R is_populated
+1/2/1/0/is.pp.R is.pp
+1/2/1/0/is.singleton.R is.singleton
+1/2/1/0/is_ascii.R is_ascii <-
+1/2/1/0/iseqs.R iseqs isnotna
+1/2/1/0/items.named.R items.named
+1/2/2/0/items.unnamed.R items.unnamed
+1/2/2/0/iterate.simple.R iterate.simple
+1/2/2/0/iunif.R iunif
+1/2/2/0/jump.b.R jump.b
+1/2/2/0/jump.fn.R jump.fn
+1/2/2/0/jump.n.R jump.n
+1/2/2/0/l.characters.R l.characters
+1/2/2/0/l.instack.a.R l.unstack.a
+1/2/3/0/l.last.R l.last
+1/2/3/0/l.sansNULLs.l.R l.sansNULLs.l
+1/2/3/0/l.unlace.R l.unlace
+1/2/3/0/l.whichletters.h.R l.whichletters.h
+1/2/3/0/l.words.h.R l.words.h
+1/2/3/0/last.R last
+1/2/3/0/lastc.R lastc
+1/2/3/0/lastr.R lastr
+1/2/4/0/left.R left
+1/2/4/0/left.right.R left.right
+1/2/4/0/lgr.R LGR
+1/2/4/0/li.dim.R li.dim
+1/2/4/0/lists.R lists
+1/2/4/0/llg.R LLG
+1/2/4/0/llse.R llse
+1/2/4/0/locate.R locate
+1/2/5/0/look.R look
+1/2/5/0/look1.R look1
+1/2/5/0/m..R m.
+1/2/5/0/m.empty.R m.empty
+1/2/5/0/m.FUN.m..v.R m.FUN.m..v
+1/2/5/0/m.indices.a.R m.indices.a
+1/2/5/0/m.indices.R m.indices
+1/2/5/0/m.l.R m.l
+1/2/6/0/m.page.a3.R m.page.a3
+1/2/6/0/m.rep.R m.rep
+1/2/6/0/m.seq.kk.R m.seq.kk
+1/2/6/0/m1.R M1
+1/2/6/0/make.sequence.R make.sequence
+1/2/6/0/mask.R mask
+1/2/6/0/matches.R matches
+1/2/6/0/matrix2.R matrix2
+1/2/7/0/matrix2r.R matrix2r
+1/2/7/0/mb0.R MB0
+1/2/7/0/mf.R MF
+1/2/7/0/mi.a.R mi.a
+1/2/7/0/monochrome1.R monochrome1
+1/2/7/0/mt.R MT
+1/2/7/0/multiple.extract.R multiple.extract
+1/2/7/0/mz.R MZ
+1/3/0/cbind_l.R rbind_
+1/3/0/cdiff.R cdiff
+1/3/0/centroid.R centroid
+1/3/0/centroids.R centroids
+1/3/0/character.count.R character.count
+1/3/0/character.sift.h.R character.sift.h
+1/3/0/checkered.R checkered
+1/3/0/chop.R chop
+1/3/1/0/bookends.R bookends
+1/3/1/0/formatC.d.R formatC.d
+1/3/1/0/glyph.encode.h.R glyph.encode.h
+1/3/1/0/PD.kind.R .kind
+1/3/1/0/pretty.df.R pretty.df
+1/3/1/0/quadrea.q.R quadrea.q
+1/3/1/0/stepgraph.R stepgraph
+1/3/2/0/classify_circle.R classify_circle
+1/3/2/0/fade1.R fade1
+1/3/2/0/lines_extract.cn.R lines_extract.cn
+1/3/2/0/lines_extract.fn.R lines_extract.fn
+1/3/3/0/bijective.numeral.R bijective.numeral
+1/3/3/0/bijective.numerals.R bijective.numerals
+1/3/3/0/compare0.R compare0
+1/3/3/0/i.bijective.numeral.R i.bijective.numeral
+1/3/3/0/i.bijective.numerals.R i.bijective.numerals
+1/3/3/0/PD.pretty_list.FUN.default.R .pretty_list.FUN.default
+1/3/3/0/pretty_list.R pretty_list
+1/3/3/0/xy.box.mouse.R xy.box.mouse
+1/3/4/0/FS2.R `/2`
+1/3/4/0/PC.AS.drop.PC.R `%*drop%`
+1/3/4/0/PC.BS.BS.PC.R `%\\%`
+1/3/4/0/PC.CO.O.PC.R `%:O%`
+1/3/4/0/PC.mod1.PC.R `%mod1%`
+1/3/4/0/PD.place.values.R .place.values
+1/3/4/0/place.values.R place.values
+1/3/4/0/pseudo.log.R pseudo.log
+1/3/5/0/b.r.R b.r
+1/3/5/0/compare.R compare
+1/3/5/0/crosstabulate.R crosstabulate
+1/3/5/0/iceiling.R iceiling
+1/3/5/0/icompare.R icompare
+1/3/5/0/ifloor.R ifloor
+1/3/5/0/ipow2.R ipow2
+1/3/5/0/PD.pseudo.log.R .pseudo.log
+1/3/6/0/iprod.R iprod
+1/3/6/0/is.among.contiguous.integers.R is.among.contiguous.integers
+1/3/6/0/is.odd.R is.odd
+1/3/6/0/isign.R isign
+1/3/6/0/isum.R isum
+1/3/6/0/lformals.R lformals
+1/3/6/0/parameters.R parameters
+1/3/6/0/rub.R rub
+1/3/7/0/alpha.ascii.R ALPHA.ASCII
+1/3/7/0/PC.1.VL.n.PC.R `%1|n%`
+1/3/7/0/PC.EQ.GT.PC.R `%=>%`
+1/3/7/0/PC.LB.LB.R `%[[%`
+1/3/7/0/PC.LT.EQ.2.PC.R `%<=2%`
+1/3/7/0/PC.LT.EQ.PC.R `%<=%`
+1/3/7/0/PC.O.PC.R `%O%`
+1/3/7/0/PC.th.PC.R `%th%`
+1/4/0/clip_sift.R clip_sift
+1/4/0/close.all.the.windows.R close.ALL.THE.windows
+1/4/0/cointoss.R cointoss
+1/4/0/col.m.R col.m
+1/4/0/col2color.vector.R col2color.vector
+1/4/0/colClasses.h.R colClasses.h
+1/4/0/colors.like.R colors.like
+1/4/0/colors64.2.R colors64
+1/4/1/0/as_integer.b.R as_integer.b
+1/4/1/0/as_percentage.d.R as_percentage.d
+1/4/1/0/cat.with.names.R cat.with.names
+1/4/1/0/ceiling_multiple.R ceiling_multiple
+1/4/1/0/enlist.R enlist
+1/4/1/0/epithet.R epithet
+1/4/1/0/first.R first
+1/4/1/0/floor_multiple.R floor_multiple
+1/4/2/0/PC.do.PC.R `%do%`
+1/4/2/0/PC.SC.PC.R `%;%`
+1/4/2/0/PC.SC.SC.PC.R `%;;%`
+1/4/2/0/PC.st.PC.R `%st%`
+1/4/2/0/PC.v.PC.R `%v%`
+1/4/2/0/PC.VL.PC.R `%|%`
+1/4/2/0/PC.VL.VL.PC.R `%||%`
+1/4/2/0/PD.alpha.ascii.R .ALPHA.ASCII
+1/4/3/0/argswap.R argswap
+1/4/3/0/arrayInd.every.R arrayInd.every
+1/4/3/0/blk.R BLK
+1/4/3/0/catn.R catn
+1/4/3/0/comma.R COMMA
+1/4/3/0/diff.FS.sum.R `diff/sum`
+1/4/3/0/empty.list.R EMPTY.LIST
+1/4/3/0/PD.ceiling_floor_multiple.R .ceiling_floor_multiple
+1/4/4/0/eqz.R eqz
+1/4/4/0/fappend.lines.R fappend.lines
+1/4/4/0/fn.explode.R fn.explode
+1/4/4/0/fn.table.R fn.table
+1/4/4/0/gtz.R gtz
+1/4/4/0/inrange.R inrange
+1/4/4/0/integral.range.R INTEGRAL.RANGE
+1/4/4/0/ipow2.R iPOW2
+1/4/5/0/hnull.R HNULL
+1/4/5/0/isnap.to.grid.R isnap.to.grid
+1/4/5/0/l.R L <-
+1/4/5/0/lo.R LO
+1/4/5/0/lol.R LOL
+1/4/5/0/ltz.R ltz
+1/4/5/0/modinv.R modinv
+1/4/5/0/multiples.R multiples
+1/4/6/0/lsd.R lsd
+1/4/6/0/n.right.shift.n.R n.right.shift.n
+1/4/6/0/negate.R negate
+1/4/6/0/nl.R NH
+1/4/6/0/nop.R nop
+1/4/6/0/npb.R NPB
+1/4/6/0/o.R O
+1/4/6/0/ol.R OL
+1/4/7/0/2quotes.R QUOTES2
+1/4/7/0/prefix.R prefix
+1/4/7/0/QUOTE.R QUOTE
+1/4/7/0/quotes.R QUOTES
+1/4/7/0/ramdisc_find.R ramdisc_find
+1/4/7/0/round2.R round2
+1/4/7/0/space.R SPACE
+1/4/7/0/specialize.R specialize
+1/5/0/cointoss.R cointoss
+1/5/0/comparr.R comparr
+1/5/0/complete.dim.R complete.dim
+1/5/0/concatenate.R concatenate
+1/5/0/constant.R constant
+1/5/0/count.R count
+1/5/0/cr2lf.R cr2lf
+1/5/0/crlf2lf.R crlf2lf
+1/5/1/0/frac.R frac
+1/5/1/0/gather.R gather
+1/5/1/0/gt1.R gt1
+1/5/1/0/is.even.R is.even
+1/5/1/0/is.numeric.integer.R is.numeric.integer
+1/5/1/0/ll.R LL
+1/5/1/0/n.round.down.n.R n.round.down.n
+1/5/1/0/PC.nd.PC.R `%nd%`
+1/5/2/0/dense.R dense
+1/5/2/0/find.breakpoint.R find.breakpoint
+1/5/2/0/irotaterev.R irotaterev
+1/5/2/0/unique.df.R unique.df
+1/5/3/0/4x4.R `4x4`
+1/5/3/0/div2.R div2
+1/5/3/0/sqr.R sqr
+1/5/3/0/tab.R TAB
+1/5/3/0/transparent.R TRANSPARENT
+1/5/3/0/tukey.fence.R tukey.fence
+1/5/3/0/verbatim.R verbatim
+1/5/4/0/Daisy.example.R LABELS NUMBER PAGE.HEIGHT PAGE.WIDTH MARGINS
+1/5/4/0/Daisy.example.R MARGINS.SIDE MARGINS.VERTICAL
+1/5/4/0/Daisy.R Daisy
+1/5/4/0/un.R un
+1/5/5/0/arithmetic.R modinv multiples eqz ltz gtz sum_pow negate round2
+1/5/5/0/arithmetic.R `%*drop%` iprod isign ifloor iceiling compare icompare
+1/5/5/0/arithmetic.R compare0 `%\\%` .ceiling_floor_multiple ceiling_multiple
+1/5/5/0/arithmetic.R floor_multiple sqr is.odd is.even is_even is_not.even frac
+1/5/5/0/arithmetic.R as_percentage.d `/2` `diff/sum` iPOW2 rPOW2 b.r unpackBits
+1/5/5/0/arithmetic.R ipow2 as_integer.b as_integer.bb is_numeric.integer
+1/5/5/0/arithmetic.R is_among.contiguous.integers lsd .place.values
+1/5/5/0/arithmetic.R place.values n.round.down.n n.right.shift.n .pseudo.log
+1/5/5/0/arithmetic.R pseudo.log bijective.numeral isum i.bijective.numeral
+1/5/5/0/arithmetic.R i.bijective.numerals bijective.numerals `%[a%` stipple3
+1/5/5/0/arithmetic.R swap.values ndim vectorize.step mi.a idrop multiple.extract
+1/5/5/0/arithmetic.R a.tabulate iblock page.m page. a.dummy unique.a dim. a.
+1/5/5/0/arithmetic.R extract.a replace.a except.last slice.big.dim
+1/5/5/0/arithmetic.R slice.big.length l.unstack.a a.stack.l MAT1 dimension
+1/5/5/0/arithmetic.R complete.dim aapply reproduce subgroups.per.part
+1/5/5/0/atomic-vector.R is.atomic.vector pretty.b pretty.i pretty.m pretty.mb
+1/5/5/0/cat.R catn verbatim cat.with.names
+1/5/5/0/doc.R Doc
+1/5/5/0/nest.R nest
+1/5/5/0/unnest.R unnest
+1/5/5/0/wht.R WHT
+1/5/6/0/character.R nchar_max strspaces pad.h print_x strfixedwidth.regular
+1/5/6/0/characters.R strrep2 HNL HEOL heol HNULL HSPACE HQUOTE HQUOTES HQUOTES2
+1/5/6/0/characters.R HTAB HCOMMA
+1/5/6/0/colors.R HDIGITS HHEX RRED RCYN RPUR RGRN RBLU RYEL RORG RBRN
+1/5/6/0/colors.R is.from.letter.bank is.bin is.oct is.dec is.hex colorsplit
+1/5/6/0/colors.R is_color.vector alpha noalpha wash colors.random
+1/5/6/0/colors.R col2color.vector TRANSLUCENT .hc1.K .hc1.CMAX hc1 hc1.scale
+1/5/6/0/colors.R seq_kk m.seq.kk hcl.wheel hc1.greys monochrome1
+1/5/6/0/colors.R .dichromatic1.even .dichromatic1.odd dichromatic1 pal LLG LGR
+1/5/6/0/colors.R GRY DGR find_colors.h
+1/5/6/0/compar.R matches comparr
+1/5/6/0/connection.R file.read.only file.read.only.binary lc.filerb seekrec
+1/5/6/0/connection.R lc.readBin fnreadBinData
+1/5/6/0/data-frame-plain.R .AS.PLAIN.DATA.FRAME.OPTIONS.COMMON
+1/5/6/0/data-frame-plain.R as.plain.data.frame.h as.plain.data.frame.l
+1/5/6/0/data-frame-plain.R as.plain.data.frame.m as.plain.data.frame
+1/5/6/0/date.R EMPTY.DATE
+1/5/6/0/df.R dfapply
+1/5/7/0/environment.R environments llse gllse
+1/5/7/0/extract.R `%[along%` extract.by.name extract.by.pname `%[L%` li.dim
+1/5/7/0/extract.R slice.along
+1/5/7/0/format.R h.i.format.d h.i.format.i h.pad.i format.recoverable.d
+1/5/7/0/fun-prog.R reflexive .reflex l.multifunction multifunction swap
+1/5/7/0/geom.R is.lpp .pp.lpp pp.lpp is.pp as.pp extract.pp is.points as.points
+1/5/7/0/geom.R `#.pp` igrid.regular grid_regular.aligned centroid dms dot.prod
+1/5/7/0/geom.R reimann fn.rescale fn.rescale.i2d fn.rescale.d2i fn.numerator
+1/5/7/0/geom.R numerator r.d irescale.d rescale rescale.self degrees
+1/5/7/0/gsub.R crlf2lf cr2lf txt2unix
+1/5/7/0/image.R grids.i grids.a diptych image_setup
+1/5/7/0/integral.trapezoidal.R integral.trapezoidal integral.trapezoidal.m
+1/6/0/crunch.h.R crunch.h
+1/6/0/cunbind.R cunbind
+1/6/0/d.h.R d.h
+1/6/0/d.trunc.R d.trunc
+1/6/0/dashes.R dashes
+1/6/0/dashes2.R dashes2
+1/6/0/data_frame.R data_frame
+1/6/0/dec.sift.h.R dec.sift.h
+1/6/1/0/odd.R odd
+1/6/1/0/PC.rd.PC.R `%rd%`
+1/6/1/0/placeholder.R placeholder
+1/6/1/0/pred.R pred
+1/6/1/0/rpow2.R rPOW2
+1/6/1/0/snap.to.grid.R snap.to.grid
+1/6/1/0/succ.R succ
+1/6/1/0/sum_pow.R sum_pow
+1/6/2/0/interval.R expand.interval expand.interval.unif b.beyond.interval
+1/6/2/0/interval.R within.interval within.interval.m within.interval.df
+1/6/2/0/linegraph.R linegraph linegraph
+1/6/2/0/lines.R rect.xy xy.regular.polygon.xy
+1/6/2/0/list.R introduced .list.frame.dim .list.frame.names list_frame
+1/6/2/0/list.R .transpose.by.name.template transpose.by.name l.align.l..l
+1/6/2/0/list.R df.align l.extract nl.extract nl.extract.names b.nonnull.l
+1/6/2/0/list.R which.nonnull.l first.nonnull.l branches morph swap.l select.l
+1/6/2/0/list.R sift.l sift.enumerated.l .l.promoted.l.2 .l.promoted.l.more
+1/6/2/0/list.R l.promoted.l l.unparallel l.zip.l group.l l.enumerate
+1/6/2/0/list.R l.compound.n `%=%` leaves.gather l.flatten.l l.join.l .l.extend.l
+1/6/2/0/list.R l.extend.l t.branch.t leaves leaf.indices leaf.filter treeapply
+1/6/2/0/list.R l.interlace.l interlace.l h.l rake l.unflat.l lassign ltaggednull
+1/6/2/0/list.R laddtag l.taggednull.l l.append.l l.append.l.nonempty rename
+1/6/2/0/list.R renameend rename.some..m rename.some..df rename.some..l inext.l
+1/6/2/0/list.R lappendnamed laddtag lassign named is.named.element
+1/6/2/0/list.R is.unnamed.element unnamed.elements named.elements
+1/6/2/0/list.R unnamed.element.indices named.element.indices lcopy.pos lcopy.nom
+1/6/2/0/list.R lcopy lassign.next.symbol applyf vapplyf lapply1to1 vapply1to1
+1/6/2/0/list.R lapply1tomany lapply1to1.as spread.l
+1/6/2/0/logical.R isnotna not and nand or nor xnor none `%notin%` positive.edge
+1/6/2/0/logical.R nall nany allequal fn.compress.choice.of.three na2T.b na2F.b
+1/6/2/0/matrix.R write.table.bare .mb.preplaid .m.plaid plaid checkered runbind
+1/6/2/0/matrix.R cunbind `%rbind%` `%cbind%` m.indices m.indices.a m. .det2
+1/6/2/0/matrix.R det2 pow.1 submatrix1 submatrix3 submatrix2 det3 matrix2
+1/6/2/0/matrix.R matrix2r m.empty `4x4` `4x4 cdiff m.FUN.m..v. m.FUN.m..v
+1/6/2/0/matrix.R m.add.m..v `%m<=v%` `%m>=v%` `%m+v%` `%m-v%` `%m*v%` `%m/v%`
+1/6/2/0/matrix.R `%m==v.%` `%m+v.%` `%[ZZ%` `%[ZZt%` n.row.m n.col.m row.m
+1/6/2/0/matrix.R col.m firstc secondc first2c lastc firstr secondr first2r
+1/6/2/0/matrix.R lastr last.row outerr rename.all.columns.m rename.all.rows.m
+1/6/2/0/matrix.R m.rep rep_m seqnD as_xy M1 MZ MT MF
+1/6/2/0/misc.R concatenate `%//%` `%/ `% as.vector0 max_typeof tc
+1/6/2/0/misc.R swmatch `%==%` `%!=%` `%!in%` `#` is.empty uniques
+1/6/2/0/misc.R nunique found is_populated sans ibookends extend
+1/6/2/0/misc.R extend_len extend.to.length smooth.l m.l iNA `!!` cbind0
+1/6/2/0/misc.R rbind0 cbind_ rbind_ cbind_l rbind_l arrayInd.range
+1/6/2/0/misc.R vector1 vector2 singleton nulls NULLs restore vapply2
+1/6/2/0/misc.R vapply_ unnullify.l default diff_inclusive `%[-]%`
+1/6/2/0/misc.R interlace interlace1 unlace l.unlace l.unlace.l diff.abs
+1/6/2/0/misc.R shuffle is.singleton .repx rep2 rep3 rep4 rep_along
+1/6/2/0/misc.R b.rep b.sparse centroids ic .lo ol Ol lo lO .lol .lOl
+1/6/2/0/misc.R .ll l.l absorb d.trunc parallelize i.partition.n
+1/6/2/0/misc.R partition.proper partition squish na brand iunif
+1/6/2/0/misc.R as.disjoint.segments as.disjoint.segments.right evens
+1/6/2/0/misc.R b.nas which.na which0 which.zero which.nonzero dub
+1/6/2/0/misc.R are.named which.named which.unnamed items.named
+1/6/2/0/misc.R items.unnamed left unleft initials rest unrest second
+1/6/2/0/misc.R last penultimate penult i.seq.range separate fndefault
+1/6/2/0/misc.R is_empty identical.picky between between2 beyond2
+1/6/2/0/misc.R range.check1 nice.i among.indices.of b.range.check
+1/6/2/0/misc.R range.check extract_rev `%]%` extract_along
+1/6/2/0/misc.R block.extract n.nas postfix enclose.h bracket.h sift
+1/6/2/0/misc.R clip_sift is_ascii l.characters characters
+1/6/2/0/misc.R character.sift.h character.count nlines digits is_digit
+1/6/2/0/misc.R dec.sift.h SPACE substr2 right left.right recycle
+1/6/2/0/misc.R recycle_len chop trimx .strrev strrev whichletter
+1/6/2/0/misc.R unformat words words.h hh unwords unwords.h crunch.h chh
+1/6/2/0/misc.R abut.h b.h i.h d.h r.h n.index.sign n.index.h n.index
+1/6/2/0/misc.R index.b index123.b `%[b%` `%[[b%` seq_symmetric seq0
+1/6/2/0/misc.R seqN make.sequence iseqs index.factors.dim
+1/6/2/0/misc.R n.index.i.factors index.factors.m n.index.i i.index.n
+1/6/2/0/misc.R i2.index.n is.nonnull dim_as finites which.finite
+1/6/2/0/misc.R which.infinite is.Inf is..Inf which.Inf which..Inf
+1/6/2/0/misc.R which.NaN finite.count jump.n as_logical_strict constant
+1/6/2/0/misc.R ibna jump.b jump.fn divisions divisions_symmetric
+1/6/2/0/misc.R element.l spaces widespace which1 which1rev
+1/6/2/0/misc.R firstAvailable .n.classify.discrete n.classify.discrete
+1/6/2/0/misc.R iterate.simple is.Pairlist is.Leaf b.leaves defoliate
+1/6/2/0/misc.R i.leaves.t l.sansNULLs.l is.list.compound is.list.simple
+1/6/2/0/misc.R nicenames h.labels.h colors.like .hclh64 .hcll64 .hclc64
+1/6/2/0/misc.R Colors64 colors64 Color64 BRN ORG RED PUR BLU CYN GRN
+1/6/2/0/misc.R YEL .sublist.h sublist.h indices_modulo extract_modulo
+1/6/2/0/misc.R `%[mod%` `%[[mod%` reprep Nos. Nos.r l.last degenerate
+1/6/2/0/misc.R count count.v mask i.sign .max_abs purge.FUN ones
+1/6/2/0/misc.R dieroll cointoss lists is.NULLs NULL1 is.NULL1 ancestry
+1/6/2/0/misc.R #aRchive: 1/6/2/0/misc.R `%**%` whichletters
+1/6/2/0/misc.R l.whichletters.h H.i n.look.d look look1 locate
+1/6/2/0/misc.R .vector_classes .vector_class_abbr vector_class what.h
+1/6/2/0/misc.R colClasses.h is_digitstr l.words.h cat.eol .h.TF.b
+1/6/2/0/misc.R h.TF.b . = qes accum .primate primate .primate.r
+1/6/2/0/misc.R primate.r band .hline dashes dashes2 hrule cat.h caterr
+1/6/2/0/misc.R cater caterrhline pprint
+1/6/2/0/mtext.side.h.R mtext.side.h
+1/6/3/0/names.R unique.names regular.names empty.names
+1/6/3/0/names.R with_regular.names with_empty.names with_colnames
+1/6/3/0/names.R with_rownames with_dimnames regular.dimnames
+1/6/3/0/names.R rename.all rename.all.dims sans.row.names
+1/6/3/0/nulls.R NULLif NULLifnot
+1/6/3/0/numeric.R n.d cap amp lift clamp pt.runif b.near.pt..pp csum
+1/6/3/0/numeric.R quadrances.pp..pp snap.pp..pp snap
+1/6/3/0/par.R par.light par.dark par.usr.set.indirect
+1/6/3/0/pdf.R pdf.letter.landscape pdf.letter.portrait
+1/6/3/0/pdf.R pdf.letter.landscape.print
+1/6/3/0/plot.R spiral PAR.MAR.TIGHT PAR.MAR.0 PAR.MAR.C plot_blank
+1/6/3/0/plot.R par.col.dot pch seq_par.usr.x .lines_grid.x
+1/6/3/0/plot.R .lines_grid.y lines_grid
+1/6/3/0/points.R dots multipoints
+1/6/3/0/primitive.R prefix unformat
+1/6/4/0/projection.R fn.projection project reframe.pt `4x4` `4x4
+1/6/4/0/projection.R MORPH.MIRROR.XZ MORPH.MIRROR.YZ mirror.xz
+1/6/4/0/projection.R mirrorx.xy mirrory.xy
+1/6/4/0/regex.R regex.starts.with.character.among.h
+1/6/4/0/regex.R regex.starts.with.lower regex.starts.with.upper
+1/6/4/0/regex.R REGEX.STARTS.WITH.LOWER REGEX.STARTS.WITH.UPPER
+1/6/4/0/regex.R REGEX.ANY.NONDIGIT
+1/6/4/0/segments.R pairs.xy segments.m segments.xy segmentsv.m
+1/6/4/0/seq_dim.R seq_dim
+1/6/4/0/seqs.R seq_fromto seq_unif seq_grid.centered seq_cell.centered
+1/6/4/0/shapir.R lg tp lss .gls glss gls
+1/6/4/0/steps.R .stepi .stepj .steps stepsi stepsj stepsx stepsy
+1/6/4/0/steps.R ipairs.n pairs.n
+1/6/4/0/vector.R b.index flatline pairr padding pad
+1/6/5/0/arithmetic.R multiples.near idiv imod
+1/6/5/0/array.R .corner corner stack. rcapply range.check.mi
+1/6/5/0/array.R range.checked.mi arrayInd.corners. arrayInd.corners
+1/6/5/0/array.R arrayInd1 array.spec.contiguous write.a strsplit2
+1/6/5/0/array.R unragged character.matrix populated
+1/6/5/0/array.R connection.open.mode offset. replace.a.at
+1/6/5/0/array.R dimension.irange as_array_of
+1/6/5/0/character.R strsplitbynewline .longword longword longsentence
+1/6/5/0/character.R crush.h split_alpha lsa .strbar.length strbar
+1/6/5/0/classify.R breaks.quasi.log
+1/6/5/0/concepts.R .RELATE relate
+1/6/5/0/core-1.R core
+1/6/5/0/fapply.R .fapply.step fapply.cn fapply.f
+1/6/5/0/windowing.R i.disjoint.windows
+1/6/6/0/arithmetic.R sumr
+1/6/6/0/fun-prog.R pairwise mimd apply.permutations.to.many
+1/6/6/0/fun-prog.R .do.call.nice.dot.only .do.call.nice.with.dot
+1/6/6/0/fun-prog.R .do.call.nice.selector do.call.nice
+1/6/6/0/fun-prog.R do.call.nice.example call.parts as.univariate.fn
+1/6/6/0/fun-prog.R latent.call pseudoCurry `%<%` Compose Curry2 `%2<%`
+1/6/6/0/fun-prog.R uncall uncall2 uncall3 uncall4 `%$%` FUNloc
+1/6/6/0/fun-prog.R v.FUNloc.v maxloc minloc v.maxloc.v v.minloc.v
+1/6/6/0/geom.R xy.pp points_pp i.closed.pg lines_pg line.pp
+1/6/6/0/geom.R line.points .rat.spread rat.spread rat.spreads.pg
+1/6/6/0/geom.R is.rectangle solveline.x solveline.y .solveline
+1/6/6/0/geom.R solveline eval.lines sign_eval.lines line.parallel
+1/6/6/0/geom.R walk walk.pg geom.Square.PROTO geom.Rectangle.PROTO
+1/6/6/0/image.R .image_breaks.n .image_breaks.h .image_breaks.n..d
+1/6/6/0/image.R image_breaks image_breaks0
+1/6/6/0/logical.R i.b b.tfz
+1/6/6/0/matrix.R cunbind.all runbind.all capply capply1to1 rowNos
+1/6/6/0/matrix.R rowNos.m colNos colNos.m cexcept.last rexcept.last
+1/6/6/0/matrix.R reflexive.m rreflexive creflexive `r/` `r==` crep
+1/6/6/0/matrix.R rrep m.trace m.identity crest rrest cswap rswap
+1/6/6/0/matrix.R m.lines m.lines2 m.h xy.square. xy.square turn.m
+1/6/6/0/matrix.R flip.m i.positive.space i.positive.space.y.m
+1/6/6/0/matrix.R i.positive.space.x.m ij.positive.space.m
+1/6/6/0/matrix.R m.positive.space.x.m m.positive.space.y.m
+1/6/6/0/matrix.R m.positive.space.m
+1/6/6/0/matrix.R dim_complete full.range
+1/6/6/0/plot.R rect. rect.exo box.exo clip_sift.par.usr.x
+1/6/6/0/plot.R y.center.line.number y.center.line.number.below.x.axis
+1/6/6/0/plot.R legend.item xy.ticks.x xy.ticks.y lineh lineh.under
+1/6/6/0/plot.R lineh.over linev.left linev.right line45 xy.linesv
+1/6/6/0/plot.R linev linesh linesv cross cross.xy doublecross
+1/6/7/0/annual.R H.FIRST.DAY.OF.MONTH.GREG last.day.of.month.greg
+1/6/7/0/annual.R days.per.month.greg n.days.ygreg nn.days.ygreg
+1/6/7/0/annual.R years.Dates Dates.time.interval.Dates
+1/6/7/0/annual.R years.time.interval.Dates Dates.time.interval.ygreg
+1/6/7/0/annual.R daycount.time.interval.ygreg start_Date.ygreg
+1/6/7/0/annual.R ygreg.periods.Date ygreg.period.early.Date
+1/6/7/0/annual.R ygreg.period.late.Date ygreg.inclusive.range.Dates
+1/6/7/0/annual.R ygreg.range.Dates ygregs.inclusive.range.Dates
+1/6/7/0/annual.R nn.days.inclusive.ygreg n.days.inclusive.ygreg
+1/6/7/0/annual.R newyearsday.ygreg newyearsdays.Date midyears.ygreg
+1/6/7/0/annual.R midmonths.ygreg firstofmonths.Dates
+1/6/7/0/annual.R month.labels.ygreg plot_year.labels plot_month.labels
+1/6/7/0/annual.R ticks.years.x ticks.months.x
+1/6/7/0/arg-matching.R .fn.match.arg.quiet. fn.match.arg.quiet.
+1/6/7/0/arg-matching.R choices match.arg.quiet
+1/6/7/0/array.R i.cube `r+` frame. cardinal.unit.vectors .neighbors
+1/6/7/0/array.R every.neighbor.mi .sub.index sub.index .super.index
+1/6/7/0/array.R super.index meta.index neighbors m.neighbors.m
+1/6/7/0/array.R pbind
+1/6/7/0/character.R unformat.except.newline
+1/6/7/0/colors.R TRANSPARENT NPB NON.PHOTO.BLUE BLK WHT
+1/6/7/0/core.R core
+1/6/7/0/fun-prog.R compose composer `%-O%` `%-|%` `% fn.explode
+1/6/7/0/fun-prog.R gather fnNULL `%;;%` `%;%` `%[[%` enlist specialize
+1/6/7/0/fun-prog.R EMPTY.LIST first epithet nop no.operation
+1/6/7/0/fun-prog.R do.nothing parameters fn.table alternates
+1/6/7/0/fun-prog.R placeholder `%=:%` variants `%do%` `%call%`
+1/6/7/0/fun-prog.R lformals `%1|n%` `%1(-|)n%`
+1/6/7/0/geom.R m.lines.pg quadrance.m quadrance quadrance.l
+1/7/0/decade.R decade
+1/7/0/default.R default
+1/7/0/defoliate.R defoliate
+1/7/0/degenerate.R degenerate
+1/7/0/degrees.R degrees
+1/7/0/det2.R det2
+1/7/0/det3.R det3
+1/7/0/df.initialized.R df.initialized
+1/7/1/0/LB.AO.R `[AO`
+1/7/1/0/PC.CO.VL.PC.R `%:|%`
+1/7/1/0/PC.CO.VL.VL.PC.R `%:||%`
+1/7/1/0/PC.CX.PC.R `%^%`
+1/7/1/0/PC.EQ.CO.PC.R `%=:%`
+1/7/1/0/unformat.R unformat
+1/7/1/0/unnull.R unnull
+1/7/1/0/variants.R variants
+1/7/2/0/array.R polyptych fn.polyptych.regular
+1/7/2/0/calc.R trapezoidal mean_trapezoidal
+1/7/2/0/character-graphics.R glyph.encode.h
+1/7/2/0/colors.R colors.d greys greens smoke SMOKE
+1/7/2/0/date.R is_midnight.Date MONTHS MONTHS3 MONTHS1 months_
+1/7/2/0/date.R h.digits.h mh.digits.h lh.digits.h i.digits.h
+1/7/2/0/date.R li.digits.h m.datetext.h m.ymdgreg.h isodate.year
+1/7/2/0/date.R isodates.mymd as_Date.origin.default as_DateR.d
+1/7/2/0/date.R as_DateR.DateMSO.d JD.as.Date.origin JD.greg.start
+1/7/2/0/date.R .Date.JD.warn JD.Date Date.JD
+1/7/2/0/date.R mh.ymd.Dates hyr.Dates hmo.Dates hda.Dates iyr.Date
+1/7/2/0/date.R imo.Date ida.Date iyr.Dates DST.DATES
+1/7/2/0/date.R .dst.ygreg.selection .dst.ygreg.starts .dst.ygreg.ends
+1/7/2/0/date.R .dst.ygreg.years dst.ygreg iyr.dst.ygreg.data.range
+1/7/2/0/date.R dst.Dates is_dst.Date iymd.Date dfymd.Dates part.Date
+1/7/2/0/date.R year.Date month.Date day.Date df.hDates
+1/7/2/0/df.R cat.df df.mh df.h m.df `df.rows.df,v` rows rows.df
+1/7/2/0/df.R rows.m nnn.roco.df n.row.df n.col.df .uncross.df
+1/7/2/0/df.R uncross.df summary_df
+1/7/2/0/format.R formatC.d
+1/7/2/0/geom.R centroid area2 area i.triangles.starburst
+1/7/2/0/geom.R i.triangles.starburst i.triangles.seashell
+1/7/2/0/geom.R areas.starburst2 areas.starburst area.coords
+1/7/2/0/geom.R sign_coords proportion i.linterpolate.bases
+1/7/2/0/geom.R linterpolate.weight1 linterpolate1 .linterpolate
+1/7/2/0/geom.R linterpolate m.linterpolate quadrance0 quadrances.m
+1/7/2/0/geom.R quadrances.l quadrea.quadrances quadrea.l
+1/7/2/0/geom.R qaltitude.quadrances qaspectratio.quadrances
+1/7/2/0/geom.R irunning running closed.i i.closed i.closed.xy
+1/7/2/0/geom.R pyramid i.edges.pyramid.n
+1/7/2/0/geom.R pyramid_edge_attributes_by_face
+1/7/2/0/geom.R lateral_face_quadreas.pyramid_edge_quadrances
+1/7/2/0/geom.R starburst seashell quadrances.starburst
+1/7/2/0/geom.R quadrances.starburst.pt qareacoords
+1/7/2/0/geom.R qareacoord.ratios.rect rect.coord.area.coords
+1/7/2/0/geom.R rect.coord.qareacoords
+1/7/3/0/image.R image_at image_natural .rasters rasters
+1/7/3/0/knapsack.R overburden pack knapsack.items knapsack.partition
+1/7/3/0/knapsack.R knapsack.fnenc.direct
+1/7/3/0/knapsack.R knapsack.form.simple.attributes fmt catpar
+1/7/3/0/knapsack.R catpars doc.msg.fail arg.text doc cfmt1 cfmt
+1/7/3/0/line.slope_intercept.R line.slope_intercept
+1/7/3/0/list.R t_list df.l
+1/7/3/0/logical.R .PACKBITS3.TABLE .PACKBITS3.TABLE.COLNAMES
+1/7/3/0/logical.R .packBits3 packBits3 unpackBits3
+1/7/3/0/math.R floor.ceiling i.full.range quotient
+1/7/3/0/matrix.R rapply. arrayIndInv a.vapply.li lrapply
+1/7/3/0/misc.R bookends
+1/7/4/0/numeric.R vapply.unif
+1/7/4/0/plot.R text.axis.x text.pos.h<- .ticks ticks.x ticks.y
+1/7/4/0/plot.R par.usr.line.below tick.labels.x tick.labels.y
+1/7/4/0/plot.R pos ctext marginal.text.below marginal.text.above
+1/7/4/0/plot.R marginal.text.left marginal.text.below.on.line.No
+1/7/4/0/plot.R marginal.text.above.on.line.No
+1/7/4/0/plot.R marginal.text.left.on.line.No
+1/7/4/0/plot.R marginal.text.on.subtitle.line
+1/7/4/0/plot.R marginal.text.below.xlab marginal.text.above.xlab
+1/7/4/0/plot.R plot_xlab plot_ylab
+1/7/4/0/points.R .PCH.H pch.h
+1/7/4/0/print.R print_b print_h print_i print_d .print_l print_l
+1/7/4/0/raw.R bits.b b.bits shl shr lsb.n lsb
+1/7/4/0/readBin.R readBinAtX readBinArray l.readBin.formals.fmt
+1/7/4/0/raw.R readBin2 readBinAt readBin.where
+1/7/4/0/scan.R scan.line.length scan.entire.as.matrix.
+1/7/4/0/scan.R scan.entire.as.matrix scan.entire.as.integer
+1/7/4/0/scan.R scan.entire.as.mask rewind cn.rewind rewindc
+1/7/4/0/scan.R cn.seek nonadvancing readline.cn line.count.cn
+1/7/4/0/scan.R scan.lines scan.lines.head scan.words scan.con
+1/7/4/0/stats.R fn.ikk.permutation permutation permutations
+1/7/4/0/stats.R combinations permutations.i permutations.i
+1/7/4/0/stats.R permutations.kk.n
+1/7/5/0/array.R dimensions.iranges block.extract.a extract.a..bb
+1/7/5/0/character.R strsplitn .unright unright substrs substrs.regular
+1/7/5/0/classify.R classify.self classify.self.m m.classify.self.df
+1/7/5/0/classify.R classify threshold classify.unif
+1/7/5/0/classify.R classify.unif.symmetric m.classify.v .histogram
+1/7/5/0/classify.R histogram histogram.auto df2.histogram.auto
+1/7/5/0/classify.R df.histogram.auto histogram.sparse categorize
+1/7/5/0/classify.R categorize.self categorize_self df.with.category.df
+1/7/5/0/geom.R rat.spreads.lines max_pp min_pp max_pt min_pt bb.pp
+1/7/5/0/geom.R bb.pt pg.bb bb.bb ipp.bb ipt.bb dimnames_bb
+1/7/5/0/geom.R with.dimnames.bb justify.pt which.pt.in.pts
+1/7/5/0/stepgraph.R stepgraph
+1/7/5/0/tree.R .h.t h.t catt
+1/7/5/0/types.R .KIND.NAMES .kind kind kinds
+1/7/5/0/with_dimnames.from.within.R with_dimnames.from.within
+1/7/6/0/character.R .tocase uppeR loweR uppeR.l
+1/7/6/0/classify.R classify_circle
+1/7/6/0/df.R unpopulated b.unpopulated.cols b.populated.rows
+1/7/6/0/df.R populated.rows
+1/7/6/0/ffgrep.R fgrep .ffgrep ffgrep .ffgrep.brief ffgrep.brief
+1/7/6/0/fin-diff.R .scale scale. shift_euclid.m datum.shift
+1/7/6/0/fin-diff.R grid.centers grid.lattice.points diff.fwd diff.bak
+1/7/6/0/fin-diff.R diff.central diff.fwd.m diff.central.m .reflex.m
+1/7/6/0/fin-diff.R orr xorr equalr `/r` `<r` `<=r` i.edges.b
+1/7/6/0/fin-diff.R i.edge1.b orr.m xorr.m csmear rsmear chalf.edges.m
+1/7/6/0/fin-diff.R rhalf.edges.m biv biv2 positive.edge2
+1/7/6/0/fin-diff.R negative.edge2 xorr2.m wall2 brad burl c.grad.m
+1/7/6/0/fin-diff.R interlace.m interlace.m lattice.empty
+1/7/6/0/fin-diff.R lattice.empty.m lattice.cols lattice.rows
+1/7/6/0/fin-diff.R lattice.rank.and.file lattice.xorr.m
+1/7/6/0/fin-diff.R lattice.diff.fwd.m interior.boundaries.im stagger
+1/7/6/0/fin-diff.R refine image_par.x.lattice.mx
+1/7/6/0/fin-diff.R image_par.y.lattice.my .image_lattice.im image_lattice.im
+1/7/6/0/image.R image_bare image_baRe im.chess.board centroids.ij width.im
+1/7/6/0/image.R height.im aspect.im hw.im img.m im.m img.v im.v sprite.h im.
+1/7/6/0/image.R icolors.im n.colors.im monochrome.colors mono monochrome.im
+1/7/6/0/image.R image_par.x.reg image_par.y.reg image_im swatch swatch1 stamp
+1/7/6/0/image.R wipe canvas.im canvas.xy .im.axes by.d by.m .im.axes.img
+1/7/6/0/image.R im.swatches dot blank.slate dev_reset.no.margin
+1/7/6/0/image.R dev_reset.as.pixmap blank.page .write.im write.im
+1/7/6/0/matrix.R coarsen.m extend.m collar.m cat.row cat.row cat.m cat.tm m.na
+1/7/6/0/matrix.R cols cols.m l.cols row.r unique_cols unique_rows min.local
+1/7/6/0/matrix.R .crwhich cwhich rwhich lcapply colply inapply colply.matched
+1/7/6/0/matrix.R vapply.FUN.VALUE.typ vcolply.matched rowply vcolply m.primate
+1/7/6/0/matrix.R block.extract.m v.m all.m any.m count.m max_m min_m prod.m
+1/7/6/0/matrix.R sum.m stipple a.miz m.ijz nonzeroes sparse.array m.ij .spread.m
+1/7/6/0/matrix.R spread.m spread2.m ij.m ij.im indices flipx.xy flipy.xy flipx
+1/7/6/0/matrix.R flipy flip.xy cflip rflip crflip
+1/7/6/0/misc.R strsplitby newline.affix.h lines.h lines.h1 strsplitbycomma
+1/7/6/0/misc.R zeroes smash.h odds purge.max purge.min purge.extremes l.mask.l
+1/7/6/0/misc.R `?rmna` max_abs scale_unit scale_unit_nonnegative scaler
+1/7/6/0/misc.R min_finite minfin .x.shift_euclid shift_euclid shift_euclid.l fit
+1/7/6/0/misc.R fit.to .subst l.subst subst subst.a fn.subst.fX subst.max
+1/7/6/0/misc.R subst.min subst.extreme l.look
+1/7/7/0/lines_extract.cn.R lines_extract.cn
+1/7/7/0/misc.R shift_euclid.pg shift_euclid.xy overlay overlay.m
+1/7/7/0/mouse.R GRAPHICSEVENTENV.PROTO .onMouse .onMouseDown xy.mouse xyin.mouse
+1/7/7/0/mouse.R usr.mouse iusr.mouse lpt.mouse pp.mouse ipp.usr.mouse line.mouse
+1/7/7/0/names.R same.names
+1/7/7/0/quad.R matrix.square .as_square.matrix as_square.matrix as_quad.matrix
+1/7/7/0/quad.R ij.quadrant.ij ij.quadrant extract.quadrant assign.quadrant
+1/7/7/0/quad.R as_quad.m
+1/7/7/0/runlength.R runs.b run.lengths.b
+1/7/7/0/text.R cwidth cwidths cwidths.as.knapsack.items cpaginate
+2/0/NO.PD.pp.R `#.pp`
+2/0/PC.LB.a.PC.R `%[a%`
+2/0/PC.LB.along.PC.R `%[along%`
+2/0/PC.LB.b.PC.R `%[b%`
+2/0/PC.LB.l.PC.R `%[L%`
+2/0/PC.LB.mod.PC.R `%[mod%`
+2/0/PC.LB.zz.PC.R `%[ZZ%`
+2/0/PC.LB.zzt.PC.R `%[ZZt%`
+2/1/0/dfapply.R dfapply
+2/1/0/dgr.R DGR
+2/1/0/dichromatic1.R dichromatic1
+2/1/0/dieroll.R dieroll
+2/1/0/diff_abs.R diff_abs
+2/1/0/diff_inclusive.R diff_inclusive
+2/1/0/digits.R digits
+2/1/0/dim..R dim.
+2/1/1/0/bag.R `%bag%`
+2/1/1/0/list.R.files.R list.R.files
+2/1/1/0/misc.R i.near .i.nearest i.nearest .nearest nearest
+2/1/1/0/RamDisc.R .RamDisc RamDisc
+2/1/1/0/tag.R `%tag%`
+2/1/1/0/unbag.R unbag
+2/1/2/0/misc.R unnull `%st%` `%nd%` `%rd%` `%th%` `%,%` as_storage.mode
+2/1/2/0/misc.R as_logical.storage.mode as_integer.storage.mode
+2/1/2/0/misc.R as_double.storage.mode arrayInd.every
+2/2/0/dim_as.R dim_as
+2/2/0/dimNos.R dimNos
+2/2/0/diptych.R diptych
+2/2/0/divisions.R divisions
+2/2/0/divisions_symmetric.R divisions_symmetric
+2/2/0/dms.R dms
+2/2/0/dot.prod.R dot.prod
+2/2/0/dub.R dub
+2/3/0/element.l.R element.l
+2/3/0/empty.date.R EMPTY.DATE
+2/3/0/enclose.h.R enclose.h
+2/3/0/environments.R environments
+2/3/0/evens.R evens
+2/3/0/EX.EX.R `!!`
+2/3/0/except.last.R except.last
+2/3/0/extend.R extend
+2/4/0/extend.to.length.R extend.to.length
+2/4/0/extract.a.R extract.a
+2/4/0/extract.along.R extract.along
+2/4/0/extract.by.name.R extract.by.name
+2/4/0/extract.by.pname.R extract.by.pname
+2/4/0/extract.modulo.R extract.modulo
+2/4/0/extract.parallel.R extract.parallel
+2/5/0/extract.pp.R extract.pp
+2/5/0/file.read.only.binary.R file.read.only.binary
+2/5/0/file.read.only.R file.read.only
+2/5/0/find_colors.R find_colors
+2/5/0/finite.count.R finite.count
+2/5/0/finites.R finites
+2/5/0/first2r.R first2r
+2/6/0/firstAvailable.R firstAvailable
+2/6/0/firstc.R firstc
+2/6/0/firstr.R firstr
+2/6/0/flush.cat.R flush.cat
+2/6/0/fn.compress.choice.of.three.R fn.compress.choice.of.three
+2/6/0/fn.enumerate.cn.R fn.enumerate.cn
+2/6/0/fn.numerator.R fn.numerator
+2/6/0/fn.rescale.R fn.rescale
+2/7/0/fn.rescale.d2i.R fn.rescale.d2i
+2/7/0/fn.rescale.i2d.R fn.rescale.i2d
+2/7/0/fndefault.R fndefault
+2/7/0/format.recoverable.d.R format.recoverable.d
+2/7/0/found.R found
+2/7/0/gllse.R gllse
+2/7/0/grid_regular.aligned.R grid_regular.aligned
+2/7/0/GRN.R GRN
+3/0/PC.CM.PC.R `%,%`
+3/0/PC.EQ.EQ.PC.R `%==%`
+3/0/PC.EX.EQ.PC.R `%!=%`
+3/0/PC.EX.in.PC.R `%!in%`
+3/0/PC.FS.FS.PC.R `%//%`
+3/0/PC.m.FS.v.PC.R `%m/v%`
+3/0/PC.m.LT.EQ.v.PC.R `%m<=v%`
+3/0/PC.m.MI.v.PC.R `%m-v%`
+3/1/0/a..R a.
+3/1/0/a.dummy.R a.dummy
+3/1/0/a.tabulate.R a.tabulate
+3/1/0/aapply.R aapply
+3/1/0/absorb.R absorb
+3/1/0/abut.R abut.h
+3/1/0/PC.m.AS.v.PC.R `%m*v%`
+3/1/0/PC.m.GT.EQ.v.PC.R `%m>=v%`
+3/2/0/accum.R accum
+3/2/0/allequal.R allequal
+3/2/0/alpha.R alpha
+3/2/0/among.indices.of.R among.indices.of
+3/2/0/PD.mb.preplaid.R .mb.preplaid
+3/2/0/PD.n.classify.discrete.R .n.classify.discrete
+3/2/0/PD.primate.R .primate
+3/3/0/depth.nest.R depth.nest
+3/3/0/nextLine.R nextLine
+3/3/0/parseLine.R parseLine
+3/3/0/PD.primate.r.R .primate.r
+3/3/0/PD.repx.R .repx
+3/3/0/PD.strrev.R .strrev
+3/3/0/PD.vector_class_abbr.R .vector_class_abbr
+3/4/0/fhead.n.R fhead.n
+3/4/0/fhead.pattern.R fhead.pattern
+3/4/0/funtil.R funtil
+3/4/0/is.nest.R is.nest
+3/4/0/unnest.R unnest
+3/5/0/Daisy.R Daisy
+3/5/0/Daisy.README.pdf.make.R choice H OL NPB x y
+3/5/0/gry.R GRY
+3/5/0/h.TF.b.R h.TF.b
+3/6/0/h.i.format.d.R h.i.format.d
+3/6/0/h.i.R H.i
+3/6/0/NO.R `#`
+3/6/0/Nos..R Nos.
+3/6/0/Nos.r.R Nos.r
+3/7/0/n.classify.discrete.R n.classify.discrete
+3/7/0/n.index.h.R n.index.h
+3/7/0/n.index.i.R n.index.i
+3/7/0/n.index.R n.index
+3/7/0/n.index.sign.R n.index.sign
+3/7/0/n.look.d.R n.look.d
+3/7/0/n.nas.R n.nas
+3/7/0/na.R na
+4/0/ancestry.R ancestry
+4/0/and.R and
+4/0/are.named.R are.named
+4/0/PC.FS.SP.FS.PC.R `%/
+4/0/PC.m.PL.v.PC.R `%m+v%`
+4/0/PC.notin.PC.R `%notin%`
+4/0/PC.RB.PC.R `%]%`
+4/0/PD.as.plain.data.frame.options.common.R .AS.PLAIN.DATA.FRAME.OPTIONS.COMMON
+4/1/0/na2f.b.R na2F.b
+4/1/0/na2t.b.R na2T.b
+4/1/0/nand.R nand
+4/1/0/nchar_max.R nchar_max
+4/1/0/ndim.R ndim
+4/1/0/nice.i.R nice.i
+4/1/0/nicenames.R nicenames
+4/1/0/nlines.R nlines
+4/2/0/noalpha.R noalpha
+4/2/0/none.R none
+4/2/0/nor.R nor
+4/2/0/not.R not
+4/2/0/nulls.R nulls
+4/2/0/numerator.R numerator
+4/2/0/nunique.R nunique
+4/3/0/fn.df.R fn.df
+4/3/0/ones.R ones
+4/3/0/or.R or
+4/3/0/ORG.R ORG
+4/3/0/outerr.R outerr
+4/3/0/pad.h.R pad.h
+4/3/0/pal.R pal
+4/3/0/PUR.R PUR
+4/4/0/parallelize.R parallelize
+4/4/0/partition.proper.R partition.proper
+4/4/0/partition.R partition
+4/4/0/penult.R penultimate
+4/4/0/plaid.R plaid
+4/4/0/positive.edve.R positive.edge
+4/4/0/postfix.R postfix
+4/4/0/pow.1.R pow.1
+4/5/0/pp.lpp.R pp.lpp
+4/5/0/pprint.R pprint
+4/5/0/print_x.R print_x
+4/5/0/purge.FUN.R purge.FUN
+4/5/0/qes.R qes
+4/5/0/r.h.R r.h
+4/5/0/RED.R RED
+4/6/0/range.check.R range.check
+4/6/0/range.check1.R range.check1
+4/6/0/rbind_l.R rbind_l
+4/6/0/rbind0.R rbind0
+4/6/0/rcolor.R rcolor
+4/6/0/rect.xy.R rect.xy
+4/6/0/recycle.R recycle
+4/6/0/recycle_len.R recycle_len
+4/7/0/reimann.R reimann
+4/7/0/rep_along.R rep_along
+4/7/0/rep_m.R rep_m
+4/7/0/rep2.R rep2
+4/7/0/rep3.R rep3
+4/7/0/rep4.R rep4
+4/7/0/replace.a.R replace.a
+4/7/0/reprep.R reprep
+5/0/PD.det2.R .det2
+5/0/PD.dichromatic1.even.R .dichromatic1.even
+5/0/PD.dichromatic1.odd.R .dichromatic1.odd
+5/0/PD.hc1.CMAX.R .hc1.CMAX
+5/0/PD.hclc64.R .hclc64
+5/0/PD.hcll64.R .hcll64
+5/0/PD.m.plaid.R .m.plaid
+5/1/0/reproduce.R reproduce
+5/1/0/rescale.R rescale
+5/1/0/rescale.self.R rescale.self
+5/1/0/rest.R rest
+5/1/0/restore.R restore
+5/1/0/right.R right
+5/1/0/row.m.R row.m
+5/1/0/runbind.R runbind
+5/2/0/sans.R sans
+5/2/0/second.R second
+5/2/0/secondc.R secondc
+5/2/0/secondr.R secondr
+5/2/0/separate.R separate
+5/2/0/seq_kk.R seq_kk
+5/2/0/seq0.R seq0
+5/2/0/seqN.R seqN
+5/3/0/seq_symmetric.R seq_symmetric
+5/3/0/seqnD.R seqnD
+5/3/0/shuffle.R shuffle
+5/3/0/sift.R sift
+5/3/0/singleton.R singleton
+5/3/0/slice.along.R slice.along
+5/3/0/slice.big.dim.R slice.big.dim
+5/3/0/slice.big.length.R slice.big.length
+5/4/0/smooth.l.R smooth.l
+5/4/0/space.R SPACE
+5/4/0/spaces.R spaces
+5/4/0/squish.R squish
+5/4/0/stipple3.R stipple3
+5/4/0/storage.modes.atomic.R STORAGE.MODES.ATOMIC
+5/4/0/strfixedwidth.regular.R strfixedwidth.regular
+5/4/0/strrep2.R strrep2
+5/5/0/strrev.R strrev
+5/5/0/strspaces.R strspaces
+5/5/0/subgroups.per.part.R subgroups.per.part
+5/5/0/sublist.h.R sublist.h
+5/5/0/submatrix1.R submatrix1
+5/5/0/submatrix2.R submatrix2
+5/5/0/submatrix3.R submatrix3
+5/5/0/substr2.R substr2
+5/6/0/swap.values.R swap.values
+5/6/0/swmatch.R swmatch
+5/6/0/tc.R tc
+5/6/0/translucent.R TRANSLUCENT
+5/6/0/trimx.R trimx
+5/6/0/unformat.R unformat
+5/6/0/unique.a.R unique.a
+5/6/0/uniques.R uniques
+5/7/0/unlace.R unlace
+5/7/0/unleft.R unleft
+5/7/0/unnullify.l.R unnullify.l
+5/7/0/unrest.R unrest
+5/7/0/unwords.R unwords
+5/7/0/vapply_.R vapply_
+5/7/0/vapply2.R vapply2
+5/7/0/vector1.R vector1
+6/0/arrayInd.range.R arrayInd.range
+6/0/as.disjoint.segments.R as.disjoint.segments
+6/0/as.disjoint.segments.right.R as.disjoint.segments.right
+6/0/as.plain.data.frame.h.R as.plain.data.frame.h
+6/0/as.plain.data.frame.l.R as.plain.data.frame.l
+6/0/as.plain.data.frame.m.R as.plain.data.frame.m
+6/0/as.plain.data.frame.R as.plain.data.frame
+6/0/PD.max_abs.R .max_abs
+6/1/0/vector_class.R vector_class
+6/1/0/vector2.R vector2
+6/1/0/vectorize.step.R vectorize.step
+6/1/0/wash.R wash
+6/1/0/what.h.R what.h
+6/1/0/which..Inf.R which..Inf
+6/1/0/which.Inf.R which.Inf
+6/1/0/which.NaN.R which.NaN
+6/2/0/which.finite.R which.finite
+6/2/0/which.infinite.R which.infinite
+6/2/0/which.na.R which.na
+6/2/0/which.named.R which.named
+6/2/0/which.unnamed.R which.unnamed
+6/2/0/which0.R which0
+6/2/0/which1.R which1
+6/2/0/which1rev.R which1rev
+6/3/0/whichletter.R whichletter
+6/3/0/whichletters.R whichletters
+6/3/0/whichnz.R whichnz
+6/3/0/widespace.R widespace
+6/3/0/words.R words
+6/3/0/write.table.bare.R write.table.bare
+6/3/0/xnor.R xnor
+6/3/0/xy.regular.polygon.xy.R xy.regular.polygon.xy
+6/4/0/accum.R accum
+6/4/0/alg.rel.diff2.R alg.rel.diff2
+6/4/0/alpha.ascii.R .ALPHA.ASCII ALPHA.ASCII
+6/4/0/as_list.rows.R as_list.rows
+6/4/0/PC.PC.PD.d7.R `%%.d7`
+6/4/0/PD.accum.R .accum
+6/4/0/PD.h.TF.b.R .h.TF.b
+6/4/0/YEL.R YEL
+6/5/0/band.R band
+6/5/0/cat.eol.R cat.eol
+6/5/0/cater.R cater
+6/5/0/caterr.R caterr
+6/5/0/d7.R d7
+6/5/0/dimNos.R dimNos
+6/5/0/fcat.cn.R fcat.cn
+6/6/0/fn.enumerate.cn.R fn.enumerate.cn
+6/6/0/graphics.R close.ALL.THE.windows
+6/6/0/hetero.apply.R hetero.apply
+6/6/0/i.ragged.table.R i.ragged.table
+6/6/0/id.R id
+6/6/0/interval.R interval
+6/6/0/io.R flush.cat
+6/6/0/list.R infill
+6/7/0/look.R look
+6/7/0/math.R decade
+6/7/0/named.list.lines.R named.list.lines
+6/7/0/nestdepth.R nestdepth
+6/7/0/next.item.f.default.R next.item.f.default
+6/7/0/NULL1.R NULL1
+6/7/0/nullstring.dimnames.R nullstring.dimnames
+6/7/0/ocean.R ocean
+7/0/as.pp.R as.pp
+7/0/as.vector0.R as.vector0
+7/0/as_logical_strict.R as_logical_strict
+7/0/as_xy.R as_xy
+7/0/b.h.R b.h
+7/0/b.leaves.R b.leaves
+7/0/BLU.R BLU
+7/0/BRN.R BRN
+7/1/0/par.R par.usr par.bg par.cex axis.h lend.h ljoin.h par.lwd par.din
+7/1/0/par.R par.usr.x par.usr.x1 par.usr.x2 par.usr.y par.usr.y1 par.usr.y2
+7/1/0/par.R xy.par.usr.center par.usr.center par.usr.center.x par.usr.center.y
+7/1/0/par.R par.usr.width par.usr.height pin pin1 pin2 par.scale.x par.scale.y
+7/1/0/par.R asp par.usr.length par.fin par.fin.x par.fin.y par.fin.width
+7/1/0/par.R par.fin.height par.plt.height par.plt.width par.usr.meta.height
+7/1/0/par.R par.usr.meta.width par.usr.per.in.y par.usr.per.in.x par.usr.per.in
+7/1/0/par.R par.usr.x.in par.usr.y.in par.mai par.mar PAR.MAR.NAMES
+7/1/0/par.R par.mar.NAMES par.mar.named xy.par.mar xy.par.mai par.mai.bottom
+7/1/0/par.R par.mai.left par.mai.top par.mai.right par.mai.longitudinal
+7/1/0/par.R par.mai.lateral par.mai.sides par.mai.longitudinal.sum
+7/1/0/par.R par.mai.lateral.sum par.mai.sum par.mai.sides par.uin par.uin.width
+7/1/0/par.R par.uin.height par.mar.bottom par.mar.left par.mar.top par.mar.right
+7/1/0/par.R par.mar.reset par.mar.2 par.mar.mutate par.mai.mutate H.PAR.MAI
+7/1/0/par.R H.PAR.MAR par.mai.h par.usr.meta.x1 par.usr.meta.y1 par.usr.meta.x2
+7/1/0/par.R par.usr.meta.y2 par.usr.meta.x par.usr.meta.y xy.par.usr.meta
+7/1/0/par.R x.par.usr.meta y.par.usr.meta par.cex .par.usr.line.heights
+7/1/0/par.R par.usr.line.heights par.usr.line.heights.y par.usr.line.height
+7/1/0/par.R par.usr.line.height.y par.mar.lpi x.linesv y.linesh y.linesv
+7/1/0/raster.R raster
+7/1/0/raw.R POW256
+7/1/0/readRaw.R readRaw
+7/1/0/rep.R repp
+7/1/0/rmcr.R rmcr
+7/1/0/rmna.R rmna
+7/1/0/rmnl.R rmnl
+7/2/0/rmnullstrings.R rmnullstrings
+7/2/0/rmstr.R rmstr
+7/2/0/rmtabs.R rmtabs
+7/2/0/rmz.R rmz
+7/2/0/source.R source.object
+7/2/0/stats.R binomialdist irange nrange range. range.finite .ranges.m
+7/2/0/stats.R .ranges.l ranges iranges .bounding.box bounding.box as_bb
+7/2/0/stats.R .ix.interval.xi x.interval.i i.interval.x xybb.ijbb ranges.
+7/2/0/stats.R mean_abs squares rsquared ssq sum.of.squares reciprocal
+7/2/0/stats.R mean_square rms root.mean.square square.diffs square.diffs
+7/2/0/stats.R sum.of.square.diffs nse mae rmse summary_stats.model
+7/2/0/strtrunc.R strtrunc
+7/2/0/text-samples.R bede
+7/3/0/alg.rel.diff.R alg.rel.diff
+7/3/0/blank.data.frame.R blank.data.frame
+7/3/0/data-frame.R data_frame
+7/3/0/extract.R inner irotate rotate rotater rotatec irotate..n rotate..n
+7/3/0/extract.R nibble i.nibble `]]` `-$` .first2 .first2.l first2
+7/3/0/fcat.f.R fcat.f
+7/3/0/types.R promotion
+7/3/0/windows.R windows_dark
+7/3/0/writeRaw.R writeRaw
+7/4/0/em.R em
+7/4/0/en.R en
+7/4/0/islice.R islice
+7/4/0/isodates.mdy.R isodates.mdy
+7/4/0/line.pp.R line.pp
+7/4/0/linegraph.R linegraph
+7/4/0/swap.R swap
+7/5/0/mi.core.R mi.core
+7/5/0/mtext.side.h.R mtext.side.h
+7/5/0/nas.R nas
+7/5/0/par.dark.R par.dark
+7/5/0/par.light.R par.light
+7/6/0/i.disjoint.windows.R i.disjoint.windows
+7/6/0/seq_dim.R seq_dim
+7/6/0/sumr.R sumr
+7/6/0/unformat.except.newline.R unformat.except.newline
+7/6/0/unnest.R unnest
+7/7/0/breaks.quasi.log.R breaks.quasi.log
+7/7/0/core.R core
+7/7/0/quadrance.m.R quadrance.m
+7/7/0/quadrance.R quadrance
+#UPDATED 2021-01-31
