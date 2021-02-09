@@ -14,9 +14,12 @@ by Filename (forthcoming)
 
 [by Subject / Topic](https://github.com/dmparrishphd/Shapiro/blob/master/Files/3/5/0/indexSubj.md)
 
-[Symbols (Files/)](../../../2/1/2/0/symbols.files.dat)
 
-[Symbols (Pkgs/)] _Forthcoming_
+Index of symbols; _tells what symbols are defined in each R file._
+
+ - [Files/](../../../2/1/2/0/symbols.files.dat)
+
+ - [Pkgs/] _Forthcoming_
 
 [Packages](../../../1/5/2/0/package.index.md)
 
