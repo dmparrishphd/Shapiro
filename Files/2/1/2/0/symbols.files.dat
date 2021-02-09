@@ -1,6 +1,6 @@
 # comment.char="#"
 # THIS FILE SUBJECT TO APPEND-ONLY MODIFICATION.
-# SEE ALSO ./symbols.md
+# SEE ALSO ./symbols.files.md
 1/0/4x4t.R `4x4t`
 1/0/lcurry.R lcurry
 1/0/PC.LB.a.PC.R `%[a%`
