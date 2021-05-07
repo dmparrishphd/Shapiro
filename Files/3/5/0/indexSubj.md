@@ -190,6 +190,15 @@ row numbers [rowNos]()
 
 argswap
 
+Statistics
+----------
+
+### Summary Statistics
+
+IQR, interquartile range; _See_ tukey.fence
+
+tukey.fence
+
 ## Typesetting
 
 \[[Daisy](../../../../Meta/0/Daisy.md)\]
