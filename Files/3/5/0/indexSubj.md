@@ -195,9 +195,11 @@ Statistics
 
 ### Summary Statistics
 
-IQR, interquartile range; _See_ tukey.fence
+IQR, interquartile range; _See_ Tukey Fence
 
-tukey.fence
+Outliers; _See_ Tukey Fence
+
+[Tukey Fence](../../../2/1/2/0/tukey.fence.md)
 
 ## Typesetting
 
