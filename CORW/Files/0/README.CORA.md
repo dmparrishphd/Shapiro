@@ -3,7 +3,7 @@ The CORA Diretory
 
 "Create Once, Read and Append Many Times"
 
-Under this directory:
+Under the CORA directory:
 
  - subdirectories are intended never to be deleted.
 
